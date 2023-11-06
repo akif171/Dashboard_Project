@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Candidate from "./pages/Candidate/Candidate";
+import AddCandidate from "./pages/Candidate/AddCandidate";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-full flex">
+      <Sidebar />
+
+      <div className="w-full ml-52">
+        <Navbar />
+
+        <Routes>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="candidate" element={<Candidate />} />
+          <Route path="candidate/add-candidate" element={<AddCandidate />} />
+        </Routes>
+      </div>
     </div>
   );
 }
