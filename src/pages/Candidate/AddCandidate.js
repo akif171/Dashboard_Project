@@ -1,11 +1,12 @@
 import React from "react";
 import SubNav from "../../components/SubNav";
+import { Route, Routes } from "react-router-dom";
 
 const AddCandidate = () => {
   return (
     <div className="p-5">
       
-        <div className="w-full h-10 justify-between items-center inline-flex my-3">
+        {/* <div className="w-full h-10 justify-between items-center inline-flex my-3">
           <div className="justify-start items-center gap-2 flex">
             <div className="text-neutral-700 text-base font-medium font-['Inter'] tracking-tight">
               Candidate
@@ -49,7 +50,12 @@ const AddCandidate = () => {
           </div>
         </div>
       
-      <SubNav />
+      <SubNav /> */}
+
+    <Routes>
+      <Route path="" />
+    </Routes>
+
     </div>
   );
 };

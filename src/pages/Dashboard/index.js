@@ -6,8 +6,8 @@ const Dashboard = () => {
     <div className="p-3">
       <h5>Dashboard</h5>
 
-      <div className="flex items-center bg-amber-100 rounded-lg p-3 ">
-        <h5 className="px-3">Active Jobs</h5>
+      <div className="flex items-center bg-auxiliary-50 rounded-lg p-3 ">
+        <h5 className="px-3 whitespace-nowrap">Active Jobs</h5>
 
         <div className="grid grid-cols-3 gap-5 w-full  rounded-lg">
           <div className="h-60 bg-white col-span-1 p-5 flex flex-col justify-between rounded-lg w-full">

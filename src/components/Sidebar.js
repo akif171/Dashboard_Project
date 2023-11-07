@@ -13,13 +13,13 @@ const Sidebar = () => {
       aria-label="Sidebar"
       rounded-lg
     >
-      <div className="h-full  overflow-y-auto bg-slate-900 dark:bg-gray-800 text-slate-50">
-        <h1 className="m-6 text-xl">Name.com</h1>
+      <div className="h-full  overflow-y-auto bg-primary-500 dark:bg-gray-800 text-slate-50">
+        <h1 className="m-6 text-xl text-auxiliary-600">Name.com</h1>
         <ul className="space-y-3 font-normal w-full">
           <li>
             <Link
               to="/dashboard"
-              className="flex items-center p-4  text-white hover:text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              className="flex items-center p-4  text-white hover:text-primary-500 dark:text-white hover:bg-primary-50 dark:hover:bg-gray-700 group"
             >
               <CgLoadbarSound
                 size={30}
@@ -32,7 +32,7 @@ const Sidebar = () => {
           <li>
             <Link
               to="/candidate"
-              className="flex items-center p-4  dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 text-white hover:text-black group"
+              className="flex items-center p-4  dark:text-white hover:bg-primary-50 dark:hover:bg-gray-700 text-white hover:text-black group"
             >
               <RxAvatar
                 size={30}
@@ -45,7 +45,7 @@ const Sidebar = () => {
           <li>
             <button
               type="button"
-              className="flex items-center w-full p-4 text-base  transition duration-75  group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 text-white hover:text-black"
+              className="flex items-center w-full p-4 text-base  transition duration-75  group hover:bg-primary-50 dark:text-white dark:hover:bg-gray-700 text-white hover:text-black"
               aria-controls="sales"
               data-collapse-toggle="sales"
             >
@@ -73,7 +73,7 @@ const Sidebar = () => {
                 />
               </svg>
             </button>
-            <ul id="sales" className="hidden space-y-2 bg-slate-500">
+            <ul id="sales" className="hidden space-y-2 bg-primary-400 ">
               <li>
                 <Link
                   to={`/sales/job-leads`}
