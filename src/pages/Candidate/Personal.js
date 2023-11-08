@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 const Personal = () => {
   return (
     <div>
-      <SubTabs />
+      {/* <SubTabs /> */}
       
     </div>
   );

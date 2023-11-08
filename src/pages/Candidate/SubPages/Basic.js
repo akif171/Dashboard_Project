@@ -168,7 +168,12 @@ const Basic = () => {
         </div>
       </from>
       <div className="w-full py-10 px-8 flex justify-end">
-        <Link to={`/candidate/add-candidate/personal/professional`} className="text-white bg-secondary-700 py-2 px-5 rounded-full text-lg">Next</Link>
+        <Link
+          to={`/candidate/add-candidate/personal/professional`}
+          className="text-white bg-secondary-700 py-2 px-5 rounded-full text-lg"
+        >
+          Next
+        </Link>
       </div>
     </div>
   );

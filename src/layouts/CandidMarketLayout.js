@@ -1,27 +1,27 @@
 import React from "react";
-import SubTabs from "../components/SubTabs";
 import { Outlet } from "react-router-dom";
+import SubTabs from "../components/SubTabs";
 
 const tabArr = [
   {
-    name: "Basic",
-    link: "basic",
+    name: "Marketing History",
+    link: "marketing-history",
   },
   {
-    name: "Professional",
-    link: "professional",
+    name: "Marketing List",
+    link: "marketing-list",
   },
   {
-    name: "Profile",
-    link: "profile",
+    name: "Notes",
+    link: "notes",
   },
   {
-    name: "Emergency Contacts",
-    link: "emergency-contacts",
+    name: "jobs",
+    link: "jobs",
   },
 ];
 
-const CandidPersonalLayout = () => {
+const CandidMarketLayout = () => {
   return (
     <div>
       <div className="border-b border-stone-300 justify-start items-start inline-flex mt-5">
@@ -29,10 +29,9 @@ const CandidPersonalLayout = () => {
           <SubTabs name={name} link={link} />
         ))}
       </div>
-
       <Outlet />
     </div>
   );
 };
 
-export default CandidPersonalLayout;
+export default CandidMarketLayout;

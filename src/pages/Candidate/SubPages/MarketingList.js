@@ -3,27 +3,22 @@ import { RxReload } from "react-icons/rx";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { RiSoundModuleLine } from "react-icons/ri";
-import StarRating from "../../components/StarRating";
+import StarRating from "../../../components/StarRating";
 import { Link } from "react-router-dom";
 
-const Candidate = () => {
-  const [rating, setRating] = useState(0);
+const tabelHeadArr = [
+  "Sales Manager",
+  "Sales Start Date",
+  "Sales End Date",
+  "Jobs Applied",
+  "Interview Attend",
+  "Sales Person",
+  "Marketing Status",
+];
 
-  const handleRatingChange = (newRating) => {
-    setRating(newRating);
-  };
-
+const MarketingList = () => {
   return (
-    <div className="p-5 ">
-      <div className="flex items-center justify-between">
-        <h5>Candidate</h5>
-        <Link
-          to={`add-candidate/personal`}
-          className="bg-secondary-700  text-white py-2 px-4 rounded-full"
-        >
-          Add Candidate
-        </Link>
-      </div>
+    <div>
       <div className="border border-gray-300 mt-5 rounded-lg ">
         <div className="flex items-center gap-2 p-3">
           <RxReload size={20} />
@@ -45,46 +40,34 @@ const Candidate = () => {
           <table class="table-auto overflow-scroll w-full">
             {/* Table headings */}
             <thead className="w-full">
-              <tr className="grid grid-cols-9 text-left py-3 pl-3 pr-6 bg-secondary-50 text-sm">
-                <th className="col-span-2">Candidate Info</th>
-                <th>Tehnology</th>
-                <th>Job Title</th>
-                <th>Work Status</th>
-                <th>Sales Persons</th>
-                <th>Interviews</th>
-                <th>Marketing</th>
-                <th>Status</th>
+              <tr className="grid grid-cols-7 items-center w-full text-left text-sm py-3 pl-3 pr-6 bg-secondary-50">
+                {tabelHeadArr.map((heading) => (
+                  <th>{heading}</th>
+                ))}
               </tr>
             </thead>
             {/* table content/data */}
-            <tbody
-              className="flex flex-col items-center justify-between overflow-y-scroll w-full h-screen"
-              // style={{ height: "90vh" }}
-            >
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
-                <tr className="grid grid-cols-9 justify-center items-center py-2 px-3 gap-1 border border-gray-200 text-left w-full text-sm">
-                  <td className="col-span-2">
-                    <h3 className="text-auxiliary-800 text-base">
-                      Bessie Cooper
-                    </h3>
-                    <p>bessiecooper@gmail.com</p>
-                    <p>010-919-923-23</p>
-                    <StarRating />
+            <tbody className="flex flex-col items-center overflow-y-scroll w-full h-screen">
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(() => (
+                <tr className="grid grid-cols-7 items-center py-2 px-3 border border-gray-200 text-left w-full text-sm">
+                  <td className="text-auxiliary-800">Bessie Cooper</td>
+                  <td>10/10/10</td>
+                  <td>10/10/10</td>
+                  <td>
+                    <div className=" px-6 py-3 bg-secondary-50 rounded-full justify-start items-center gap-2 inline-flex text-success-700 text-xs font-medium  leading-none">
+                      12
+                    </div>
                   </td>
-                  <td className="">Technology</td>
-                  <td className="">Department 1</td>
-                  <td className="py-2 border border-success-700 text-success-700 text-xs rounded-full flex justify-center items-center">
-                    Employed
+                  <td>
+                    <div className="px-6 py-3 bg-secondary-100 rounded-full justify-start items-center  inline-flex text-success-700 text-xs font-medium  leading-none">
+                      12
+                    </div>
                   </td>
-                  <td className="">Employed</td>
-                  <td className="py-2 border border-info-700 text-info-700 rounded-full flex justify-center items-center text-xs">
-                    12
-                  </td>
-                  <td className="py-2 border border-success-700 text-success-700 text-xs rounded-full flex justify-center items-center">
-                    Employed
-                  </td>
-                  <td className="py-2 border border-success-700 text-success-700 text-xs rounded-full flex justify-center items-center">
-                    Employed
+                  <td>Floyed Miles</td>
+                  <td>
+                    <div className="px-6 py-3 rounded-full border border-success-700 justify-start items-center inline-flex text-success-700 text-xs font-medium leading-none">
+                      Employed
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -120,4 +103,4 @@ const Candidate = () => {
   );
 };
 
-export default Candidate;
+export default MarketingList;

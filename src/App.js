@@ -17,6 +17,11 @@ import Basic from "./pages/Candidate/SubPages/Basic";
 import Professional from "./pages/Candidate/SubPages/Professional";
 import Profile from "./pages/Candidate/SubPages/Profile";
 import EmergencyContacts from "./pages/Candidate/SubPages/EmergencyContacts";
+import CandidMarketLayout from "./layouts/CandidMarketLayout";
+import MarketingHistory from "./pages/Candidate/SubPages/MarketingHistory";
+import MarketingList from "./pages/Candidate/SubPages/MarketingList";
+import MarketingNotes from "./pages/Candidate/SubPages/MarketingNotes";
+import MarketingJobs from "./pages/Candidate/SubPages/MarketingJobs";
 
 function App() {
   return (
@@ -41,7 +46,13 @@ function App() {
               />
             </Route>
             <Route path="notes" element={<Notes />} />
-            <Route path="marketing" element={<Marketing />} />
+            <Route path="marketing" element={<CandidMarketLayout />}>
+              <Route index element={<MarketingHistory />} />
+              <Route path="marketing-history" element={<MarketingHistory />} />
+              <Route path="marketing-list" element={<MarketingList />} />
+              <Route path="notes" element={<MarketingNotes />} />
+              <Route path="jobs" element={<MarketingJobs />} />
+            </Route>
             <Route path="interviews" element={<Interviews />} />
             <Route path="projects" element={<Projects />} />
             <Route path="trainings" element={<Trainings />} />
