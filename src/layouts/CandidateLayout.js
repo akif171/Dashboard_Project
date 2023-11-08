@@ -2,6 +2,37 @@ import React from "react";
 import SubNav from "../components/SubNav";
 import { Outlet } from "react-router-dom";
 
+const navArr = [
+  {
+    name: "Personal",
+    link: "/candidate/add-candidate/personal",
+  },
+  {
+    name: "Notes",
+    link: "/candidate/add-candidate/notes",
+  },
+  {
+    name: "Marketing",
+    link: "/candidate/add-candidate/marketing",
+  },
+  {
+    name: "Interviews",
+    link: "/candidate/add-candidate/interviews",
+  },
+  {
+    name: "Projects",
+    link: "/candidate/add-candidate/projects",
+  },
+  {
+    name: "Trainigs",
+    link: "/candidate/add-candidate/trainings",
+  },
+  {
+    name: "Documents",
+    link: "/candidate/add-candidate/documents",
+  },
+];
+
 const CandidateLayout = ({ children }) => {
   console.log(children);
   return (
@@ -49,8 +80,11 @@ const CandidateLayout = ({ children }) => {
           </div>
         </div>
       </div>
-
-      <SubNav />
+      <div className="w-full h-9 border-b flex justify-between items-start ">
+        {navArr.map(({ name, link }) => (
+          <SubNav name={name} link={link} />
+        ))}
+      </div>
       <Outlet />
     </div>
   );
