@@ -34,11 +34,11 @@ const Sidebar = () => {
               to="/candidate"
               className="flex items-center p-4  dark:text-white hover:bg-primary-50 dark:hover:bg-gray-700 text-white hover:text-black group"
             >
-              {/* <RxAvatar
+              <RxAvatar
                 size={30}
                 className="  transition duration-75 dark:text-gray-400 group-hover:text-gray-900 text-white hover:text-blackdark:group-hover:text-white"
-              /> */}
-              <svg
+              />
+              {/* <svg
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -86,7 +86,7 @@ const Sidebar = () => {
                     stroke-linecap="round"
                   />
                 </g>
-              </svg>
+              </svg> */}
 
               <span className="ml-3">Candidate</span>
             </Link>

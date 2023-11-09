@@ -16,7 +16,7 @@ const tabArr = [
     link: "notes",
   },
   {
-    name: "jobs",
+    name: "Jobs",
     link: "jobs",
   },
 ];
