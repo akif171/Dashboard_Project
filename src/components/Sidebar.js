@@ -5,6 +5,37 @@ import { RxAvatar } from "react-icons/rx";
 import { BsGear } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
+const SalesArr = [
+  {
+    name: "Job Leads",
+    link: "sales/job-leads",
+  },
+  {
+    name: "Interviews",
+    link: "sales/interviews",
+  },
+  {
+    name: "Projects",
+    link: "sales/projects",
+  },
+  {
+    name: "Vendors",
+    link: "sales/vendors",
+  },
+  {
+    name: "Contacts",
+    link: "sales/contacts",
+  },
+  {
+    name: "Technologies",
+    link: "sales/tecnologies",
+  },
+  {
+    name: "Sales Team",
+    link: "sales/sales-teams",
+  },
+];
+
 const Sidebar = () => {
   return (
     <aside
@@ -15,7 +46,7 @@ const Sidebar = () => {
     >
       <div className="h-full  overflow-y-auto bg-primary-500 dark:bg-gray-800 text-slate-50">
         <h1 className="m-6 text-xl text-auxiliary-600">Name.com</h1>
-        <ul className="space-y-3 font-normal w-full">
+        <ul className=" font-normal w-full">
           <li>
             <Link
               to="/dashboard"
@@ -122,63 +153,20 @@ const Sidebar = () => {
                 />
               </svg>
             </button>
-            <ul id="sales" className="hidden space-y-2 bg-primary-400 ">
-              <li>
-                <Link
-                  to={`/sales/job-leads`}
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >
-                  Job Leads
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={`/sales/interviews`}
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75 pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >
-                  Interviews
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={`sales/projects`}
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={`sales/vendors`}
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >
-                  Vendors
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={`sales/contacts`}
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >
-                  Contacts
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={`/sales/tecnologies`}
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >
-                  Technologies
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={`/sales/sales-teams`}
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >
-                  Sales Teams
-                </Link>
-              </li>
+            <ul
+              id="sales"
+              className="hidden  bg-primary-400 text-white "
+            >
+              {SalesArr.map(({ name, link, index }) => (
+                <li key={index}>
+                  <Link
+                    to={link}
+                    className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 text-white hover:text-primary-500 dark:hover:bg-gray-700"
+                  >
+                    {name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </li>
           <li>

@@ -49,10 +49,10 @@ const CandidateLayout = ({ children }) => {
         </div>
         <div className="w-[287px] px-4 justify-start items-center gap-4 flex">
           <div className="flex-col justify-center items-start inline-flex">
-            <div className="text-center text-neutral-500 text-sm font-normal font-['Poppins'] leading-tight tracking-tight">
+            <div className="text-center text-neutral-500 text-sm font-normal  leading-tight tracking-tight">
               Trainee
             </div>
-            <div className="text-center text-stone-300 text-xs font-normal font-['Poppins'] leading-none">
+            <div className="text-center text-stone-300 text-xs font-normal  leading-none">
               Type{" "}
             </div>
           </div>
@@ -60,10 +60,10 @@ const CandidateLayout = ({ children }) => {
             <div className="w-2 grow shrink basis-0 origin-top-left rotate-90 border border-stone-300"></div>
           </div>
           <div className="flex-col justify-center items-start inline-flex">
-            <div className="text-center text-neutral-500 text-sm font-normal font-['Poppins'] leading-tight tracking-tight">
+            <div className="text-center text-neutral-500 text-sm font-normal  leading-tight tracking-tight">
               Inactive
             </div>
-            <div className="text-center text-stone-300 text-xs font-normal font-['Poppins'] leading-none">
+            <div className="text-center text-stone-300 text-xs font-normal  leading-none">
               Status
             </div>
           </div>
@@ -71,10 +71,10 @@ const CandidateLayout = ({ children }) => {
             <div className="w-2 grow shrink basis-0 origin-top-left rotate-90 border border-stone-300"></div>
           </div>
           <div className="flex-col justify-center items-start inline-flex">
-            <div className="text-center text-neutral-500 text-sm font-normal font-['Poppins'] leading-tight tracking-tight">
+            <div className="text-center text-neutral-500 text-sm font-normal  leading-tight tracking-tight">
               Kelly Martin
             </div>
-            <div className="text-center text-stone-300 text-xs font-normal font-['Poppins'] leading-none">
+            <div className="text-center text-stone-300 text-xs font-normal  leading-none">
               Owner
             </div>
           </div>
