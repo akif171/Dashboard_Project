@@ -35,7 +35,7 @@ const Basic = () => {
                 />
                 <label
                   className="flex justify-center items-center py-2 px-3 bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                  for="male"
+                  htmlFor="male"
                 >
                   Male
                 </label>
@@ -50,7 +50,7 @@ const Basic = () => {
                 />
                 <label
                   className="flex justify-center items-center py-2 px-3 bg-white border border-t-secondary-800 border-b-secondary-800 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                  for="female"
+                  htmlFor="female"
                 >
                   Female
                 </label>
@@ -66,7 +66,7 @@ const Basic = () => {
                 />
                 <label
                   className="flex justify-center items-center py-2 px-3 bg-white border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                  for="other"
+                  htmlFor="other"
                 >
                   Other
                 </label>
@@ -83,10 +83,11 @@ const Basic = () => {
                   value="single"
                   name="marital_status"
                   id="single"
+                  checked
                 />
                 <label
                   className="flex justify-center items-center py-2 px-3 bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                  for="single"
+                  htmlFor="single"
                 >
                   Single
                 </label>
@@ -102,7 +103,7 @@ const Basic = () => {
                 />
                 <label
                   className="flex justify-center items-center py-2 px-3 bg-white border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                  for="married"
+                  htmlFor="married"
                 >
                   Married
                 </label>

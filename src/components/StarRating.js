@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const StarRating = ({ initialRating, onRatingChange }) => {
+const StarRating = ({ initialRating, onRatingChange, fontSize }) => {
   const [rating, setRating] = useState(initialRating);
 
   const handleStarClick = (newRating) => {
@@ -16,12 +16,11 @@ const StarRating = ({ initialRating, onRatingChange }) => {
         <span
           key={star}
           onClick={() => handleStarClick(star)}
-        
           style={{
             cursor: "pointer",
-            color: star <= rating ? "gold" : "#D3D3D3",
-            fontSize: "24px",
-            outline:"1px"
+            color: star <= rating ? "#FEAB2F" : "#D3D3D3",
+            fontSize: fontSize,
+            outline: "1px",
           }}
         >
           &#9733;
