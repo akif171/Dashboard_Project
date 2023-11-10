@@ -4,12 +4,112 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { RiSoundModuleLine } from "react-icons/ri";
 import StarRating from "../../components/StarRating";
-import { Link } from "react-router-dom";
+import { AbortedDeferredError, Link } from "react-router-dom";
+import Modal from "../../components/ModalComponents/Modal";
 
 const Documents = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div>
       {" "}
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <div className="">
+          <form className="flex flex-col gap-6">
+            <div className="grid grid-cols-2">
+              <div className="flex flex-col">
+                <label htmlFor="document_type" className="text-text-hint mb-1">
+                  Document Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Document Name"
+                  id="document_type"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-2">
+              <div className="flex col-span-2 items-end gap-5">
+                <div className="flex flex-col w-full">
+                  <label
+                    htmlFor="document_link"
+                    className="text-text-hint mb-1"
+                  >
+                    Link
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Link"
+                    id="document_link"
+                    className="outline-none  border-2 border-secondary-500 rounded-lg flex-grow"
+                  />
+                </div>
+                <button className="py-2 px-6 bg-secondary-700 text-text-light rounded-full">
+                  Add
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col ">
+              <label htmlFor="document_type" className="text-text-hint mb-1">
+                Document Name
+              </label>
+              <textarea
+                type="text"
+                placeholder="Document Name"
+                id="document_type"
+                className="focus:outline-none border  rounded-lg "
+                rows={4}
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="flex flex-col">
+                <label htmlFor="created_date" className="text-text-hint mb-1">
+                  Created Date
+                </label>
+                <input
+                  type="date"
+                  placeholder="Document Name"
+                  id="created_date"
+                  className="outline-none border-2 border-text-hint rounded-lg "
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <label htmlFor="updated_date" className="text-text-hint mb-1">
+                  Updated Date
+                </label>
+                <input
+                  type="date"
+                  id="updated_date"
+                  className="outline-none border-2 border-text-hint rounded-lg "
+                />
+              </div>
+            </div>
+          </form>
+          <div className="flex justify-between p-6 mt-6">
+            <button
+              onClick={closeModal}
+              className="border border-secondary-800 text-secondary-800 py-2 px-5 rounded-full"
+            >
+              Close
+            </button>
+            <button
+              onClick={closeModal}
+              className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </Modal>
       <div className="border  border-gray-300 mt-5 rounded-lg ">
         <div className="flex justify-between items-center gap-2 p-3">
           <div className="flex items-center gap-3">
@@ -18,7 +118,10 @@ const Documents = () => {
           </div>
 
           <div className="flex items-center ">
-            <button className=" bg-secondary-700 text-white py-2 px-5 rounded-full font-normal">
+            <button
+              onClick={openModal}
+              className=" bg-secondary-700 text-white py-2 px-5 rounded-full font-normal"
+            >
               <span className="text-lg mr-3">+</span>
               New Document
             </button>
@@ -52,8 +155,6 @@ const Documents = () => {
                   <td className="col-span-3">Technology</td>
                   <td className="col-span-2">10/10/10</td>
                   <td className="col-span-2">10/10/10</td>
-
-               
                 </tr>
               ))}
             </tbody>
