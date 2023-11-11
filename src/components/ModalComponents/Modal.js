@@ -6,7 +6,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   return (
     <div
-      className={`fixed inset-0 overflow-y-auto top-8 ${modalClasses} `}
+      className={`fixed inset-0 overflow-y-auto top-0 my-2 ${modalClasses} `}
     //   onClick={onClose}
     >
       <div className="flex items-center justify-center min-h-screen ">
@@ -16,7 +16,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         >
           <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
         </div>
-        <div className="z-50 w-[650px] p-4 bg-white rounded-lg shadow-lg">
+        <div className="z-50 w-auto p-4 bg-white rounded-lg shadow-lg">
           <div className="relative ">
             {/* <button
               onClick={onClose}

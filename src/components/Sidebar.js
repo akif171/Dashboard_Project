@@ -40,7 +40,7 @@ const Sidebar = () => {
   return (
     <aside
       id="sidebar-multi-level-sidebar"
-      className="fixed top-0 left-0 z-40 w-52 h-screen transition-transform -translate-x-full sm:translate-x-0 "
+      className="fixed top-0 left-0  w-52 h-screen transition-transform -translate-x-full sm:translate-x-0 "
       aria-label="Sidebar"
       rounded-lg
     >
@@ -161,7 +161,7 @@ const Sidebar = () => {
                 <li key={index}>
                   <Link
                     to={link}
-                    className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 text-white hover:text-primary-500 dark:hover:bg-gray-700"
+                    className="flex items-center w-full p-4  transition duration-75  pl-11 group hover:bg-gray-100 text-white hover:text-primary-500 dark:hover:bg-gray-700"
                   >
                     {name}
                   </Link>

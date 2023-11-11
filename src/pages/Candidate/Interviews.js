@@ -6,11 +6,188 @@ import { RiSoundModuleLine } from "react-icons/ri";
 import StarRating from "../../components/StarRating";
 import { Link } from "react-router-dom";
 import QrCodeIcon from "../../images/Qr-code.png";
+import Modal from "../../components/ModalComponents/Modal";
 
 const Interviews = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div>
-      {" "}
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <div className="">
+          <form className="flex flex-col gap-6">
+            <div className="grid grid-cols-3 gap-5">
+              <div className="flex flex-col">
+                <label htmlFor="course_name" className="text-text-hint mb-1">
+                  Course Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Course Name"
+                  id="course_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="course_name" className="text-text-hint mb-1">
+                  Course Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Course Name"
+                  id="course_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-5">
+              <div className="flex flex-col">
+                <label htmlFor="vendor" className="text-text-hint mb-1">
+                  Vendor
+                </label>
+                <input
+                  type="text"
+                  placeholder="Vendor"
+                  id="vendor"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="vendor" className="text-text-hint mb-1">
+                  Vendor
+                </label>
+                <input
+                  type="text"
+                  placeholder="Vendor"
+                  id="vendor"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="client" className="text-text-hint mb-1">
+                  Client
+                </label>
+                <input
+                  type="text"
+                  placeholder="client"
+                  id="client"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-5">
+              <div className="flex flex-col">
+                <label htmlFor="course_name" className="text-text-hint mb-1">
+                  Course Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Course Name"
+                  id="course_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="course_name" className="text-text-hint mb-1">
+                  Course Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Course Name"
+                  id="course_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-5">
+              <div className="flex flex-col">
+                <label htmlFor="course_name" className="text-text-hint mb-1">
+                  Course Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Course Name"
+                  id="course_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="course_name" className="text-text-hint mb-1">
+                  Course Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Course Name"
+                  id="course_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-6">
+              <div className="flex flex-col">
+                <label htmlFor="date" className="text-text-hint mb-1">
+                  Date
+                </label>
+                <input
+                  type="date"
+                  id="date"
+                  className="outline-none border-2 border-text-hint rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-5">
+              <div className="flex flex-col ">
+                <label htmlFor="document_type" className="text-text-hint mb-1">
+                  Interview Panel Details
+                </label>
+                <textarea
+                  type="text"
+                  placeholder="Link"
+                  id="document_type"
+                  className="focus:outline-none border  rounded-lg "
+                  rows={4}
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-5">
+              <div className="flex flex-col col-span-3 ">
+                <label htmlFor="document_type" className="text-text-hint mb-1">
+                  FeedBack
+                </label>
+                <textarea
+                  type="text"
+                  placeholder="Link"
+                  id="document_type"
+                  className="focus:outline-none border  rounded-lg "
+                  rows={4}
+                />
+              </div>
+            </div>
+          </form>
+          <div className="flex justify-between p-6 mt-6">
+            <button
+              onClick={closeModal}
+              className="border border-secondary-800 text-secondary-800 py-2 px-5 rounded-full"
+            >
+              Close
+            </button>
+            <button
+              onClick={closeModal}
+              className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </Modal>
       <div className="border  border-gray-300 mt-5 rounded-lg ">
         <div className="flex justify-between items-center gap-2 p-3">
           <div className="flex items-center gap-3">
@@ -22,7 +199,10 @@ const Interviews = () => {
         <input className="outline-none w-full h-full bg-gray-100" />
       </div> */}
           <div className="flex items-center ">
-            <button className=" bg-secondary-700 text-white py-2 px-5 rounded-full font-normal">
+            <button
+              onClick={openModal}
+              className=" bg-secondary-700 text-white py-2 px-5 rounded-full font-normal"
+            >
               <span className="text-lg mr-3">+</span>
               Add New Interview
             </button>
@@ -80,7 +260,11 @@ const Interviews = () => {
                     <p className="py-2 px-5 border border-success-700 text-success-700 text-xs rounded-full ">
                       Remote
                     </p>
-                    <img className="w-6 h-6" src={QrCodeIcon} alt="qr code icon"  />
+                    <img
+                      className="w-6 h-6"
+                      src={QrCodeIcon}
+                      alt="qr code icon"
+                    />
                   </td>
                   {/* <td className=" text-xs">
                     <p className="flex gap-3">

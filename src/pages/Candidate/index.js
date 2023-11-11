@@ -69,7 +69,7 @@ const Candidate = () => {
                     </h3>
                     <p>bessiecooper@gmail.com</p>
                     <p>010-919-923-23</p>
-                    <StarRating />
+                    <StarRating initialRating={3} fontSize={18} />
                   </td>
                   <td className="">Technology</td>
                   <td className="">Department 1</td>

@@ -9,12 +9,15 @@ const Basic = () => {
         <div className="grid grid-cols-4 gap-3">
           {[1, 2, 3].map(() => (
             <div className="">
-              <label className="">Frist Name</label>
+              <label className="">
+                Frist Name<span className="text-red-500">*</span>
+              </label>
               <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
                 <input
                   placeholder="First Name"
                   required
                   className="outline-none w-full"
+                  
                 />
                 <img src={Pencil} alt="pencil" />
               </div>

@@ -6,10 +6,191 @@ import { RiSoundModuleLine } from "react-icons/ri";
 import StarRating from "../../components/StarRating";
 import { Link } from "react-router-dom";
 import QrCodeIcon from "../../images/Qr-code.png";
+import Modal from "../../components/ModalComponents/Modal";
 
 const Projects = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <div className="">
+          <form className="flex flex-col gap-6 ">
+            <div className="grid grid-cols-2 gap-5">
+              <div className="flex flex-col">
+                <label htmlFor="job_title" className="text-text-hint mb-1">
+                  Job Title
+                </label>
+                <input
+                  type="text"
+                  placeholder="Job title"
+                  id="job_title"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="job" className="text-text-hint mb-1">
+                  Job
+                </label>
+                <input
+                  type="text"
+                  placeholder="Job"
+                  id="job"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-5">
+              <div className="flex flex-col">
+                <label htmlFor="vendor" className="text-text-hint mb-1">
+                  Vendor
+                </label>
+                <input
+                  type="text"
+                  placeholder="Vendor"
+                  id="vendor"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="client" className="text-text-hint mb-1">
+                  Client
+                </label>
+                <input
+                  type="text"
+                  placeholder="Client"
+                  id="client"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-2">
+              <div className="flex flex-col">
+                <label htmlFor="city" className="text-text-hint mb-1">
+                  City
+                </label>
+                <input
+                  type="text"
+                  placeholder="LA"
+                  id="city"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="flex flex-col">
+                <label htmlFor="start_date" className="text-text-hint mb-1">
+                  Start Date
+                </label>
+                <input
+                  type="date"
+                  id="start_date"
+                  className="outline-none border-2 border-text-hint rounded-lg "
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <label htmlFor="end_date" className="text-text-hint mb-1">
+                  End Date
+                </label>
+                <input
+                  type="date"
+                  id="end_date"
+                  className="outline-none border-2 border-text-hint rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-2">
+              <div className="flex flex-col">
+                <label htmlFor="status_reason" className="text-text-hint mb-1">
+                  Status Reason
+                </label>
+                <input
+                  type="text"
+                  placeholder="status reason"
+                  id="status_reason"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="">
+              <div className="w-96">
+                <label className="text-text-hint ">Training Status</label>
+                <ul className="grid grid-cols-3 mt-1">
+                  <li className="relative">
+                    <input
+                      className="sr-only peer"
+                      type="radio"
+                      value="Not Completed"
+                      name="training_status"
+                      id="not_completed"
+                    />
+                    <label
+                      className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                      htmlFor="not_completed"
+                    >
+                      Not Completed
+                    </label>
+                  </li>
+                  <li className="relative">
+                    <input
+                      className="sr-only peer"
+                      type="radio"
+                      value="InProgree"
+                      name="training_status"
+                      id="in_progress"
+                    />
+                    <label
+                      className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-t-secondary-800 border-b-secondary-800 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                      htmlFor="in_progress"
+                    >
+                      InProgress
+                    </label>
+                  </li>
+
+                  <li className="relative">
+                    <input
+                      className="sr-only peer"
+                      type="radio"
+                      value="Completed"
+                      name="training_status"
+                      id="completed"
+                    />
+                    <label
+                      className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                      htmlFor="completed"
+                    >
+                      Completed
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </form>
+          <div className="flex justify-between p-6 mt-6">
+            <button
+              onClick={closeModal}
+              className="border border-secondary-800 text-secondary-800 py-2 px-5 rounded-full"
+            >
+              Close
+            </button>
+            <button
+              onClick={closeModal}
+              className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </Modal>
       <div className="border  border-gray-300 mt-5 rounded-lg ">
         <div className="flex justify-between items-center gap-2 p-3">
           <div className="flex items-center gap-3">
@@ -21,7 +202,10 @@ const Projects = () => {
         <input className="outline-none w-full h-full bg-gray-100" />
       </div> */}
           <div className="flex items-center ">
-            <button className=" bg-secondary-700 text-white py-2 px-5 rounded-full font-normal">
+            <button
+              onClick={openModal}
+              className=" bg-secondary-700 text-white py-2 px-5 rounded-full font-normal"
+            >
               <span className="text-lg mr-3">+</span>
               New Project
             </button>
