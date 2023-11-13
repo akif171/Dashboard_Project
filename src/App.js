@@ -22,6 +22,7 @@ import MarketingHistory from "./pages/Candidate/SubPages/MarketingHistory";
 import MarketingList from "./pages/Candidate/SubPages/MarketingList";
 import MarketingNotes from "./pages/Candidate/SubPages/MarketingNotes";
 import MarketingJobs from "./pages/Candidate/SubPages/MarketingJobs";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Navbar />
 
         <Routes>
+          {/* <Route path="login" element={<Login />} /> */}
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="candidate" element={<Candidate />} />
           <Route path="candidate/add-candidate" element={<CandidateLayout />}>
