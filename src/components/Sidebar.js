@@ -4,6 +4,7 @@ import { FaRegFolderClosed } from "react-icons/fa6";
 import { RxAvatar } from "react-icons/rx";
 import { BsGear } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import Triangle from "../images/triangle.png";
 
 const SalesArr = [
   {
@@ -40,12 +41,11 @@ const Sidebar = () => {
   return (
     <aside
       id="sidebar-multi-level-sidebar"
-      className="fixed top-0 left-0  w-52 h-screen transition-transform -translate-x-full sm:translate-x-0 "
+      className="fixed  left-0  w-52 h-screen transition-transform -translate-x-full sm:translate-x-0 "
       aria-label="Sidebar"
       rounded-lg
     >
       <div className="h-full  overflow-y-auto bg-primary-500 dark:bg-gray-800 text-slate-50">
-        <h1 className="m-6 text-xl text-auxiliary-600">Name.com</h1>
         <ul className=" font-normal w-full">
           <li>
             <Link
@@ -69,7 +69,7 @@ const Sidebar = () => {
                 size={24}
                 className="  transition duration-75 dark:text-gray-400 group-hover:text-gray-900 text-white hover:text-blackdark:group-hover:text-white"
               />
-             
+
               <span className="ml-3">Candidate</span>
             </Link>
           </li>
@@ -106,14 +106,16 @@ const Sidebar = () => {
             </button>
             <ul id="sales" className="hidden  bg-primary-400 text-white ">
               {SalesArr.map(({ name, link, index }) => (
-                <li key={index}>
-                  <Link
-                    to={link}
-                    className="flex items-center w-full p-4  transition duration-75  pl-11 group hover:bg-gray-100 text-white hover:text-primary-500 dark:hover:bg-gray-700"
-                  >
+                <Link
+                  key={index}
+                  to={link}
+                  className="flex items-center  w-full p-4  transition duration-75   group hover:bg-gray-100 text-white hover:text-primary-500 dark:hover:bg-gray-700"
+                >
+                  <li className=" flex gap-3 ">
+                    <img src={Triangle} alt="triangle-icon" className="" />
                     {name}
-                  </Link>
-                </li>
+                  </li>
+                </Link>
               ))}
             </ul>
           </li>

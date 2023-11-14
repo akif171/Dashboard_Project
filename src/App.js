@@ -23,17 +23,32 @@ import MarketingList from "./pages/Candidate/SubPages/MarketingList";
 import MarketingNotes from "./pages/Candidate/SubPages/MarketingNotes";
 import MarketingJobs from "./pages/Candidate/SubPages/MarketingJobs";
 import Login from "./pages/Login/Login";
+import RootLayout from "./layouts/RootLayout";
+import CheckAuth from "./components/CheckAuth";
+import { useState } from "react";
+import Redirector from "./components/Redirector";
+import ErrorPage from "./pages/Error/ErrorPage";
+import SignUp from "./pages/SignUp/SignUp";
+import Subscribe from "./pages/Subscribe/Subscribe";
+import SalesLayout from "./layouts/SalesLayout";
+import JobLeads from "./pages/Sales/JobLeads/JobLeads";
+import SalesInterviews from "./pages/Sales/Interviews/SalesInterviews";
 
 function App() {
+  const [isAuth, setIsAuth] = useState(true);
   return (
-    <div className="w-full flex ">
-      <Sidebar />
-
-      <div className="w-full ml-52">
-        <Navbar />
-
-        <Routes>
-          {/* <Route path="login" element={<Login />} /> */}
+    <>
+      <Routes>
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="subscribe" element={<Subscribe />} />
+        <Route
+          element={
+            <CheckAuth isAuth={isAuth}>
+              <RootLayout />
+            </CheckAuth>
+          }
+        >
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="candidate" element={<Candidate />} />
           <Route path="candidate/add-candidate" element={<CandidateLayout />}>
@@ -60,9 +75,15 @@ function App() {
             <Route path="trainings" element={<Trainings />} />
             <Route path="documents" element={<Documents />} />
           </Route>
-        </Routes>
-      </div>
-    </div>
+          <Route path="sales" element={<SalesLayout />}>
+            <Route path="job-leads" element={<JobLeads />} />
+            <Route path="interviews" element={<SalesInterviews />} />
+          </Route>
+        </Route>
+        {/* <Route path="/*" errorElement={<ErrorPage />} /> */}
+      </Routes>
+      {/* <RootLayout /> */}
+    </>
   );
 }
 
