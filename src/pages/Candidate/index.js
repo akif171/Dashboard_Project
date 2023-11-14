@@ -5,6 +5,8 @@ import { FiSearch } from "react-icons/fi";
 import { RiSoundModuleLine } from "react-icons/ri";
 import StarRating from "../../components/StarRating";
 import { Link } from "react-router-dom";
+import Dropdown from "../../components/Dropdown";
+import Filter from "../../components/Filter";
 
 const Candidate = () => {
   const [rating, setRating] = useState(0);
@@ -32,20 +34,19 @@ const Candidate = () => {
             <FiSearch color="gray" size={20} />
             <input className="outline-none w-full h-full bg-gray-100" />
           </div>
-          <div className="flex items-center text-teal-500 gap-2 py-2 px-4 border border-teal-500 rounded-full">
+          <Dropdown />
+
+          <Filter />
+          {/* <div className="flex items-center text-teal-500 gap-2 py-2 px-4 border border-teal-500 rounded-full">
             <RiSoundModuleLine />
             <p>Filter</p>
-          </div>
-          <div className="flex items-center text-teal-500 gap-2 py-2 px-4 border border-teal-500 rounded-full">
-            <RiSoundModuleLine />
-            <p>Filter</p>
-          </div>
+          </div> */}
         </div>
         <div className="w-full overflow-x">
           <table class="table-auto overflow-scroll w-full">
             {/* Table headings */}
             <thead className="w-full">
-              <tr className="grid grid-cols-9 text-left py-3 pl-3 pr-6 bg-secondary-50 text-sm">
+              <tr className="grid grid-cols-9 text-left py-3 pl-3 pr-6 bg-secondary-50 text-base">
                 <th className="col-span-2">Candidate Info</th>
                 <th>Tehnology</th>
                 <th>Job Title</th>

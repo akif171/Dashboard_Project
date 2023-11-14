@@ -6,7 +6,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   return (
     <div
-      className={`fixed inset-0 overflow-y-auto top-0 my-2 ${modalClasses} `}
+      className={`fixed z-50 inset-0 overflow-y-auto top-0 my-2 ${modalClasses} `}
     //   onClick={onClose}
     >
       <div className="flex items-center justify-center min-h-screen ">

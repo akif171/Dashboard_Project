@@ -1,11 +1,11 @@
 import React from "react";
 import { BsBell } from "react-icons/bs";
 import { IoCalendarOutline } from "react-icons/io5";
-import Logo from "../images/Vector.png";
+import Logo from "../images/Nav-Logo.png";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center px-5 py-3 bg-primary-500 text-white sticky w-full ">
+    <div className="top-0 z-20 flex justify-between items-center px-5 py-3 bg-primary-500 text-white sticky w-full ">
       <div className="flex ">
         <div className="flex items-center w-56 gap-3">
           <img src={Logo} alt="logo" />
