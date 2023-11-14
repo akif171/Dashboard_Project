@@ -5,28 +5,53 @@ import { Link } from "react-router-dom";
 const Basic = () => {
   return (
     <div className="">
-      <from className="flex flex-col gap-y-6 mt-5 text-sm font-normal">
+      <from className="flex flex-col gap-y-6 mt-5 text-sm font-normal text-text-hint">
         <div className="grid grid-cols-4 gap-3">
-          {[1, 2, 3].map(() => (
-            <div className="">
-              <label className="">
-                Frist Name<span className="text-red-500">*</span>
-              </label>
-              <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-                <input
-                  placeholder="First Name"
-                  required
-                  className="outline-none w-full"
-                  
-                />
-                <img src={Pencil} alt="pencil" />
-              </div>
+          <div className="">
+            <label className="">
+              Frist Name<span className="text-red-500">*</span>
+            </label>
+            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+              <input
+                placeholder="First Name"
+                required
+                className="outline-none w-full"
+              />
+              <img src={Pencil} alt="pencil" />
             </div>
-          ))}
+          </div>
+          <div className="">
+            <label className="">
+              Last Name<span className="text-red-500">*</span>
+            </label>
+            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+              <input
+                placeholder="Last Name"
+                required
+                className="outline-none w-full"
+              />
+              <img src={Pencil} alt="pencil" />
+            </div>
+          </div>
+          <div className="">
+            <label className="">
+              Middle Name<span className="text-red-500">*</span>
+            </label>
+            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+              <input
+                placeholder="Middle Name"
+                required
+                className="outline-none w-full"
+              />
+              <img src={Pencil} alt="pencil" />
+            </div>
+          </div>
         </div>
         <div className="grid grid-cols-4 gap-3 ">
           <div className="">
-            <label>Gender</label>
+            <label>
+              Gender<span className="text-red-500">*</span>
+            </label>
             <ul className="grid grid-cols-3 mt-1">
               <li className="relative">
                 <input
@@ -77,7 +102,9 @@ const Basic = () => {
             </ul>
           </div>
           <div className="">
-            <label>Marital Status</label>
+            <label>
+              Marital Status<span className="text-red-500">*</span>
+            </label>
             <ul className="grid grid-cols-3 mt-1">
               <li className="relative">
                 <input
@@ -116,7 +143,9 @@ const Basic = () => {
         </div>
         <div className="grid grid-cols-4 gap-3">
           <div className="">
-            <label className="">DOB</label>
+            <label className="">
+              DOB<span className="text-red-500">*</span>
+            </label>
             <div className="">
               <input
                 type="date"
@@ -129,7 +158,9 @@ const Basic = () => {
         </div>
         <div className="grid grid-cols-4 gap-3">
           <div className="col-span-2">
-            <label className="">Email</label>
+            <label className="">
+              Email<span className="text-red-500">*</span>
+            </label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 placeholder="youremail@gmail.com"
@@ -141,40 +172,66 @@ const Basic = () => {
           </div>
         </div>
         <div className="grid grid-cols-4 gap-3">
-          {[1, 2].map(() => (
-            <div className="">
-              <label className="">Phone Number</label>
-              <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-                <input
-                  placeholder="99999999"
-                  required
-                  className="outline-none w-full"
-                />
-                <img src={Pencil} alt="pencil" />
-              </div>
+          <div className="">
+            <label className="">
+              Phone Number<span className="text-red-500">*</span>
+            </label>
+            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+              <input
+                placeholder="99999999"
+                required
+                className="outline-none w-full"
+              />
+              <img src={Pencil} alt="pencil" />
             </div>
-          ))}
+          </div>
+          <div className="">
+            <label className="">
+              Alternative Phone Number<span className="text-red-500">*</span>
+            </label>
+            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+              <input
+                placeholder="99999999"
+                required
+                className="outline-none w-full"
+              />
+              <img src={Pencil} alt="pencil" />
+            </div>
+          </div>
         </div>
         <div className="grid grid-cols-4 gap-3">
-          {[1, 2].map(() => (
-            <div className="">
-              <label className="">Address Line 1</label>
-              <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-                <input
-                  placeholder="First Name"
-                  required
-                  className="outline-none w-full"
-                />
-                <img src={Pencil} alt="pencil" />
-              </div>
+          <div className="">
+            <label className="">
+              Address Line 1<span className="text-red-500">*</span>
+            </label>
+            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+              <input
+                placeholder="Address Line 1"
+                required
+                className="outline-none w-full"
+              />
+              <img src={Pencil} alt="pencil" />
             </div>
-          ))}
+          </div>
+          <div className="">
+            <label className="">
+              Address Line 2<span className="text-red-500">*</span>
+            </label>
+            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+              <input
+                placeholder="Address Line 2"
+                required
+                className="outline-none w-full"
+              />
+              <img src={Pencil} alt="pencil" />
+            </div>
+          </div>
         </div>
       </from>
       <div className="w-full py-10 px-8 flex justify-end">
         <Link
           to={`/candidate/add-candidate/personal/professional`}
-          className="text-white bg-secondary-700 py-2 px-5 rounded-full text-lg"
+          className="text-white bg-secondary-700 py-2 px-5 rounded-full text-base"
         >
           Next
         </Link>

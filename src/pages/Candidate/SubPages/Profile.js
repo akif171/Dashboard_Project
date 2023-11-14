@@ -8,65 +8,102 @@ const Profile = () => {
     <div className="">
       <div className="mt-5">
         <h3>Rating</h3>
-        <StarRating />
+        <StarRating fontSize={24} initialRating={3} />
       </div>
-      <from className="flex flex-col gap-y-6 mt-5 text-sm font-normal">
-        <div className="grid grid-cols-4 gap-3">
-          {[1, 2].map(() => (
-            <div className="">
-              <label className="">Total Interviews</label>
-              <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-                <input
-                  placeholder="total interviews"
-                  required
-                  className="outline-none w-full"
-                />
-                <img src={Pencil} alt="pencil" />
-              </div>
+      <from className="flex flex-col gap-y-6 mt-5 text-sm font-normal text-text-hint">
+        <div className="grid grid-cols-4 gap-5">
+          <div className="">
+            <label className="">
+              Total Interviews<span className="text-red-500">*</span>
+            </label>
+            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+              <input
+                placeholder="total interviews"
+                required
+                className="outline-none w-full"
+              />
+              <img src={Pencil} alt="pencil" />
             </div>
-          ))}
+          </div>
+          <div className="">
+            <label className="">
+              Active Interviews<span className="text-red-500">*</span>
+            </label>
+            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+              <input
+                placeholder="total interviews"
+                required
+                className="outline-none w-full"
+              />
+              <img src={Pencil} alt="pencil" />
+            </div>
+          </div>
         </div>
-        <div className="grid grid-cols-4 gap-3">
-          {[1, 2].map(() => (
-            <div className="">
-              <label className="">Passed Interviews</label>
-              <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-                <input
-                  placeholder="passed interviews"
-                  required
-                  className="outline-none w-full"
-                />
-                <img src={Pencil} alt="pencil" />
-              </div>
+        <div className="grid grid-cols-4 gap-5">
+          <div className="">
+            <label className="">
+              Passed Interviews<span className="text-red-500">*</span>
+            </label>
+            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+              <input
+                placeholder="passed interviews"
+                required
+                className="outline-none w-full"
+              />
+              <img src={Pencil} alt="pencil" />
             </div>
-          ))}
+          </div>
+          <div className="">
+            <label className="">
+              Failed Interviews<span className="text-red-500">*</span>
+            </label>
+            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+              <input
+                placeholder="passed interviews"
+                required
+                className="outline-none w-full"
+              />
+              <img src={Pencil} alt="pencil" />
+            </div>
+          </div>
         </div>
-        <div className="grid grid-cols-4 gap-3">
-          {[1, 2].map(() => (
-            <div className="">
-              <label className="">Interviews on Hold</label>
-              <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-                <input
-                  placeholder="interviews on hold"
-                  required
-                  className="outline-none w-full"
-                />
-                <img src={Pencil} alt="pencil" />
-              </div>
+        <div className="grid grid-cols-4 gap-5">
+          <div className="">
+            <label className="">
+              Interviews on Hold<span className="text-red-500">*</span>
+            </label>
+            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+              <input
+                placeholder="interviews on hold"
+                required
+                className="outline-none w-full"
+              />
+              <img src={Pencil} alt="pencil" />
             </div>
-          ))}
+          </div>
+
+          <div className="">
+            <label className="">
+              Last Interviewed on<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="date"
+              required
+              className="outline-none w-full appearance-none flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg "
+            />
+          </div>
         </div>
       </from>
       <div className="w-full py-10 px-8 flex justify-end gap-5">
         <Link
           to={`/candidate/add-candidate/personal/professional`}
-          className="text-secondary-700 bg-white border border-secondary-700 py-2 px-5 rounded-full text-lg"
+          className="text-secondary-700 bg-white border border-secondary-700 py-2 px-5 rounded-full text-base"
         >
           Previous
         </Link>
         <Link
           to={`/candidate/add-candidate/personal/emergency-contacts`}
-          className="text-white bg-secondary-700 py-2 px-5 rounded-full text-lg"
+          className="text-white bg-secondary-700 py-2 px-5 rounded-full text-base"
         >
           Next
         </Link>

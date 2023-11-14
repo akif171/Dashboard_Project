@@ -132,74 +132,98 @@ const MarketingJobs = () => {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-5">
-              <div className="">
-                <div className="w-64">
-                  <label className="text-text-hint ">Marketing Status</label>
-                  <ul className="grid grid-cols-3 mt-1">
-                    <li className="relative">
-                      <input
-                        className="sr-only peer"
-                        type="radio"
-                        value="Remote"
-                        name="marketing_status"
-                        id="not_completed"
-                      />
-                      <label
-                        className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                        htmlFor="not_completed"
-                      >
-                        Remote
-                      </label>
-                    </li>
-                    <li className="relative">
-                      <input
-                        className="sr-only peer"
-                        type="radio"
-                        value="shortlisted"
-                        name="marketing_status"
-                        id="in_progress"
-                      />
-                      <label
-                        className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-t-secondary-800 border-b-secondary-800 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                        htmlFor="in_progress"
-                      >
-                        On-Site
-                      </label>
-                    </li>
+                <div className="">
+                  <div className="w-64">
+                    <label className="text-text-hint ">Job Type</label>
+                    <ul className="grid grid-cols-3 mt-1">
+                      <li className="relative">
+                        <input
+                          className="sr-only peer"
+                          type="radio"
+                          value="Remote"
+                          name="job_type"
+                          id="remote"
+                        />
+                        <label
+                          className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                          htmlFor="remote"
+                        >
+                          Remote
+                        </label>
+                      </li>
+                      <li className="relative">
+                        <input
+                          className="sr-only peer"
+                          type="radio"
+                          value="shortlisted"
+                          name="job_type"
+                          id="on-site"
+                        />
+                        <label
+                          className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-t-secondary-800 border-b-secondary-800 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                          htmlFor="on-site"
+                        >
+                          On-Site
+                        </label>
+                      </li>
 
-                    <li className="relative">
-                      <input
-                        className="sr-only peer"
-                        type="radio"
-                        value="Not Selected"
-                        name="marketing_status"
-                        id="completed"
-                      />
-                      <label
-                        className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                        htmlFor="completed"
-                      >
-                        Hybrid
-                      </label>
-                    </li>
-                  </ul>
+                      <li className="relative">
+                        <input
+                          className="sr-only peer"
+                          type="radio"
+                          value="Not Selected"
+                          name="job_type"
+                          id="hybrid"
+                        />
+                        <label
+                          className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                          htmlFor="hybrid"
+                        >
+                          Hybrid
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
                 <div className="flex flex-col">
-                  <label htmlFor="state" className="text-text-hint mb-1">
-                    State
+                  <label htmlFor="sales-person" className="text-text-hint mb-1">
+                    Sales Person
                   </label>
                   <input
                     type="text"
-                    placeholder="State"
-                    id="state"
+                    placeholder="Sales Person"
+                    id="sales-person"
+                    className="outline-none border-2 border-secondary-500 rounded-lg "
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-5">
+                <div className="flex flex-col">
+                  <label htmlFor="bill-rate" className="text-text-hint mb-1">
+                    Bill Rate
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Bill Rate"
+                    id="bill-rate"
+                    className="outline-none border-2 border-secondary-500 rounded-lg "
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="duration" className="text-text-hint mb-1">
+                    Duration
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Duration"
+                    id="duration"
                     className="outline-none border-2 border-secondary-500 rounded-lg "
                   />
                 </div>
               </div>
               <div className="">
                 <div className="w-96">
-                  <label className="text-text-hint ">Marketing Status</label>
+                  <label className="text-text-hint "> Status</label>
                   <ul className="grid grid-cols-3 mt-1">
                     <li className="relative">
                       <input
@@ -270,143 +294,131 @@ const MarketingJobs = () => {
       ) : (
         <Modal isOpen={isModalOpen} onClose={closeModal}>
           <div className="">
-            <form className="flex flex-col gap-6 ">
+            <form className="flex flex-col gap-7 ">
               <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col">
+                <div className="flex flex-col ">
                   <label
-                    htmlFor="sales_manager"
+                    htmlFor="interview_date"
                     className="text-text-hint mb-1"
                   >
-                    Sales Manager
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Sales manager"
-                    id="sales_manager"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <label htmlFor="sales_person" className="text-text-hint mb-1">
-                    Sales Person
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Sales Person"
-                    id="sales_person"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="sales_start_date"
-                    className="text-text-hint mb-1"
-                  >
-                    Sales Start Date
+                    Interview Date
                   </label>
                   <input
                     type="date"
-                    id="sales_start_date"
+                    id="interview_date"
                     className="outline-none border-2 border-text-hint rounded-lg "
                   />
                 </div>
 
                 <div className="flex flex-col">
                   <label
-                    htmlFor="sales_end_date"
+                    htmlFor="interview_time"
                     className="text-text-hint mb-1"
                   >
-                    Sales End Date
+                    Interview Time
                   </label>
-                  <input
-                    type="date"
-                    id="sales_end_date"
-                    className="outline-none border-2 border-text-hint rounded-lg "
-                  />
+                  <div className="outline-none border-2 border-text-hint rounded-lg px-1">
+                    <input
+                      type="time"
+                      id="interview_time"
+                      className="outline-none border-none focus-visible:outline-none focus-visible:border-none"
+                    />{" "}
+                    <input
+                      type="text"
+                      id="interview_time"
+                      placeholder="IST"
+                      className="outline-none border-none "
+                    />
+                  </div>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col">
-                  <label htmlFor="jobs_applied" className="text-text-hint mb-1">
-                    Jobs Applied
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Sales manager"
-                    id="jobs_applied"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col ">
                   <label
-                    htmlFor="interview_attended"
+                    htmlFor="appointment_details"
                     className="text-text-hint mb-1"
                   >
-                    Interview Attended
+                    Appointment Details
                   </label>
-                  <input
+                  <textarea
                     type="text"
-                    placeholder="Interview Attended"
-                    id="interview_attended"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
+                    placeholder="Appointment Details"
+                    id="appointment_details"
+                    className="focus:outline-none border  rounded-lg "
+                    rows={4}
                   />
                 </div>
-              </div>
-
-              <div className="">
-                <div className="w-96">
-                  <label className="text-text-hint ">Marketing Status</label>
-                  <ul className="grid grid-cols-3 mt-1">
-                    <li className="relative">
-                      <input
-                        className="sr-only peer"
-                        type="radio"
-                        value="In Progress"
-                        name="marketing_status"
-                        id="not_completed"
-                      />
-                      <label
-                        className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                        htmlFor="not_completed"
-                      >
-                        In Progress
-                      </label>
-                    </li>
-                    <li className="relative">
-                      <input
-                        className="sr-only peer"
-                        type="radio"
-                        value="shortlisted"
-                        name="marketing_status"
-                        id="in_progress"
-                      />
-                      <label
-                        className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-t-secondary-800 border-b-secondary-800 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                        htmlFor="in_progress"
-                      >
-                        Shortlisted
-                      </label>
-                    </li>
-
-                    <li className="relative">
-                      <input
-                        className="sr-only peer"
-                        type="radio"
-                        value="Not Selected"
-                        name="marketing_status"
-                        id="completed"
-                      />
-                      <label
-                        className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                        htmlFor="completed"
-                      >
-                        Not Selected
-                      </label>
-                    </li>
-                  </ul>
+                <div className="flex flex-col justify-between">
+                  <div>
+                    <button className=" bg-secondary-50 text-secondary-800 rounded-full py-2 px-6">
+                      <span className="pr-3">+</span>
+                      Add Links Available
+                    </button>
+                  </div>
+                  <div className="flex flex-col">
+                    <label htmlFor="add_link" className="text-text-hint mb-1">
+                      Add Link
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Link"
+                      id="add_link"
+                      className="outline-none border-2 border-secondary-500 rounded-lg "
+                    />
+                  </div>
                 </div>
+              </div>
+              <div className="grid grid-cols-2 gap-5">
+                <div className="flex flex-col ">
+                  <label
+                    htmlFor="interview-panel"
+                    className="text-text-hint mb-1"
+                  >
+                    Interview Panel Details
+                  </label>
+                  <textarea
+                    type="text"
+                    placeholder="Interview Panel Details"
+                    id="interview-panel"
+                    className="focus:outline-none border  rounded-lg "
+                    rows={4}
+                  />
+                </div>
+                <div className="flex flex-col justify-between">
+                  <div>
+                    <button className=" bg-secondary-50 text-secondary-800 rounded-full py-2 px-6">
+                      <span className="pr-3">+</span>
+                      Add Links Available
+                    </button>
+                  </div>
+                  <div className="flex flex-col">
+                    <label htmlFor="add_link" className="text-text-hint mb-1">
+                      Add Link
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Link"
+                      id="add_link"
+                      className="outline-none border-2 border-secondary-500 rounded-lg "
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col ">
+                <label htmlFor="feedback" className="text-text-hint mb-1">
+                  FeedBack
+                </label>
+                <textarea
+                  type="text"
+                  placeholder="FeedBack"
+                  id="feedback"
+                  className="focus:outline-none border  rounded-lg "
+                  rows={4}
+                />
+              </div>
+              <div>
+                <label className="text-text-hint mb-1">Rating</label>
+                <StarRating initialRating={3} fontSize={24} />
               </div>
             </form>
             <div className="flex justify-between p-6 mt-6">
