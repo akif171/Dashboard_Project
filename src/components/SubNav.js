@@ -12,9 +12,7 @@ const SubNav = ({ name, link }) => {
             : "p-2 rounded-tl-lg rounded-tr-lg justify-start items-start flex text-neutral-500 text-sm font-normal  leading-tight tracking-tight"
         }
       >
-        {/* <div className="text-white text-sm font-normal font-['Poppins'] leading-tight tracking-tight"> */}
         {name}
-        {/* </div> */}
       </NavLink>
     </>
   );

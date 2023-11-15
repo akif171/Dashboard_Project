@@ -29,7 +29,7 @@ const SalesArr = [
   },
   {
     name: "Technologies",
-    link: "sales/tecnologies",
+    link: "sales/technologies",
   },
   {
     name: "Sales Team",

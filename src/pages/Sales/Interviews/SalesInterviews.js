@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "../../../components/ModalComponents/Modal";
 import { RxReload } from "react-icons/rx";
 import StarRating from "../../../components/StarRating";
-import QrCode from "../../../images/Qr-code.png"
+import QrCode from "../../../images/Qr-code.png";
 
 const SalesInterviews = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,7 +20,18 @@ const SalesInterviews = () => {
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <div className="">
           <form className="flex flex-col gap-6">
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 gap-5">
+              <div className="flex flex-col w-72">
+                <label htmlFor="job" className="text-text-hint mb-1">
+                  Job
+                </label>
+                <input
+                  type="text"
+                  placeholder="Job"
+                  id="job"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="job_title" className="text-text-hint mb-1">
                   Job Title
@@ -32,30 +43,8 @@ const SalesInterviews = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="vendor" className="text-text-hint mb-1">
-                  Vendor
-                </label>
-                <input
-                  type="text"
-                  placeholder="Vendor"
-                  id="vendor"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="duration" className="text-text-hint mb-1">
-                  Duration in Months
-                </label>
-                <input
-                  type="text"
-                  placeholder="Duration "
-                  id="duration"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
             </div>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="client" className="text-text-hint mb-1">
                   Client
@@ -78,19 +67,9 @@ const SalesInterviews = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="client" className="text-text-hint mb-1">
-                  Number of Positions
-                </label>
-                <input
-                  type="text"
-                  placeholder="Number of Positions"
-                  id="client"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
+            
             </div>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="sales_manager" className="text-text-hint mb-1">
                   Sales Manager
@@ -113,19 +92,9 @@ const SalesInterviews = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="pay_type" className="text-text-hint mb-1">
-                  Pay Type
-                </label>
-                <input
-                  type="text"
-                  placeholder="Pay Type"
-                  id="pay_type"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
+              
             </div>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="state" className="text-text-hint mb-1">
                   State
@@ -149,7 +118,7 @@ const SalesInterviews = () => {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 gap-6">
               <div className="flex flex-col w-72">
                 <label htmlFor="created_date" className="text-text-hint mb-1">
                   Ceated on
@@ -161,7 +130,7 @@ const SalesInterviews = () => {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 gap-5">
               <div className="flex flex-col col-span-2">
                 <label htmlFor="document_type" className="text-text-hint mb-1">
                   Status Reason
@@ -175,7 +144,7 @@ const SalesInterviews = () => {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="job_contat" className="text-text-hint mb-1">
                   Job Contact Name
@@ -198,19 +167,9 @@ const SalesInterviews = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="job_phone" className="text-text-hint mb-1">
-                  Job Contact Phone Number
-                </label>
-                <input
-                  type="text"
-                  placeholder="Job Contact Phone Number "
-                  id="job_phone"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
+             
             </div>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 gap-5">
               <div className="flex flex-col col-span-3 ">
                 <label htmlFor="document_type" className="text-text-hint mb-1">
                   Job Description

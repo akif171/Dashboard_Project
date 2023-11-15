@@ -33,10 +33,28 @@ import Subscribe from "./pages/Subscribe/Subscribe";
 import SalesLayout from "./layouts/SalesLayout";
 import JobLeads from "./pages/Sales/JobLeads/JobLeads";
 import SalesInterviews from "./pages/Sales/Interviews/SalesInterviews";
+import Vendors from "./pages/Sales/Vendors/Vendors";
+import SalesContacts from "./pages/Sales/Contacts/SalesContacts";
+import Technologies from "./pages/Sales/Technologies/Technologies";
+import SalesTeams from "./pages/Sales/SalesTeams/SalesTeams";
+import SalesProjects from "./pages/Sales/Projects/SalesProjects";
+import VendorsLayout from "./layouts/VendorsLayout";
+import Summary from "./pages/Sales/Vendors/Subpages/Summary";
+import Details from "./pages/Sales/Vendors/Subpages/Details";
+import Files from "./pages/Sales/Vendors/Subpages/Files";
+import VendorSummaryLayout from "./layouts/VendorSummaryLayout";
+import VendorDetailsLayout from "./layouts/VendorDetailsLayout";
+import AccountInfo from "./pages/Sales/Vendors/Subpages/AccountInfo";
+import Contacts from "./pages/Sales/Vendors/Subpages/Contacts";
+import BillingAddress from "./pages/Sales/Vendors/Subpages/BillingAddress";
+import CompanyProfile from "./pages/Sales/Vendors/Subpages/CompanyProfile";
+import CompanyPreference from "./pages/Sales/Vendors/Subpages/CompanyPreference";
+import BillingTerms from "./pages/Sales/Vendors/Subpages/BillingTerms";
+import Description from "./pages/Sales/Vendors/Subpages/Description";
 
 function App() {
   const [isAuth, setIsAuth] = useState(true);
-  Navigate("/dashboard")
+  Navigate("/dashboard");
   return (
     <>
       <Routes>
@@ -79,6 +97,31 @@ function App() {
           <Route path="sales" element={<SalesLayout />}>
             <Route path="job-leads" element={<JobLeads />} />
             <Route path="interviews" element={<SalesInterviews />} />
+            <Route path="projects" element={<SalesProjects />} />
+            <Route path="vendors" element={<Vendors />} />
+
+            <Route path="vendors/new-vendor" element={<VendorsLayout />}>
+              <Route path="summary" element={<VendorSummaryLayout />}>
+                <Route index element={<AccountInfo />} />
+                <Route path="account-info" element={<AccountInfo />} />
+                <Route path="contact" element={<Contacts />} />
+                <Route path="billing" element={<BillingAddress />} />
+              </Route>
+              <Route path="details" element={<VendorDetailsLayout />}>
+                <Route index element={<CompanyProfile />} />
+                <Route path="company-profile" element={<CompanyProfile />} />
+                <Route
+                  path="company-preference"
+                  element={<CompanyPreference />}
+                />
+                <Route path="billing-terms" element={<BillingTerms />} />
+                <Route path="description" element={<Description />} />
+              </Route>
+              <Route path="files" element={<Files />} />
+            </Route>
+            <Route path="contacts" element={<SalesContacts />} />
+            <Route path="technologies" element={<Technologies />} />
+            <Route path="sales-teams" element={<SalesTeams />} />
           </Route>
         </Route>
         {/* <Route path="/*" errorElement={<ErrorPage />} /> */}
