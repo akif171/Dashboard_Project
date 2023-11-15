@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
@@ -36,6 +36,7 @@ import SalesInterviews from "./pages/Sales/Interviews/SalesInterviews";
 
 function App() {
   const [isAuth, setIsAuth] = useState(true);
+  Navigate("/dashboard")
   return (
     <>
       <Routes>
