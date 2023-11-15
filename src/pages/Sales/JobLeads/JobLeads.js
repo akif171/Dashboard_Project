@@ -216,7 +216,7 @@ const JobLeads = () => {
               </div>
             </div>
             <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col col-span-3 ">
+              <div className="flex flex-col col-span-2 ">
                 <label htmlFor="document_type" className="text-text-hint mb-1">
                   Job Description
                 </label>

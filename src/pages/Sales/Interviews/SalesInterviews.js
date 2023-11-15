@@ -46,16 +46,18 @@ const SalesInterviews = () => {
             </div>
             <div className="grid grid-cols-2 gap-5">
               <div className="flex flex-col w-72">
-                <label htmlFor="client" className="text-text-hint mb-1">
-                  Client
+                <label htmlFor="cnadidate_name" className="text-text-hint mb-1">
+                  Candidate Name
                 </label>
                 <input
                   type="text"
-                  placeholder="Client "
-                  id="client"
+                  placeholder="Candidate Name "
+                  id="cnadidate_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
+            </div>
+            <div className="grid grid-cols-2 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="technology" className="text-text-hint mb-1">
                   Technology
@@ -67,53 +69,38 @@ const SalesInterviews = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-            
+              <div className="flex flex-col w-72">
+                <label htmlFor="vendor" className="text-text-hint mb-1">
+                  Vendor
+                </label>
+                <input
+                  type="text"
+                  placeholder="Vendor"
+                  id="vendor"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-5">
               <div className="flex flex-col w-72">
-                <label htmlFor="sales_manager" className="text-text-hint mb-1">
-                  Sales Manager
+                <label htmlFor="client_company" className="text-text-hint mb-1">
+                  Client Company
                 </label>
                 <input
                   type="text"
-                  placeholder="Sales Manager"
-                  id="sales_manager"
+                  placeholder="Client Company"
+                  id="client_company"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
-                <label htmlFor="bill_rate" className="text-text-hint mb-1">
-                  Bill Rate
+                <label htmlFor="client_name" className="text-text-hint mb-1">
+                  Client Name
                 </label>
                 <input
                   type="text"
-                  placeholder="Bill Rate"
-                  id="bill_rate"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-              
-            </div>
-            <div className="grid grid-cols-2 gap-5">
-              <div className="flex flex-col w-72">
-                <label htmlFor="state" className="text-text-hint mb-1">
-                  State
-                </label>
-                <input
-                  type="text"
-                  placeholder="State"
-                  id="state"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="city" className="text-text-hint mb-1">
-                  City
-                </label>
-                <input
-                  type="text"
-                  placeholder="City"
-                  id="city"
+                  placeholder="Client Name"
+                  id="client_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
@@ -130,45 +117,32 @@ const SalesInterviews = () => {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-5">
-              <div className="flex flex-col col-span-2">
-                <label htmlFor="document_type" className="text-text-hint mb-1">
-                  Status Reason
-                </label>
-                <textarea
-                  type="text"
-                  placeholder="Status Reason"
-                  id="document_type"
-                  className="focus:outline-none border  rounded-lg "
-                  rows={4}
-                />
-              </div>
-            </div>
+
             <div className="grid grid-cols-2 gap-5">
               <div className="flex flex-col w-72">
-                <label htmlFor="job_contat" className="text-text-hint mb-1">
-                  Job Contact Name
+                <label htmlFor="interviewer_1" className="text-text-hint mb-1">
+                  Interviewer 1
                 </label>
                 <input
                   type="text"
-                  placeholder="Job Contact Name"
-                  id="job_contat"
+                  placeholder="Interviewer 1"
+                  id="interviewer_1"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
-                <label htmlFor="job_email" className="text-text-hint mb-1">
-                  Job Contact Email
+                <label htmlFor="interviewer_2" className="text-text-hint mb-1">
+                  Interviewer 2
                 </label>
                 <input
                   type="text"
-                  placeholder="Job Contact Email"
-                  id="job_email"
+                  placeholder="Interviewer 2"
+                  id="interviewer_2"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-             
             </div>
+
             <div className="grid grid-cols-2 gap-5">
               <div className="flex flex-col col-span-3 ">
                 <label htmlFor="document_type" className="text-text-hint mb-1">
@@ -178,6 +152,96 @@ const SalesInterviews = () => {
                   type="text"
                   placeholder="Description"
                   id="document_type"
+                  className="focus:outline-none border  rounded-lg "
+                  rows={4}
+                />
+              </div>
+            </div>
+            <div className="flex flex-col justify-between w-96 gap-5">
+              <div className="flex flex-col ">
+                <label htmlFor="add_link" className="text-text-hint mb-1">
+                  Add Link
+                </label>
+                <input
+                  type="text"
+                  placeholder="Link"
+                  id="add_link"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div>
+                <button className=" bg-secondary-50 text-secondary-800 rounded-full py-2 px-6">
+                  <span className="pr-3">+</span>
+                  Add Links Available
+                </button>
+              </div>
+            </div>
+            <div className="">
+              <div className="w-96">
+                <label className="text-text-hint ">Interview Status</label>
+                <ul className="grid grid-cols-3 mt-1">
+                  <li className="relative">
+                    <input
+                      className="sr-only peer"
+                      type="radio"
+                      value="InPrgress"
+                      name="interview_status"
+                      id="in_progress"
+                    />
+                    <label
+                      className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                      htmlFor="in_progress"
+                    >
+                      InPrgress
+                    </label>
+                  </li>
+                  <li className="relative">
+                    <input
+                      className="sr-only peer"
+                      type="radio"
+                      value="ShortListed"
+                      name="interview_status"
+                      id="shortlisted"
+                    />
+                    <label
+                      className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-t-secondary-800 border-b-secondary-800 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                      htmlFor="shortlisted"
+                    >
+                      ShortListed
+                    </label>
+                  </li>
+
+                  <li className="relative">
+                    <input
+                      className="sr-only peer"
+                      type="radio"
+                      value="Not Selected"
+                      name="interview_status"
+                      id="not_selected"
+                    />
+                    <label
+                      className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                      htmlFor="not_selected"
+                    >
+                      Not Selected
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <h3>Rating</h3>
+              <StarRating initialRating={3} fontSize={24} />
+            </div>
+            <div className="grid grid-cols-2 gap-5">
+              <div className="flex flex-col col-span-3 ">
+                <label htmlFor="feedback" className="text-text-hint mb-1">
+                  Feedback
+                </label>
+                <textarea
+                  type="text"
+                  placeholder="Feedback"
+                  id="feedback"
                   className="focus:outline-none border  rounded-lg "
                   rows={4}
                 />

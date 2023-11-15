@@ -6,17 +6,14 @@ import QrCode from "../../../images/Qr-code.png";
 import { Link } from "react-router-dom";
 
 const Vendors = () => {
-
-
   return (
     <div className="p-5 ">
-    
       <div className="border border-gray-300 rounded-lg ">
         <div className="flex justify-between items-center gap-2 p-3">
           <RxReload size={20} />
 
           <Link
-           to={`new-vendor/summary`}
+            to={`new-vendor/summary`}
             className="py-3 px-6 bg-secondary-700 text-white rounded-full"
           >
             <span className="mr-3">+</span>
@@ -27,17 +24,13 @@ const Vendors = () => {
           <table class="table-auto overflow-scroll w-full">
             {/* Table headings */}
             <thead className="w-full">
-              <tr className="grid grid-cols-10  text-left py-3 pl-3 pr-6 bg-secondary-50 text-sm">
-                <th>Job</th>
-                <th>Candidate</th>
-                <th>Technology</th>
-                <th>Client</th>
-                <th>Vendor</th>
-                <th>Created on</th>
-                <th>Bill Rate</th>
-                <th>Interviewer</th>
-                <th>Rating</th>
-                <th>Feedback</th>
+              <tr className="grid grid-cols-6  text-left py-3 pl-3 pr-6 bg-secondary-50 text-sm">
+                <th>Vendor Name</th>
+                <th>Vendor Type</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Status</th>
               </tr>
             </thead>
             {/* table content/data */}
@@ -46,29 +39,22 @@ const Vendors = () => {
               // style={{ height: "90vh" }}
             >
               {[1, 2, 3].map(() => (
-                <tr className="grid grid-cols-10 justify-center items-center py-2 px-3 gap-1 border border-gray-200 text-left w-full text-sm">
+                <tr className="grid grid-cols-6 justify-center items-center py-2 px-3 gap-1 border border-gray-200 text-left w-full text-sm">
                   <td className="">
-                    <h3 className="text-base text-auxiliary-800">FrontEnd</h3>
-                    <p className="text-text-hint">Data Engineer</p>
+                    <h3 className="text-base text-auxiliary-800">Infosys Technologies</h3>
                   </td>
-                  <td className="">Bessie Cooper</td>
-                  <td className="">Technology</td>
+                  <td className="">Consulting</td>
+                  <td className="">(888) 888 8889</td>
                   <td className="">
-                    <h3>Jenny Wilson</h3>
-                    <p className="text-xs text-text-hint w-">salesforce</p>
+                    <p className="">bessiecooper@gmail.com</p>
                   </td>
 
-                  <td className="">Technology</td>
-                  <td className="">10/10/2023</td>
-                  <td className="">124</td>
-                  <td className="">Jenny Wilson</td>
-                  <td>
-                    <StarRating fontSize={16} initialRating={3} />
+                  <td className="">Steve Son</td>
+
+                  <td className="flex ">
+                    <p className="border border-success-700 rounded-full text-success-700 py-2 px-6">Active</p>
                   </td>
-                  <td className="flex justify-between w-full">
-                    <p>Good</p>
-                    <img src={QrCode} alt="qr-code" />
-                  </td>
+              
                 </tr>
               ))}
             </tbody>

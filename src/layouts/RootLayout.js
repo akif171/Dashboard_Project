@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route, Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import Dashboard from "../pages/Dashboard";
@@ -19,8 +19,10 @@ import Interviews from "../pages/Candidate/Interviews";
 import Projects from "../pages/Candidate/Projects";
 import Trainings from "../pages/Candidate/Trainings";
 import Documents from "../pages/Candidate/Documents";
+import { useEffect } from "react";
 
 const RootLayout = () => {
+
   return (
     <>
       <Navbar />
@@ -28,7 +30,6 @@ const RootLayout = () => {
         <Sidebar />
 
         <div className="w-full ml-52">
-         
           <Outlet />
         </div>
       </div>

@@ -51,13 +51,22 @@ import CompanyProfile from "./pages/Sales/Vendors/Subpages/CompanyProfile";
 import CompanyPreference from "./pages/Sales/Vendors/Subpages/CompanyPreference";
 import BillingTerms from "./pages/Sales/Vendors/Subpages/BillingTerms";
 import Description from "./pages/Sales/Vendors/Subpages/Description";
+import Home from "./pages/Home/Home";
 
 function App() {
   const [isAuth, setIsAuth] = useState(true);
-  Navigate("/dashboard");
+
   return (
     <>
       <Routes>
+        <Route
+          path="/"
+          element={
+            <CheckAuth isAuth={isAuth}>
+              <Home />
+            </CheckAuth>
+          }
+        />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="subscribe" element={<Subscribe />} />
