@@ -24,7 +24,7 @@ const Documents = () => {
         <div className="">
           <form className="flex flex-col gap-6">
             <div className="grid grid-cols-2">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="document_type" className="text-text-hint mb-1">
                   Document Name
                 </label>
@@ -57,7 +57,7 @@ const Documents = () => {
                 </button>
               </div>
             </div>
-            <div className="flex flex-col ">
+            <div className="flex flex-col">
               <label htmlFor="document_type" className="text-text-hint mb-1">
                 Document Name
               </label>
@@ -70,7 +70,7 @@ const Documents = () => {
               />
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="created_date" className="text-text-hint mb-1">
                   Created Date
                 </label>
@@ -82,7 +82,7 @@ const Documents = () => {
                 />
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="updated_date" className="text-text-hint mb-1">
                   Updated Date
                 </label>

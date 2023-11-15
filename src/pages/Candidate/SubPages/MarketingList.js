@@ -33,7 +33,7 @@ const MarketingList = () => {
         <div className="">
           <form className="flex flex-col gap-6 ">
             <div className="grid grid-cols-2 gap-5">
-              <div className="flex flex-col">
+              <div className="flex flex-col  w-72">
                 <label htmlFor="sales_manager" className="text-text-hint mb-1">
                   Sales Manager
                 </label>
@@ -44,7 +44,7 @@ const MarketingList = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col  w-72">
                 <label htmlFor="sales_person" className="text-text-hint mb-1">
                   Sales Person
                 </label>
@@ -57,7 +57,7 @@ const MarketingList = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label
                   htmlFor="sales_start_date"
                   className="text-text-hint mb-1"
@@ -71,7 +71,7 @@ const MarketingList = () => {
                 />
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="sales_end_date" className="text-text-hint mb-1">
                   Sales End Date
                 </label>
@@ -83,7 +83,7 @@ const MarketingList = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-5">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="jobs_applied" className="text-text-hint mb-1">
                   Jobs Applied
                 </label>
@@ -94,7 +94,7 @@ const MarketingList = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label
                   htmlFor="interview_attended"
                   className="text-text-hint mb-1"

@@ -34,7 +34,7 @@ const MarketingJobs = () => {
           <div className="">
             <form className="flex flex-col gap-6 ">
               <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col">
+                <div className="flex flex-col w-72">
                   <label htmlFor="job_id" className="text-text-hint mb-1">
                     Job ID
                   </label>
@@ -45,7 +45,7 @@ const MarketingJobs = () => {
                     className="outline-none border-2 border-secondary-500 rounded-lg "
                   />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col w-72">
                   <label htmlFor="job_title" className="text-text-hint mb-1">
                     Job Title
                   </label>
@@ -59,7 +59,7 @@ const MarketingJobs = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col">
+                <div className="flex flex-col w-72">
                   <label htmlFor="vendor_name" className="text-text-hint mb-1">
                     Vendor Name
                   </label>
@@ -70,7 +70,7 @@ const MarketingJobs = () => {
                     className="outline-none border-2 border-secondary-500 rounded-lg "
                   />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col w-72">
                   <label htmlFor="vendor_email" className="text-text-hint mb-1">
                     Vendor Email
                   </label>
@@ -84,7 +84,7 @@ const MarketingJobs = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col">
+                <div className="flex flex-col w-72">
                   <label htmlFor="city" className="text-text-hint mb-1">
                     Vendor Number
                   </label>
@@ -95,7 +95,7 @@ const MarketingJobs = () => {
                     className="outline-none border-2 border-secondary-500 rounded-lg "
                   />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col w-72">
                   <label htmlFor="technology" className="text-text-hint mb-1">
                     Technology
                   </label>
@@ -108,7 +108,7 @@ const MarketingJobs = () => {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col">
+                <div className="flex flex-col w-72">
                   <label htmlFor="city" className="text-text-hint mb-1">
                     City
                   </label>
@@ -119,7 +119,7 @@ const MarketingJobs = () => {
                     className="outline-none border-2 border-secondary-500 rounded-lg "
                   />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col w-72">
                   <label htmlFor="state" className="text-text-hint mb-1">
                     State
                   </label>
@@ -198,7 +198,7 @@ const MarketingJobs = () => {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col">
+                <div className="flex flex-col w-72">
                   <label htmlFor="bill-rate" className="text-text-hint mb-1">
                     Bill Rate
                   </label>
@@ -209,7 +209,7 @@ const MarketingJobs = () => {
                     className="outline-none border-2 border-secondary-500 rounded-lg "
                   />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col w-72">
                   <label htmlFor="duration" className="text-text-hint mb-1">
                     Duration
                   </label>
@@ -296,7 +296,7 @@ const MarketingJobs = () => {
           <div className="">
             <form className="flex flex-col gap-7 ">
               <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col ">
+                <div className="flex flex-col  ">
                   <label
                     htmlFor="interview_date"
                     className="text-text-hint mb-1"
@@ -310,24 +310,24 @@ const MarketingJobs = () => {
                   />
                 </div>
 
-                <div className="flex flex-col">
+                <div className="flex flex-col ">
                   <label
                     htmlFor="interview_time"
                     className="text-text-hint mb-1"
                   >
                     Interview Time
                   </label>
-                  <div className="outline-none border-2 border-text-hint rounded-lg px-1">
+                  <div className="flex outline-none border-2 border-text-hint rounded-lg px-1">
                     <input
                       type="time"
                       id="interview_time"
-                      className="outline-none border-none focus-visible:outline-none focus-visible:border-none"
+                      className="outline-none border-none focus:ring-0"
                     />{" "}
                     <input
                       type="text"
                       id="interview_time"
                       placeholder="IST"
-                      className="outline-none border-none "
+                      className="outline-none border-none focus:ring-0"
                     />
                   </div>
                 </div>

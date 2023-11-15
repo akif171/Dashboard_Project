@@ -25,7 +25,7 @@ const Interviews = () => {
         <div className="">
           <form className="flex flex-col gap-6">
             <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="course_name" className="text-text-hint mb-1">
                   Course Name
                 </label>
@@ -36,7 +36,7 @@ const Interviews = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="course_name" className="text-text-hint mb-1">
                   Course Name
                 </label>
@@ -49,7 +49,7 @@ const Interviews = () => {
               </div>
             </div>
             <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="vendor" className="text-text-hint mb-1">
                   Vendor
                 </label>
@@ -60,7 +60,7 @@ const Interviews = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="vendor" className="text-text-hint mb-1">
                   Vendor
                 </label>
@@ -71,7 +71,7 @@ const Interviews = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="client" className="text-text-hint mb-1">
                   Client
                 </label>
@@ -84,7 +84,7 @@ const Interviews = () => {
               </div>
             </div>
             <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="course_name" className="text-text-hint mb-1">
                   Course Name
                 </label>
@@ -95,7 +95,7 @@ const Interviews = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="course_name" className="text-text-hint mb-1">
                   Course Name
                 </label>
@@ -108,7 +108,7 @@ const Interviews = () => {
               </div>
             </div>
             <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="course_name" className="text-text-hint mb-1">
                   Course Name
                 </label>
@@ -119,7 +119,7 @@ const Interviews = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="course_name" className="text-text-hint mb-1">
                   Course Name
                 </label>
@@ -132,7 +132,7 @@ const Interviews = () => {
               </div>
             </div>
             <div className="grid grid-cols-3 gap-6">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="date" className="text-text-hint mb-1">
                   Date
                 </label>
@@ -155,6 +155,25 @@ const Interviews = () => {
                   className="focus:outline-none border  rounded-lg "
                   rows={4}
                 />
+              </div>
+              <div className="flex flex-col justify-between">
+                <div>
+                  <button className=" bg-secondary-50 text-secondary-800 rounded-full py-2 px-6">
+                    <span className="pr-3">+</span>
+                    Add Links Available
+                  </button>
+                </div>
+                <div className="flex flex-col ">
+                  <label htmlFor="add_link" className="text-text-hint mb-1">
+                    Add Link
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Link"
+                    id="add_link"
+                    className="outline-none border-2 border-secondary-500 rounded-lg "
+                  />
+                </div>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-5">

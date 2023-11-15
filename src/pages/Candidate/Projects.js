@@ -25,7 +25,7 @@ const Projects = () => {
         <div className="">
           <form className="flex flex-col gap-6 ">
             <div className="grid grid-cols-2 gap-5">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="job_title" className="text-text-hint mb-1">
                   Job Title
                 </label>
@@ -36,7 +36,7 @@ const Projects = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="job" className="text-text-hint mb-1">
                   Job
                 </label>
@@ -49,7 +49,7 @@ const Projects = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-5">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="vendor" className="text-text-hint mb-1">
                   Vendor
                 </label>
@@ -60,7 +60,7 @@ const Projects = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="client" className="text-text-hint mb-1">
                   Client
                 </label>
@@ -73,7 +73,7 @@ const Projects = () => {
               </div>
             </div>
             <div className="grid grid-cols-2">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="city" className="text-text-hint mb-1">
                   City
                 </label>
@@ -86,7 +86,7 @@ const Projects = () => {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="start_date" className="text-text-hint mb-1">
                   Start Date
                 </label>
@@ -97,7 +97,7 @@ const Projects = () => {
                 />
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="end_date" className="text-text-hint mb-1">
                   End Date
                 </label>
@@ -109,7 +109,7 @@ const Projects = () => {
               </div>
             </div>
             <div className="grid grid-cols-2">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-72">
                 <label htmlFor="status_reason" className="text-text-hint mb-1">
                   Status Reason
                 </label>
