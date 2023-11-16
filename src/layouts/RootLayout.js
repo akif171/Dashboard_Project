@@ -17,7 +17,7 @@ import MarketingNotes from "../pages/Candidate/SubPages/MarketingNotes";
 import MarketingJobs from "../pages/Candidate/SubPages/MarketingJobs";
 import Interviews from "../pages/Candidate/Interviews";
 import Projects from "../pages/Candidate/Projects";
-import Trainings from "../pages/Candidate/Trainings";
+import Trainings from "../pages/Candidate/CandidateTrainings";
 import Documents from "../pages/Candidate/Documents";
 import { useEffect } from "react";
 

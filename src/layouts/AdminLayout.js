@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
-const SalesLayout = ({ children }) => {
+const AdminLayout = () => {
   const location = useLocation();
   const segmentsArr = location.pathname.split("/");
 
@@ -14,7 +14,7 @@ const SalesLayout = ({ children }) => {
       <div className="w-96 h-10 px-4 my-3 justify-start items-center gap-2 inline-flex">
         <div className="justify-start items-center gap-2 flex">
           <div className="text-neutral-700 text-base font-medium font-['Inter'] tracking-tight">
-            Sales
+            Administration
           </div>
           <svg
             width="24"
@@ -44,4 +44,4 @@ const SalesLayout = ({ children }) => {
   );
 };
 
-export default SalesLayout;
+export default AdminLayout;

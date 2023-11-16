@@ -11,7 +11,7 @@ import Notes from "./pages/Candidate/Notes";
 import Marketing from "./pages/Candidate/Marketing";
 import Interviews from "./pages/Candidate/Interviews";
 import Projects from "./pages/Candidate/Projects";
-import Trainings from "./pages/Candidate/Trainings";
+import CandidateTrainings from "./pages/Candidate/CandidateTrainings";
 import Documents from "./pages/Candidate/Documents";
 import Basic from "./pages/Candidate/SubPages/Basic";
 import Professional from "./pages/Candidate/SubPages/Professional";
@@ -55,6 +55,12 @@ import Home from "./pages/Home/Home";
 import TrainingLayout from "./layouts/TrainingLayout";
 import Classes from "./pages/Training/Classes";
 import Faculty from "./pages/Training/Faculty";
+import AdminLayout from "./layouts/AdminLayout";
+import Account from "./pages/Administration/Account";
+import Users from "./pages/Administration/Users";
+import UserRoles from "./pages/Administration/UserRoles";
+import Settings from "./pages/Administration/Settings";
+import Trainings from "./pages/Training/Trainings";
 
 function App() {
   const [isAuth, setIsAuth] = useState(true);
@@ -103,7 +109,7 @@ function App() {
             </Route>
             <Route path="interviews" element={<Interviews />} />
             <Route path="projects" element={<Projects />} />
-            <Route path="trainings" element={<Trainings />} />
+            <Route path="trainings" element={<CandidateTrainings />} />
             <Route path="documents" element={<Documents />} />
           </Route>
           <Route path="sales" element={<SalesLayout />}>
@@ -139,6 +145,12 @@ function App() {
             <Route path="classes" element={<Classes />} />
             <Route path="faculty" element={<Faculty />} />
             <Route path="trainings" element={<Trainings />} />
+          </Route>
+          <Route path="admin" element={<AdminLayout />}>
+            <Route path="account" element={<Account />} />
+            <Route path="users" element={<Users />} />
+            <Route path="user-roles" element={<UserRoles />} />
+            <Route path="settings" element={<Settings />} />
           </Route>
         </Route>
         {/* <Route path="/*" errorElement={<ErrorPage />} /> */}

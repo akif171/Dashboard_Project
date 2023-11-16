@@ -7,7 +7,7 @@ import StarRating from "../../components/StarRating";
 import { Link } from "react-router-dom";
 import Modal from "../../components/ModalComponents/Modal";
 
-const Trainings = () => {
+ const CandidateTrainings = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -265,4 +265,4 @@ const Trainings = () => {
   );
 };
 
-export default Trainings;
+export default CandidateTrainings;

@@ -3,7 +3,7 @@ import Modal from "../../components/ModalComponents/Modal";
 import { RxReload } from "react-icons/rx";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
-const Classes = () => {
+const Account = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -351,22 +351,20 @@ const Classes = () => {
             className="py-3 px-6 bg-secondary-700 text-white rounded-full"
           >
             <span className="mr-3">+</span>
-            Add Class
+            Add Account
           </button>
         </div>
         <div className="w-full overflow-x">
           <table class="table-auto overflow-scroll w-full">
             {/* Table headings */}
             <thead className="w-full">
-              <tr className="grid grid-cols-9  text-left py-3 pl-3 pr-6 bg-secondary-50 text-sm">
-                <th>Class Name</th>
-                <th>Faculty Type</th>
-                <th>Technologies</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>MIN Enrollment</th>
-                <th>MAX Enrollment</th>
-                <th>Current Enrollment</th>
+              <tr className="grid grid-cols-7  text-left py-3 pl-3 pr-6 bg-secondary-50 text-sm">
+                <th>Business Name</th>
+                <th>Email ID</th>
+                <th>Phone Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date Created</th>
                 <th>Status</th>
               </tr>
             </thead>
@@ -376,29 +374,20 @@ const Classes = () => {
               // style={{ height: "90vh" }}
             >
               {[1, 2, 3].map(() => (
-                <tr className="grid grid-cols-9  items-center py-2 px-3 gap-1 border border-gray-200 text-left w-full text-sm">
+                <tr className="grid grid-cols-7 justify-center items-center py-2 px-3 gap-1 border border-gray-200 text-left w-full text-sm">
                   <td className="">
-                    <h3 className="text-base text-auxiliary-800">Sales Tech</h3>
+                    <h3 className="text-base text-auxiliary-800">Some Name</h3>
                   </td>
-                  <td className="">Bessie</td>
-                  <td className="">Technology</td>
+                  <td className="">
+                    <p className="">bessiecooper@gmail.com</p>
+                  </td>
+                  <td className="">+91 9999999999</td>
+                  <td className="">Sam</td>
+                  <td className="">Jhon</td>
                   <td className="">10/10/10</td>
-                  <td className="">10/10/10</td>
                   <td className="flex">
-                    <p className="bg-secondary-50 text-success-800 py-2 px-5 rounded-full">
-                      12
-                    </p>
-                  </td>
-                  <td className="flex">
-                    <p className="bg-secondary-100 text-secondary-800-800 text-xs py-2 px-5 rounded-full">
-                      12
-                    </p>
-                  </td>
-                 
-                  <td className="">12</td>
-                  <td className="flex">
-                    <p className="border border-danger-500 text-danger-500 text-xs py-2 px-6 rounded-full">
-                      Not Selected
+                    <p className="border border-success-700 text-success-700 py-2 px-6 rounded-full">
+                      Active
                     </p>
                   </td>
                 </tr>
@@ -435,4 +424,4 @@ const Classes = () => {
   );
 };
 
-export default Classes;
+export default Account;
