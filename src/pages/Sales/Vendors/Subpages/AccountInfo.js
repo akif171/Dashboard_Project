@@ -102,12 +102,9 @@ const AccountInfo = () => {
         </div>
       </from>
       <div className="w-full py-10 px-8 flex justify-end items-baseline">
-        <Link
-          to={`/sales/vendors/new-vendor/summary/contact`}
-          className="text-white bg-secondary-700 py-2 px-5 rounded-full text-base"
-        >
-          Next
-        </Link>
+        <button className="text-white bg-secondary-700 py-2 px-5 rounded-full text-base">
+          Save
+        </button>
       </div>
     </div>
   );

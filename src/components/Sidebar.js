@@ -37,11 +37,24 @@ const SalesArr = [
   },
 ];
 
+const trainingArr = [
+  { name: "Classes", link: "training/classes" },
+  { name: "Faculty", link: "training/faculty" },
+  { name: "Trainings", link: "training/trainings" },
+];
+
+const adminArr = [
+  { name: "Account", link: "admin/account" },
+  { name: "Users", link: "admin/users" },
+  { name: "User Roles", link: "admin/user-roles" },
+  { name: "Settings", link: "admin/settings" },
+];
+
 const Sidebar = () => {
   return (
     <aside
       id="sidebar-multi-level-sidebar"
-      className="fixed  left-0  w-52 h-screen transition-transform -translate-x-full sm:translate-x-0 "
+      className="fixed  left-0 overflow-y-auto w-52 h-screen transition-transform -translate-x-full sm:translate-x-0 "
       aria-label="Sidebar"
       rounded-lg
     >
@@ -302,31 +315,39 @@ const Sidebar = () => {
                 />
               </svg>
             </button>
-            <ul id="training" className="hidden space-y-2 bg-slate-500">
-              <li>
-                <Link
-                  href="#"
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+            <ul id="training" className="hidden  bg-primary-400 text-white ">
+              {trainingArr.map(({ name, link, index }) => (
+                <NavLink
+                  key={index}
+                  to={link}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "flex items-center  w-full p-4  transition duration-75 text-primary-500 bg-gray-100"
+                      : "flex items-center  w-full p-4  transition duration-75 hover:bg-gray-100 text-white hover:text-primary-500 dark:hover:bg-gray-700"
+                  }
+                  // className="flex items-center  w-full p-4  transition duration-75   group hover:bg-gray-100 text-white hover:text-primary-500 dark:hover:bg-gray-700"
                 >
-                  Classes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >
-                  Faculty
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >
-                  Training
-                </Link>
-              </li>
+                  <li className=" flex gap-3 ">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g id="icon">
+                        <path
+                          id="Vector 10"
+                          d="M16.7074 11.7952L8.25877 5.88114C7.72855 5.50998 7 5.88931 7 6.53652V17.4635C7 18.1107 7.72855 18.49 8.25877 18.1189L16.7074 12.2048C16.8496 12.1053 16.8496 11.8947 16.7074 11.7952Z"
+                          fill="currentColor"
+                        />
+                      </g>
+                    </svg>
+
+                    {name}
+                  </li>
+                </NavLink>
+              ))}
             </ul>
           </li>
           <li>
@@ -382,39 +403,39 @@ const Sidebar = () => {
                 />
               </svg>
             </button>
-            <ul id="administration" className="hidden space-y-2 bg-slate-500">
-              <li>
-                <Link
-                  href="#"
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+            <ul id="administration" className="hidden  bg-primary-400 text-white ">
+              {adminArr.map(({ name, link, index }) => (
+                <NavLink
+                  key={index}
+                  to={link}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "flex items-center  w-full p-4  transition duration-75 text-primary-500 bg-gray-100"
+                      : "flex items-center  w-full p-4  transition duration-75 hover:bg-gray-100 text-white hover:text-primary-500 dark:hover:bg-gray-700"
+                  }
+                  // className="flex items-center  w-full p-4  transition duration-75   group hover:bg-gray-100 text-white hover:text-primary-500 dark:hover:bg-gray-700"
                 >
-                  Account
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >
-                  Users
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >
-                  User Role
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="flex items-center w-full p-4 text-gray-900 transition duration-75  pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                >
-                  Settings
-                </Link>
-              </li>
+                  <li className=" flex gap-3 ">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g id="icon">
+                        <path
+                          id="Vector 10"
+                          d="M16.7074 11.7952L8.25877 5.88114C7.72855 5.50998 7 5.88931 7 6.53652V17.4635C7 18.1107 7.72855 18.49 8.25877 18.1189L16.7074 12.2048C16.8496 12.1053 16.8496 11.8947 16.7074 11.7952Z"
+                          fill="currentColor"
+                        />
+                      </g>
+                    </svg>
+
+                    {name}
+                  </li>
+                </NavLink>
+              ))}
             </ul>
           </li>
         </ul>
