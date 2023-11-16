@@ -58,7 +58,7 @@ const SalesProjects = () => {
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="vendor" className="text-text-hint mb-1">
-                  Vedor
+                  Vendor
                 </label>
                 <input
                   type="text"
@@ -298,7 +298,6 @@ const SalesProjects = () => {
           </div>
         </div>
       </Modal>
-
       <div className="border border-gray-300 rounded-lg ">
         <div className="flex justify-between items-center gap-2 p-3">
           <RxReload size={20} />
@@ -316,16 +315,16 @@ const SalesProjects = () => {
             {/* Table headings */}
             <thead className="w-full">
               <tr className="grid grid-cols-10  text-left py-3 pl-3 pr-6 bg-secondary-50 text-sm">
-                <th>Job</th>
+                <th>Project Info</th>
                 <th>Candidate</th>
-                <th>Technology</th>
-                <th>Client</th>
                 <th>Vendor</th>
+                <th>Client</th>
+                <th>City</th>
+                <th>Start Date</th>
+                <th>End Date</th>
                 <th>Created on</th>
-                <th>Bill Rate</th>
-                <th>Interviewer</th>
-                <th>Rating</th>
-                <th>Feedback</th>
+                <th>Duration</th>
+                <th>Project Status</th>
               </tr>
             </thead>
             {/* table content/data */}
@@ -337,27 +336,24 @@ const SalesProjects = () => {
                 <tr className="grid grid-cols-10 justify-center items-center py-2 px-3 gap-1 border border-gray-200 text-left w-full text-sm">
                   <td className="">
                     <button onClick={openModal}>
-                      <h3 className="text-base text-auxiliary-800">FrontEnd</h3>
+                      <h3 className="text-base text-auxiliary-800">
+                        Sales Tech
+                      </h3>
                     </button>
-                    <p className="text-text-hint">Data Engineer</p>
+                    <p className="text-text-hint">salesforce</p>
                   </td>
-                  <td className="">Bessie Cooper</td>
+                  <td className="">Bessie </td>
                   <td className="">Technology</td>
-                  <td className="">
-                    <h3>Jenny Wilson</h3>
-                    <p className="text-xs text-text-hint w-">salesforce</p>
-                  </td>
-
                   <td className="">Technology</td>
+                  <td className="">DuR</td>
                   <td className="">10/10/2023</td>
-                  <td className="">124</td>
-                  <td className="">Jenny Wilson</td>
-                  <td>
-                    <StarRating fontSize={16} initialRating={3} />
-                  </td>
-                  <td className="flex justify-between w-full">
-                    <p>Good</p>
-                    <img src={QrCode} alt="qr-code" />
+                  <td className="">10/10/2023</td>
+                  <td className="">10/10/2023</td>
+                  <td className="">12 months</td>
+                  <td className="flex">
+                    <p className="py-2 px-4 text-danger-700 border border-danger-700 rounded-full text-xs">
+                      Not Selected
+                    </p>
                   </td>
                 </tr>
               ))}

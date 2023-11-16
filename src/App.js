@@ -52,6 +52,9 @@ import CompanyPreference from "./pages/Sales/Vendors/Subpages/CompanyPreference"
 import BillingTerms from "./pages/Sales/Vendors/Subpages/BillingTerms";
 import Description from "./pages/Sales/Vendors/Subpages/Description";
 import Home from "./pages/Home/Home";
+import TrainingLayout from "./layouts/TrainingLayout";
+import Classes from "./pages/Training/Classes";
+import Faculty from "./pages/Training/Faculty";
 
 function App() {
   const [isAuth, setIsAuth] = useState(true);
@@ -131,6 +134,11 @@ function App() {
             <Route path="contacts" element={<SalesContacts />} />
             <Route path="technologies" element={<Technologies />} />
             <Route path="sales-teams" element={<SalesTeams />} />
+          </Route>
+          <Route path="training" element={<TrainingLayout />}>
+            <Route path="classes" element={<Classes />} />
+            <Route path="faculty" element={<Faculty />} />
+            <Route path="trainings" element={<Trainings />} />
           </Route>
         </Route>
         {/* <Route path="/*" errorElement={<ErrorPage />} /> */}
