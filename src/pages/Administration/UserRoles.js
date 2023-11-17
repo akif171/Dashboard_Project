@@ -448,132 +448,93 @@ const UserRoles = () => {
       ) : buttonId === "add-user-role" ? (
         <Modal isOpen={isModalOpen} onClose={closeModal}>
           <div className="">
-            user role
             <form className="flex flex-col gap-7 ">
-              <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col  ">
-                  <label
-                    htmlFor="interview_date"
-                    className="text-text-hint mb-1"
-                  >
-                    Interview Date
+              <div className="grid grid-cols-3 gap-5">
+                <div className="flex flex-col w-72">
+                  <label htmlFor="company" className="text-text-hint mb-1">
+                    Company
                   </label>
                   <input
-                    type="date"
-                    id="interview_date"
-                    className="outline-none border-2 border-text-hint rounded-lg "
+                    type="text"
+                    placeholder="Company"
+                    id="company"
+                    className="outline-none border-2 border-secondary-500 rounded-lg "
                   />
                 </div>
 
-                <div className="flex flex-col ">
-                  <label
-                    htmlFor="interview_time"
-                    className="text-text-hint mb-1"
-                  >
-                    Interview Time
+                <div className="flex flex-col w-72">
+                  <label htmlFor="role" className="text-text-hint mb-1">
+                    Role
                   </label>
-                  <div className="flex outline-none border-2 border-text-hint rounded-lg px-1">
-                    <input
-                      type="time"
-                      id="interview_time"
-                      className="outline-none border-none focus:ring-0"
-                    />{" "}
-                    <input
-                      type="text"
-                      id="interview_time"
-                      placeholder="IST"
-                      className="outline-none border-none focus:ring-0"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    placeholder="Role"
+                    id="role"
+                    className="outline-none border-2 border-secondary-500 rounded-lg "
+                  />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col ">
-                  <label
-                    htmlFor="appointment_details"
-                    className="text-text-hint mb-1"
-                  >
-                    Appointment Details
+              <div className="grid grid-cols-3 gap-5">
+                <div className="flex flex-col col-span-3 ">
+                  <label htmlFor="description" className="text-text-hint mb-1">
+                    Description
                   </label>
                   <textarea
-                    type="text"
-                    placeholder="Appointment Details"
-                    id="appointment_details"
+                    placeholder="Description"
+                    id="description"
                     className="focus:outline-none border  rounded-lg "
                     rows={4}
                   />
                 </div>
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <button className=" bg-secondary-50 text-secondary-800 rounded-full py-2 px-6">
-                      <span className="pr-3">+</span>
-                      Add Links Available
-                    </button>
-                  </div>
-                  <div className="flex flex-col">
-                    <label htmlFor="add_link" className="text-text-hint mb-1">
-                      Add Link
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Link"
-                      id="add_link"
-                      className="outline-none border-2 border-secondary-500 rounded-lg "
-                    />
-                  </div>
-                </div>
               </div>
-              <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col ">
-                  <label
-                    htmlFor="interview-panel"
-                    className="text-text-hint mb-1"
-                  >
-                    Interview Panel Details
+              <div className="grid grid-cols-3 gap-5">
+                <div className="flex flex-col col-span-3 ">
+                  <label htmlFor="access" className="text-text-hint mb-1">
+                    Access
                   </label>
                   <textarea
-                    type="text"
-                    placeholder="Interview Panel Details"
-                    id="interview-panel"
+                    placeholder="Access"
+                    id="access"
                     className="focus:outline-none border  rounded-lg "
                     rows={4}
                   />
                 </div>
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <button className=" bg-secondary-50 text-secondary-800 rounded-full py-2 px-6">
-                      <span className="pr-3">+</span>
-                      Add Links Available
-                    </button>
-                  </div>
-                  <div className="flex flex-col">
-                    <label htmlFor="add_link" className="text-text-hint mb-1">
-                      Add Link
-                    </label>
+              </div>
+              <div className="w-64">
+                <label className="text-text-hint ">Job Type</label>
+                <ul className="grid grid-cols-3 mt-1">
+                  <li className="relative">
                     <input
-                      type="text"
-                      placeholder="Link"
-                      id="add_link"
-                      className="outline-none border-2 border-secondary-500 rounded-lg "
+                      className="sr-only peer"
+                      type="radio"
+                      value="active"
+                      name="user_status"
+                      id="active"
                     />
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col ">
-                <label htmlFor="feedback" className="text-text-hint mb-1">
-                  FeedBack
-                </label>
-                <textarea
-                  type="text"
-                  placeholder="FeedBack"
-                  id="feedback"
-                  className="focus:outline-none border  rounded-lg "
-                  rows={4}
-                />
-              </div>
-              <div>
-                <label className="text-text-hint mb-1">Rating</label>
-                <StarRating initialRating={3} fontSize={24} />
+                    <label
+                      className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                      htmlFor="active"
+                    >
+                      Active
+                    </label>
+                  </li>
+
+                  <li className="relative">
+                    <input
+                      className="sr-only peer"
+                      type="radio"
+                      value="Not Selected"
+                      name="user_status"
+                      id="inactive"
+                    />
+                    <label
+                      className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                      htmlFor="inactive"
+                    >
+                      InActive
+                    </label>
+                  </li>
+                </ul>
               </div>
             </form>
             <div className="flex justify-between p-6 mt-6">
