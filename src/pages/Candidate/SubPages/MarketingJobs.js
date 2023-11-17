@@ -27,6 +27,8 @@ const MarketingJobs = () => {
     setButtonId("add-new-modal");
     openModal();
   };
+
+  console.log(buttonId);
   return (
     <div>
       {buttonId === "add-jobs" ? (
