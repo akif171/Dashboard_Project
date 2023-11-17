@@ -72,7 +72,10 @@ const Login = () => {
           </div>
         </div>
         <div className="flex flex-col justify-between gap-2 items-center w-full">
-          <button disabled className="w-full py-2 px-4 text-base rounded-full text-white bg-secondary-600">
+          <button
+            disabled={true}
+            className="w-full py-2 px-4 text-base rounded-full text-white bg-secondary-600"
+          >
             Login
           </button>
           <p className="text-sm text-center ">
