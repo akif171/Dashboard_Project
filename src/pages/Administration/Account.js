@@ -20,47 +20,12 @@ const Account = () => {
           <form className="flex flex-col gap-6 text-text-hint">
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
-                <label htmlFor="first_name" className="text-text-hint mb-1">
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  id="first_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="middle_name" className="text-text-hint mb-1">
-                  Middle Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Middle Name"
-                  id="middle_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-              <div className="flex flex-col w-72">
                 <label htmlFor="last_name" className="text-text-hint mb-1">
-                  Last Name
+                  Business Name<span className="text-danger-500">*</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="Last Name"
-                  id="last_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col w-72">
-                <label htmlFor="last_name" className="text-text-hint mb-1">
-                  Preferred Name<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Last Name"
+                  placeholder="Business Name"
                   id="last_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
@@ -80,51 +45,53 @@ const Account = () => {
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="job_title" className="text-text-hint mb-1">
-                  Job Title<span className="text-danger-500">*</span>
+                  Phone<span className="text-danger-500">*</span>
                 </label>
                 <input
-                  type="text"
-                  placeholder="Job"
+                  type="nomber"
+                  placeholder="Phone"
                   id="job_title"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
             </div>
+
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
-                <label htmlFor="mobile_number" className="text-text-hint mb-1">
-                  Mobile Numbner<span className="text-danger-500">*</span>
+                <label htmlFor="first_name" className="text-text-hint mb-1">
+                  First Name<span className="text-danger-500">*</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="Mobile Numbner"
-                  id="mobile_number"
+                  placeholder="First Name"
+                  id="first_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
-                <label htmlFor="mobile_number" className="text-text-hint mb-1">
-                  Mobile Numbner<span className="text-danger-500">*</span>
+                <label htmlFor="middle_name" className="text-text-hint mb-1">
+                  Middle Name<span className="text-danger-500">*</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="Mobile Numbner"
-                  id="mobile_number"
+                  placeholder="Middle Name"
+                  id="middle_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
-                <label htmlFor="fox" className="text-text-hint mb-1">
-                  Fox<span className="text-danger-500">*</span>
+                <label htmlFor="last_name" className="text-text-hint mb-1">
+                  Last Name<span className="text-danger-500">*</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="Fox"
-                  id="fox"
+                  placeholder="Last Name"
+                  id="last_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
             </div>
+
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="address_line_1" className="text-text-hint mb-1">
@@ -185,22 +152,64 @@ const Account = () => {
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="country" className="text-text-hint mb-1">
-                  Country<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Country"
-                  id="country"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
             </div>
             <div className="grid grid-cols-3 gap-6">
+              <div className="">
+                <label>
+                  Account Status<span className="text-red-500">*</span>
+                </label>
+                <ul className="grid grid-cols-3 mt-1">
+                  <li className="relative">
+                    <input
+                      className="sr-only peer"
+                      type="radio"
+                      value="enrollment"
+                      name="account_status"
+                      id="enrollment"
+                    />
+                    <label
+                      className="flex justify-center items-center py-2 px-3 bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                      htmlFor="enrollment"
+                    >
+                      Enrollment
+                    </label>
+                  </li>
+                  <li className="relative">
+                    <input
+                      className="sr-only peer"
+                      type="radio"
+                      value="closed"
+                      name="account_status"
+                      id="closed"
+                    />
+                    <label
+                      className="flex justify-center items-center py-2 px-3 bg-white border border-t-secondary-800 border-b-secondary-800 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                      htmlFor="closed"
+                    >
+                      Closed
+                    </label>
+                  </li>
+
+                  <li className="relative">
+                    <input
+                      className="sr-only peer"
+                      type="radio"
+                      value="completed"
+                      name="account_status"
+                      id="completed"
+                    />
+                    <label
+                      className="flex justify-center items-center py-2 px-3 bg-white  border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                      htmlFor="completed"
+                    >
+                      Completed
+                    </label>
+                  </li>
+                </ul>
+              </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="date" className="text-text-hint mb-1">
-                  Created - Date
+                  Activated Date
                 </label>
                 <input
                   type="date"
@@ -208,23 +217,110 @@ const Account = () => {
                   className="outline-none border-2 border-text-hint rounded-lg "
                 />
               </div>
+
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
-                  Created - Time
+                <label htmlFor="created_by" className="text-text-hint mb-1">
+                  Activated By
                 </label>
                 <input
-                  type="time"
+                  type="text"
+                  placeholder="Activated By"
+                  id="created_by"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-5">
+              <div className="flex flex-col w-72">
+                <label htmlFor="first_name" className="text-text-hint mb-1">
+                  User Licenses' Requested
+                  <span className="text-danger-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="User Licenses"
+                  id="first_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col w-72">
+                <label htmlFor="middle_name" className="text-text-hint mb-1">
+                  Licenses Active <span className="text-danger-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Active Licenses"
+                  id="middle_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col w-72">
+                <label htmlFor="last_name" className="text-text-hint mb-1">
+                  Remaining Licenses<span className="text-danger-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Remaining Licenses"
+                  id="last_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-5">
+              <div className="flex flex-col w-72">
+                <label htmlFor="first_name" className="text-text-hint mb-1">
+                  Total Users
+                  <span className="text-danger-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Total Users"
+                  id="first_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col w-72">
+                <label htmlFor="middle_name" className="text-text-hint mb-1">
+                  Active User <span className="text-danger-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Active User"
+                  id="middle_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col w-72">
+                <label htmlFor="last_name" className="text-text-hint mb-1">
+                  Inactive Users<span className="text-danger-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Inactive Users"
+                  id="last_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-6">
+              <div className="flex flex-col w-72">
+                <label htmlFor="date" className="text-text-hint mb-1">
+                  Created On
+                </label>
+                <input
+                  type="date"
                   id="date"
                   className="outline-none border-2 border-text-hint rounded-lg "
                 />
               </div>
+
               <div className="flex flex-col w-72">
                 <label htmlFor="created_by" className="text-text-hint mb-1">
                   Created By
                 </label>
                 <input
                   type="text"
-                  placeholder="Created By"
+                  placeholder="Activated By"
                   id="created_by"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
@@ -233,7 +329,7 @@ const Account = () => {
             <div className="grid grid-cols-3 gap-6">
               <div className="flex flex-col w-72">
                 <label htmlFor="date" className="text-text-hint mb-1">
-                  Updated - Date
+                  Updated On
                 </label>
                 <input
                   type="date"
@@ -241,85 +337,17 @@ const Account = () => {
                   className="outline-none border-2 border-text-hint rounded-lg "
                 />
               </div>
+
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
-                  Updated - Time
+                <label htmlFor="created_by" className="text-text-hint mb-1">
+                  Updated By
                 </label>
                 <input
-                  type="time"
-                  id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col col-span-3 ">
-                <label htmlFor="document_type" className="text-text-hint mb-1">
-                  Notes
-                </label>
-                <textarea
                   type="text"
-                  placeholder="Notes"
-                  id="document_type"
-                  className="focus:outline-none border  rounded-lg "
-                  rows={4}
+                  placeholder="Activated By"
+                  id="created_by"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-6">
-              <div className="">
-                <label>
-                  Vendor Status<span className="text-red-500">*</span>
-                </label>
-                <ul className="grid grid-cols-3 mt-1">
-                  <li className="relative">
-                    <input
-                      className="sr-only peer"
-                      type="radio"
-                      value="active"
-                      name="vendor_status"
-                      id="active"
-                    />
-                    <label
-                      className="flex justify-center items-center py-2 px-3 bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                      htmlFor="active"
-                    >
-                      Active
-                    </label>
-                  </li>
-                  <li className="relative">
-                    <input
-                      className="sr-only peer"
-                      type="radio"
-                      value="in active"
-                      name="vendor_status"
-                      id="in_active"
-                    />
-                    <label
-                      className="flex justify-center items-center py-2 px-3 bg-white border border-t-secondary-800 border-b-secondary-800 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                      htmlFor="in_active"
-                    >
-                      In Active
-                    </label>
-                  </li>
-
-                  <li className="relative">
-                    <input
-                      className="sr-only peer"
-                      type="radio"
-                      value="fraud"
-                      name="vendor_status"
-                      id="fraud"
-                    />
-                    <label
-                      className="flex justify-center items-center py-2 px-3 bg-white text-danger-500 border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                      htmlFor="fraud"
-                    >
-                      Fraud
-                    </label>
-                  </li>
-                </ul>
               </div>
             </div>
           </form>
