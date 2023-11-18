@@ -28,7 +28,7 @@ module.exports = {
       "neutral-300": "#B3B3B3",
       "neutral-200": "#CCCCCC",
       "neutral-100": "#E5E5E5",
-      "neutral-50": "##F2F2F2",
+      "neutral-50": "#F2F2F2",
       white: "#FFFFFF",
       "primary-900": "#1C2E3F",
       "primary-800": "#20354A",

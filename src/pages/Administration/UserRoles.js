@@ -6,6 +6,7 @@ import { RiSoundModuleLine } from "react-icons/ri";
 import StarRating from "../../components/StarRating";
 import { Link } from "react-router-dom";
 import Modal from "../../components/ModalComponents/Modal";
+import { userRoleSeleceted } from "../../data";
 
 const UserRoles = () => {
   const [buttonId, setButtonId] = useState("");
@@ -37,251 +38,82 @@ const UserRoles = () => {
     <div className="px-5">
       {buttonId === "new-permission" ? (
         <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <div className="">
-            new permission
-            <form className="flex flex-col gap-6 ">
-              <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col w-72">
-                  <label htmlFor="job_id" className="text-text-hint mb-1">
-                    Job ID
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Job ID"
-                    id="job_id"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-                <div className="flex flex-col w-72">
-                  <label htmlFor="job_title" className="text-text-hint mb-1">
-                    Job Title
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Job Title"
-                    id="job_title"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col w-72">
-                  <label htmlFor="vendor_name" className="text-text-hint mb-1">
-                    Vendor Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Vendor Name"
-                    id="vendor_name"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-                <div className="flex flex-col w-72">
-                  <label htmlFor="vendor_email" className="text-text-hint mb-1">
-                    Vendor Email
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Vendor Email"
-                    id="vendor_email"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col w-72">
-                  <label htmlFor="city" className="text-text-hint mb-1">
-                    Vendor Number
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Vendor Number"
-                    id="city"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-                <div className="flex flex-col w-72">
-                  <label htmlFor="technology" className="text-text-hint mb-1">
-                    Technology
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Technology"
-                    id="technology"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col w-72">
-                  <label htmlFor="city" className="text-text-hint mb-1">
-                    City
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="City"
-                    id="city"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-                <div className="flex flex-col w-72">
-                  <label htmlFor="state" className="text-text-hint mb-1">
-                    State
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="State"
-                    id="state"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-5">
-                <div className="">
-                  <div className="w-64">
-                    <label className="text-text-hint ">Job Type</label>
-                    <ul className="grid grid-cols-3 mt-1">
-                      <li className="relative">
-                        <input
-                          className="sr-only peer"
-                          type="radio"
-                          value="Remote"
-                          name="job_type"
-                          id="remote"
-                        />
-                        <label
-                          className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                          htmlFor="remote"
-                        >
-                          Remote
-                        </label>
-                      </li>
-                      <li className="relative">
-                        <input
-                          className="sr-only peer"
-                          type="radio"
-                          value="shortlisted"
-                          name="job_type"
-                          id="on-site"
-                        />
-                        <label
-                          className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-t-secondary-800 border-b-secondary-800 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                          htmlFor="on-site"
-                        >
-                          On-Site
-                        </label>
-                      </li>
-
-                      <li className="relative">
-                        <input
-                          className="sr-only peer"
-                          type="radio"
-                          value="Not Selected"
-                          name="job_type"
-                          id="hybrid"
-                        />
-                        <label
-                          className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                          htmlFor="hybrid"
-                        >
-                          Hybrid
-                        </label>
-                      </li>
-                    </ul>
+          <div className="flex flex-col gap-4">
+            <div className="w-full ">
+              <h3 className="text-base bg-neutral-50 px-4 font-bold">
+                User Role : Admin
+              </h3>
+            </div>
+            <div className="flex justify-between items-center p-2">
+              <h3 className="text-base font-medium">Permissions</h3>
+              <div className="flex">
+                <div className="flex flex-col">
+                  <label>Add</label>
+                  <div className="flex items-center gap-3">
+                    <input
+                      className="w-56 outline-none border rounded-lg focus:ring-0"
+                      type="text"
+                      placeholder="add"
+                    />
+                    <button className="py-2 px-6 bg-secondary-700 text-white rounded-full ">
+                      Add
+                    </button>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div className="w-full my-3">
+              <h3 className="text-base bg-neutral-50 px-4 font-normal p-3">
+                Menu Options : Control
+              </h3>
+            </div>
+            <div className="grid grid-cols-3 gap-3">
+              {userRoleSeleceted.map((role, index) => {
+                return (
+                  <h5
+                    key={index}
+                    className="text-text-hint w-64 p-3 text-sm capitalize"
+                  >
+                    {role}
+                  </h5>
+                );
+              })}
+            </div>
+            <div className="flex justify-between items-center p-2">
+              <h3 className="text-base font-medium">Functionalty</h3>
+              <div className="flex">
                 <div className="flex flex-col">
-                  <label htmlFor="sales-person" className="text-text-hint mb-1">
-                    Sales Person
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Sales Person"
-                    id="sales-person"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
+                  <label>Add</label>
+                  <div className="flex items-center gap-3">
+                    <input
+                      className="w-56 outline-none border rounded-lg focus:ring-0"
+                      type="text"
+                      placeholder="add"
+                    />
+                    <button className="py-2 px-6 bg-secondary-700 text-white rounded-full ">
+                      Add
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col w-72">
-                  <label htmlFor="bill-rate" className="text-text-hint mb-1">
-                    Bill Rate
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Bill Rate"
-                    id="bill-rate"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-                <div className="flex flex-col w-72">
-                  <label htmlFor="duration" className="text-text-hint mb-1">
-                    Duration
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Duration"
-                    id="duration"
-                    className="outline-none border-2 border-secondary-500 rounded-lg "
-                  />
-                </div>
-              </div>
-              <div className="">
-                <div className="w-96">
-                  <label className="text-text-hint "> Status</label>
-                  <ul className="grid grid-cols-3 mt-1">
-                    <li className="relative">
-                      <input
-                        className="sr-only peer"
-                        type="radio"
-                        value="In Progress"
-                        name="marketing_status"
-                        id="not_completed"
-                      />
-                      <label
-                        className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                        htmlFor="not_completed"
-                      >
-                        In Progress
-                      </label>
-                    </li>
-                    <li className="relative">
-                      <input
-                        className="sr-only peer"
-                        type="radio"
-                        value="shortlisted"
-                        name="marketing_status"
-                        id="in_progress"
-                      />
-                      <label
-                        className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-t-secondary-800 border-b-secondary-800 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                        htmlFor="in_progress"
-                      >
-                        Shortlisted
-                      </label>
-                    </li>
-
-                    <li className="relative">
-                      <input
-                        className="sr-only peer"
-                        type="radio"
-                        value="Not Selected"
-                        name="marketing_status"
-                        id="completed"
-                      />
-                      <label
-                        className="flex justify-center items-center py-2 px-3 text-sm text-text-hint bg-white border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                        htmlFor="completed"
-                      >
-                        Not Selected
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </form>
+            </div>
+            <div className="w-full my-3">
+              <h3 className="text-base bg-neutral-50 px-4 font-normal p-3">
+                Functionality Access Control
+              </h3>
+            </div>
+            <div className="grid grid-cols-3 gap-3">
+              {userRoleSeleceted.map((role, index) => {
+                return (
+                  <h5
+                    key={index}
+                    className="text-text-hint w-64 p-3 text-sm capitalize"
+                  >
+                    {role}
+                  </h5>
+                );
+              })}
+            </div>
             <div className="flex justify-between p-6 mt-6">
               <button
                 onClick={closeModal}
@@ -300,135 +132,90 @@ const UserRoles = () => {
         </Modal>
       ) : buttonId === "edit-permission" ? (
         <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <div className="">
-            edit permission
-            <form className="flex flex-col gap-7 ">
-              <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col  ">
-                  <label
-                    htmlFor="interview_date"
-                    className="text-text-hint mb-1"
-                  >
-                    Interview Date
-                  </label>
-                  <input
-                    type="date"
-                    id="interview_date"
-                    className="outline-none border-2 border-text-hint rounded-lg "
-                  />
-                </div>
-
-                <div className="flex flex-col ">
-                  <label
-                    htmlFor="interview_time"
-                    className="text-text-hint mb-1"
-                  >
-                    Interview Time
-                  </label>
-                  <div className="flex outline-none border-2 border-text-hint rounded-lg px-1">
+          <div className="flex flex-col gap-4">
+            <div className="w-full ">
+              <h3 className="text-base bg-neutral-50 px-4 font-bold">
+                User Role : Admin
+              </h3>
+            </div>
+            <div className="flex justify-between items-center p-2">
+              <h3 className="text-base font-medium">Permissions</h3>
+              <div className="flex">
+                <div className="flex flex-col">
+                  <label>Add</label>
+                  <div className="flex items-center gap-3">
                     <input
-                      type="time"
-                      id="interview_time"
-                      className="outline-none border-none focus:ring-0"
-                    />{" "}
-                    <input
+                      className="w-56 outline-none border rounded-lg focus:ring-0"
                       type="text"
-                      id="interview_time"
-                      placeholder="IST"
-                      className="outline-none border-none focus:ring-0"
+                      placeholder="add"
                     />
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col ">
-                  <label
-                    htmlFor="appointment_details"
-                    className="text-text-hint mb-1"
-                  >
-                    Appointment Details
-                  </label>
-                  <textarea
-                    type="text"
-                    placeholder="Appointment Details"
-                    id="appointment_details"
-                    className="focus:outline-none border  rounded-lg "
-                    rows={4}
-                  />
-                </div>
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <button className=" bg-secondary-50 text-secondary-800 rounded-full py-2 px-6">
-                      <span className="pr-3">+</span>
-                      Add Links Available
+                    <button className="py-2 px-6 bg-secondary-700 text-white rounded-full ">
+                      Add
                     </button>
                   </div>
-                  <div className="flex flex-col">
-                    <label htmlFor="add_link" className="text-text-hint mb-1">
-                      Add Link
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Link"
-                      id="add_link"
-                      className="outline-none border-2 border-secondary-500 rounded-lg "
-                    />
-                  </div>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-5">
-                <div className="flex flex-col ">
-                  <label
-                    htmlFor="interview-panel"
-                    className="text-text-hint mb-1"
-                  >
-                    Interview Panel Details
-                  </label>
-                  <textarea
-                    type="text"
-                    placeholder="Interview Panel Details"
-                    id="interview-panel"
-                    className="focus:outline-none border  rounded-lg "
-                    rows={4}
-                  />
-                </div>
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <button className=" bg-secondary-50 text-secondary-800 rounded-full py-2 px-6">
-                      <span className="pr-3">+</span>
-                      Add Links Available
+            </div>
+            <div className="w-full my-3">
+              <h3 className="text-base bg-neutral-50 px-4 font-normal p-3">
+                Menu Options : Control
+              </h3>
+            </div>
+            <div className="grid grid-cols-3 gap-3">
+              {userRoleSeleceted.map((role, index) => {
+                return (
+                  <div key={index} className="w-64 p-3">
+                    <input
+                      type="checkbox"
+                      value={role}
+                      className="focus:ring-0 rounded-sm outline-none "
+                    />
+                    <label className="text-text-hint capitalize pl-3">
+                      {role}
+                    </label>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="flex justify-between items-center p-2">
+              <h3 className="text-base font-medium">Functionalty</h3>
+              <div className="flex">
+                <div className="flex flex-col">
+                  <label>Add</label>
+                  <div className="flex items-center gap-3">
+                    <input
+                      className="w-56 outline-none border rounded-lg focus:ring-0"
+                      type="text"
+                      placeholder="add"
+                    />
+                    <button className="py-2 px-6 bg-secondary-700 text-white rounded-full ">
+                      Add
                     </button>
                   </div>
-                  <div className="flex flex-col">
-                    <label htmlFor="add_link" className="text-text-hint mb-1">
-                      Add Link
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Link"
-                      id="add_link"
-                      className="outline-none border-2 border-secondary-500 rounded-lg "
-                    />
-                  </div>
                 </div>
               </div>
-              <div className="flex flex-col ">
-                <label htmlFor="feedback" className="text-text-hint mb-1">
-                  FeedBack
-                </label>
-                <textarea
-                  type="text"
-                  placeholder="FeedBack"
-                  id="feedback"
-                  className="focus:outline-none border  rounded-lg "
-                  rows={4}
-                />
-              </div>
-              <div>
-                <label className="text-text-hint mb-1">Rating</label>
-                <StarRating initialRating={3} fontSize={24} />
-              </div>
-            </form>
+            </div>
+            <div className="w-full my-3">
+              <h3 className="text-base bg-neutral-50 px-4 font-normal p-3">
+                Functionality Access Control
+              </h3>
+            </div>
+            <div className="grid grid-cols-3 gap-3">
+              {userRoleSeleceted.map((role, index) => {
+                return (
+                  <div key={index} className="w-64 p-3">
+                    <input
+                      type="checkbox"
+                      value={role}
+                      className="focus:ring-0 rounded-sm outline-none "
+                    />
+                    <label className="text-text-hint capitalize pl-3">
+                      {role}
+                    </label>
+                  </div>
+                );
+              })}
+            </div>
             <div className="flex justify-between p-6 mt-6">
               <button
                 onClick={closeModal}
