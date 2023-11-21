@@ -2,6 +2,7 @@ import React from "react";
 import CircleProgressBar from "../../components/CircleProgressBar";
 
 const Dashboard = () => {
+  const percentage = 40;
   return (
     <div className="p-3">
       <h5>Dashboard</h5>
@@ -52,8 +53,15 @@ const Dashboard = () => {
       <div className="grid grid-cols-3 gap-6 mt-6">
         <div className="border border-1 p-3 rounded-lg flex flex-col justify-between ">
           <h5>Jobs By Sales Manager </h5>
-          <div className="w-full flex justify-center">
-            <CircleProgressBar percentage={75} color="text-green-500" />
+          <div className="w-full flex justify-center items-center">
+            {/* <CircleProgressBar progress={percentage} size={250} /> */}
+            <CircleProgressBar
+              progress={47}
+              size={200}
+              bgColor="bg-success-500"
+              stroke="#36B37E"
+              emptyStroke="#EBF7F2"
+            />
           </div>
           <div className="border border-1 p-3 rounded-lg">
             <h3>Description</h3>
@@ -62,8 +70,15 @@ const Dashboard = () => {
         </div>
         <div className="border border-1 p-3 rounded-lg flex flex-col justify-between">
           <h5>Jobs By Sales Manager </h5>
-          <div className="w-full flex justify-center">
-            <CircleProgressBar percentage={75} color="text-red-500" />
+          <div className="w-full flex justify-center items-center">
+            {/* <CircleProgressBar progress={percentage} size={250} /> */}
+            <CircleProgressBar
+              progress={75}
+              size={200}
+              bgColor="bg-danger-500"
+              stroke="#D03423"
+              emptyStroke="#F6D6D3"
+            />
           </div>
           <div className="border border-1 p-3 rounded-lg">
             <h3>Description</h3>
