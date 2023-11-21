@@ -3,9 +3,20 @@ import CircleProgressBar from "../../components/CircleProgressBar";
 
 const Dashboard = () => {
   const percentage = 40;
+
+  const radius = 70; // Radius of the circle
+  const circumference = 2 * Math.PI * radius; // Circumference of the circle
+  const strokeWidth = 8; // Width of the circle bar
+  const trackWidth = strokeWidth + 4; // Width of the outer border
+
+  const trackDasharray = `${circumference} ${circumference}`;
+
+  const barDasharray = `${circumference} ${circumference}`;
+  const barDashoffset = circumference - (percentage / 100) * circumference;
+
   return (
     <div className="p-3">
-      <h5>Dashboard</h5>
+      {/* <h5>Dashboard</h5> */}
 
       <div className="flex items-center bg-auxiliary-50 rounded-lg p-3 ">
         <h5 className="px-3 whitespace-nowrap">Active Jobs</h5>
@@ -63,6 +74,16 @@ const Dashboard = () => {
               emptyStroke="#EBF7F2"
             />
           </div>
+          <div className="w-full flex justify-around items-center">
+            <div className="flex justify-center items-center gap-1">
+              <span className="w-4 h-4 bg-success-500 rounded-full"></span>
+              <p>Employed</p>
+            </div>
+            <div className="flex justify-center items-center gap-1">
+              <span className="w-4 h-4 bg-success-50 rounded-full"></span>{" "}
+              <p>Unemployed</p>
+            </div>
+          </div>
           <div className="border border-1 p-3 rounded-lg">
             <h3>Description</h3>
             <p className="text-sm">Description</p>
@@ -79,6 +100,16 @@ const Dashboard = () => {
               stroke="#D03423"
               emptyStroke="#F6D6D3"
             />
+          </div>
+          <div className="w-full flex justify-around items-center">
+            <div className="flex justify-center items-center gap-1">
+              <span className="w-4 h-4 bg-danger-500 rounded-full"></span>
+              <p>Employed</p>
+            </div>
+            <div className="flex justify-center items-center gap-1">
+              <span className="w-4 h-4 bg-danger-50 rounded-full"></span>{" "}
+              <p>Unemployed</p>
+            </div>
           </div>
           <div className="border border-1 p-3 rounded-lg">
             <h3>Description</h3>
@@ -124,7 +155,7 @@ const Dashboard = () => {
         <div className="border border-1 p-3 rounded-lg flex flex-col justify-between ">
           <h5>Jobs By Sales Manager </h5>
           <div className="w-full flex justify-center">
-            <CircleProgressBar percentage={75} color="text-green-500" />
+            
           </div>
           <div className="border border-1 p-3 rounded-lg">
             <h3>Description</h3>
