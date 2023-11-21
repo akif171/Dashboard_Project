@@ -32,7 +32,7 @@ const Candidate = () => {
           <BsThreeDotsVertical size={20} />
           <div className="flex items-center gap-3 flex-grow p-3 border-2 border-gray-200 bg-gray-100 rounded-lg ">
             <FiSearch color="gray" size={20} />
-            <input className="outline-none w-full h-full bg-gray-100" />
+            <input className="outline-none w-full h-full bg-gray-100" placeholder="search" />
           </div>
           <Dropdown />
 

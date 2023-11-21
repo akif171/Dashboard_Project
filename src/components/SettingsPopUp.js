@@ -17,7 +17,7 @@ const filterArr = [
   "Technology",
 ];
 
-export default function Filter() {
+export default function SettingsPopUp() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -62,3 +62,5 @@ export default function Filter() {
     </Menu>
   );
 }
+
+
