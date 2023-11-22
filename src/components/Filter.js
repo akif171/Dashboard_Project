@@ -22,6 +22,7 @@ export default function Filter() {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="flex items-center text-teal-500 gap-2 py-2 px-4 border border-teal-500 rounded-full hover:bg-gray-50">
+          
           <RiSoundModuleLine />
           <p>Filter</p>
           {/* <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" /> */}
@@ -54,8 +55,6 @@ export default function Filter() {
                 )}
               </Menu.Item>
             ))}
-
-         
           </div>
         </Menu.Items>
       </Transition>

@@ -7,6 +7,7 @@ import StarRating from "../../components/StarRating";
 import { Link } from "react-router-dom";
 import Dropdown from "../../components/Dropdown";
 import Filter from "../../components/Filter";
+import SettingsPopUp from "../../components/SettingsPopUp";
 
 const Candidate = () => {
   const [rating, setRating] = useState(0);
@@ -29,10 +30,14 @@ const Candidate = () => {
       <div className="border border-gray-300 mt-5 rounded-lg ">
         <div className="flex items-center gap-2 p-3">
           <RxReload size={20} />
-          <BsThreeDotsVertical size={20} />
+          <SettingsPopUp />
+          {/* <BsThreeDotsVertical size={20} /> */}
           <div className="flex items-center gap-3 flex-grow p-3 border-2 border-gray-200 bg-gray-100 rounded-lg ">
             <FiSearch color="gray" size={20} />
-            <input className="outline-none w-full h-full bg-gray-100" placeholder="search" />
+            <input
+              className="outline-none w-full h-full bg-gray-100"
+              placeholder="search"
+            />
           </div>
           <Dropdown />
 
