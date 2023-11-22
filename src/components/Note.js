@@ -3,170 +3,56 @@ import React from "react";
 const Note = () => {
   return (
     <div className="w-full h-32 border border-zinc-100 flex-col justify-start items-start inline-flex">
-      <div className="h-3 opacity-0 bg-white bg-opacity-0 flex-col justify-start items-start flex">
-        <div className="self-stretch bg-fuchsia-300 justify-center items-center inline-flex">
-          <div className="w-px flex-col justify-start items-start gap-3 inline-flex">
-            <div className="self-stretch h-px bg-fuchsia-300" />
-            <div className="self-stretch h-px bg-fuchsia-300" />
-          </div>
-          <div className="grow shrink basis-0 self-stretch bg-fuchsia-300 justify-center items-center gap-0.5 flex">
-            <div className="w-px h-3 relative">
-              <div className="w-2 h-3 left-[-3px] top-0 absolute bg-fuchsia-300 shadow-inner" />
-            </div>
-            <div className="text-fuchsia-700 text-xs font-bold font-['Roboto Mono'] leading-3">
-              sm
-            </div>
-          </div>
+      <div className="flex justify-between items-center w-full p-3 text-xs text-text-hint">
+        <div className="flex gap-2  ">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="icon">
+              <path
+                id="Vector 9"
+                d="M5.33545 1.87048L11.3354 7.87048L5.33545 13.8705"
+                stroke="#00ABB6"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </g>
+          </svg>
+          <span className="font-normal text-black">Notes</span>
+
+          <p>By Babu Vasa</p>
+        </div>
+        <div className="flex gap-2">
+          <span>23,</span>
+          <span>july</span>
+          <span>2023</span>
+          <span>at</span>
+          <span>1:06</span>
+          <span>AM</span>
+          <span>CDT</span>
         </div>
       </div>
-      <div className="self-stretch justify-between items-center inline-flex">
-        <div className="justify-start items-center gap-2 flex">
-          <div className="h-4 opacity-0 bg-white bg-opacity-0 flex-col justify-start items-start inline-flex">
-            <div className="w-2 grow shrink basis-0 bg-fuchsia-300 flex-col justify-center items-center flex">
-              <div className="h-px justify-start items-start gap-2 inline-flex">
-                <div className="w-px self-stretch bg-sky-950" />
-                <div className="w-px self-stretch bg-sky-950" />
-              </div>
-              <div className="self-stretch grow shrink basis-0 bg-fuchsia-300 flex-col justify-center items-center gap-0.5 flex">
-                <div className="text-fuchsia-700 text-xs font-bold font-['Roboto Mono'] leading-3">
-                  x<br />s
-                </div>
-                <div className="w-2 h-px relative">
-                  <div className="w-2 h-2 left-0 top-[-3px] absolute bg-fuchsia-300 shadow-inner" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="w-4 h-4 relative" />
-          <div className="text-black text-xs font-normal font-['Poppins'] leading-none">
-            Notes
-          </div>
-          <div className="text-neutral-500 text-xs font-normal font-['Poppins'] leading-none">
-            by
-          </div>
-          <div className="text-neutral-500 text-xs font-normal font-['Poppins'] leading-none">
-            Babu Vasa
-          </div>
-        </div>
-        <div className="justify-start items-start gap-2 flex">
-          <div className="text-neutral-500 text-xs font-normal font-['Poppins'] leading-none">
-            23,
-          </div>
-          <div className="text-neutral-500 text-xs font-normal font-['Poppins'] leading-none">
-            {" "}
-            July
-          </div>
-          <div className="text-neutral-500 text-xs font-normal font-['Poppins'] leading-none">
-            2023
-          </div>
-          <div className="text-neutral-500 text-xs font-normal font-['Poppins'] leading-none">
-            at
-          </div>
-          <div className="text-neutral-500 text-xs font-normal font-['Poppins'] leading-none">
-            1:06
-          </div>
-          <div className="text-neutral-500 text-xs font-normal font-['Poppins'] leading-none">
-            AM
-          </div>
-          <div className="text-neutral-500 text-xs font-normal font-['Poppins'] leading-none">
-            CDT
-          </div>
-          <div className="h-4 opacity-0 bg-white bg-opacity-0 flex-col justify-start items-start inline-flex">
-            <div className="w-2 grow shrink basis-0 bg-fuchsia-300 flex-col justify-center items-center flex">
-              <div className="h-px justify-start items-start gap-2 inline-flex">
-                <div className="w-px self-stretch bg-sky-950" />
-                <div className="w-px self-stretch bg-sky-950" />
-              </div>
-              <div className="self-stretch grow shrink basis-0 bg-fuchsia-300 flex-col justify-center items-center gap-0.5 flex">
-                <div className="text-fuchsia-700 text-xs font-bold font-['Roboto Mono'] leading-3">
-                  x<br />s
-                </div>
-                <div className="w-2 h-px relative">
-                  <div className="w-2 h-2 left-0 top-[-3px] absolute bg-fuchsia-300 shadow-inner" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="h-4 opacity-0 bg-white bg-opacity-0 flex-col justify-start items-start flex">
-        <div className="self-stretch bg-fuchsia-300 justify-center items-center inline-flex">
-          <div className="w-px flex-col justify-start items-start gap-4 inline-flex">
-            <div className="self-stretch h-px bg-fuchsia-300" />
-            <div className="self-stretch h-px bg-fuchsia-300" />
-          </div>
-          <div className="grow shrink basis-0 self-stretch bg-fuchsia-300 justify-center items-center gap-0.5 flex">
-            <div className="w-px h-4 relative">
-              <div className="w-2 h-4 left-[-3px] top-0 absolute bg-fuchsia-300 shadow-inner" />
-            </div>
-            <div className="text-fuchsia-700 text-xs font-bold font-['Roboto Mono'] leading-3">
-              md
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="self-stretch bg-white shadow-inner justify-start items-start inline-flex">
-        <div className="h-16 opacity-0 bg-white bg-opacity-0 flex-col justify-start items-start inline-flex">
-          <div className="w-8 grow shrink basis-0 bg-fuchsia-300 flex-col justify-center items-center flex">
-            <div className="h-px justify-start items-start gap-8 inline-flex">
-              <div className="w-px self-stretch bg-sky-950" />
-              <div className="w-px self-stretch bg-sky-950" />
-            </div>
-            <div className="self-stretch grow shrink basis-0 bg-fuchsia-300 flex-col justify-center items-center gap-0.5 flex">
-              <div className="text-fuchsia-700 text-xs font-bold font-['Roboto Mono'] leading-3">
-                2xl
-              </div>
-              <div className="w-8 h-px relative">
-                <div className="w-8 h-2 left-0 top-[-3px] absolute bg-fuchsia-300 shadow-inner" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="grow shrink basis-0 self-stretch text-zinc-800 text-base font-normal leading-normal">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-          vulputate ante eu odio ultrices laoreet. Vivamus placerat eros in
-          justo vestibulum, ac mollis ex aliquam. Donec efficitur felis eget
-          nunc congue viverra. Duis condimentum risus sit amet tellus gravida,
-          eget tincidunt nisi aliquam. Nunc posuere nunc urna, eget finibus
-          tellus finibus lobortis. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Nunc vulputate ante eu odio ultrices laoreet. Vivamus
-          placerat eros in justo vestibulum, ac mollis ex aliquam. Donec
-          efficitur felis eget nunc congue viverra. Duis condimentum risus sit
-          amet tellus gravida, eget tincidunt nisi aliquam. Nunc posuere nunc
-          urna, eget finibus tellus finibus lobortis.
-        </div>
-        <div className="h-16 opacity-0 bg-white bg-opacity-0 flex-col justify-start items-start inline-flex">
-          <div className="w-8 grow shrink basis-0 bg-fuchsia-300 flex-col justify-center items-center flex">
-            <div className="h-px justify-start items-start gap-8 inline-flex">
-              <div className="w-px self-stretch bg-sky-950" />
-              <div className="w-px self-stretch bg-sky-950" />
-            </div>
-            <div className="self-stretch grow shrink basis-0 bg-fuchsia-300 flex-col justify-center items-center gap-0.5 flex">
-              <div className="text-fuchsia-700 text-xs font-bold font-['Roboto Mono'] leading-3">
-                2xl
-              </div>
-              <div className="w-8 h-px relative">
-                <div className="w-8 h-2 left-0 top-[-3px] absolute bg-fuchsia-300 shadow-inner" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="h-4 opacity-0 bg-white bg-opacity-0 flex-col justify-start items-start flex">
-        <div className="self-stretch bg-fuchsia-300 justify-center items-center inline-flex">
-          <div className="w-px flex-col justify-start items-start gap-4 inline-flex">
-            <div className="self-stretch h-px bg-fuchsia-300" />
-            <div className="self-stretch h-px bg-fuchsia-300" />
-          </div>
-          <div className="grow shrink basis-0 self-stretch bg-fuchsia-300 justify-center items-center gap-0.5 flex">
-            <div className="w-px h-4 relative">
-              <div className="w-2 h-4 left-[-3px] top-0 absolute bg-fuchsia-300 shadow-inner" />
-            </div>
-            <div className="text-fuchsia-700 text-xs font-bold font-['Roboto Mono'] leading-3">
-              md
-            </div>
-          </div>
-        </div>
+      <div className="flex px-8 w-full ">
+        <p className="line-clamp-3 text-justify ">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+          mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+          voluptatum laborum numquam blanditiis harum quisquam eius sed odit
+          fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
+          accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut
+          molestias architecto voluptate aliquam nihil, eveniet aliquid culpa
+          officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum
+          nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque
+          error repudiandae fuga? Ipsa laudantium molestias eos sapiente
+          officiis modi at sunt excepturi expedita sint? Sed quibusdam
+          recusandae alias error harum maxime adipisci amet laborum.
+          Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a
+          cumque velit quibusdam sed amet tempora. Sit laborum ab, eius fugit
+          doloribus tenetur
+        </p>
       </div>
     </div>
   );
