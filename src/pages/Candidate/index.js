@@ -30,8 +30,8 @@ const Candidate = () => {
       <div className="border border-gray-300 mt-5 rounded-lg ">
         <div className="flex items-center gap-2 p-3">
           <RxReload size={20} />
-          <SettingsPopUp />
-          {/* <BsThreeDotsVertical size={20} /> */}
+          {/* <SettingsPopUp /> */}
+          <BsThreeDotsVertical size={20} />
           <div className="flex items-center gap-3 flex-grow p-3 border-2 border-gray-200 bg-gray-100 rounded-lg ">
             <FiSearch color="gray" size={20} />
             <input
