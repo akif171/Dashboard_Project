@@ -16,27 +16,25 @@ const Profile = () => {
             <label className="">
               Total Interviews<span className="text-red-500">*</span>
             </label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="total interviews"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
           <div className="">
             <label className="">
               Active Interviews<span className="text-red-500">*</span>
             </label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="total interviews"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
         </div>
         <div className="grid grid-cols-4 gap-5">
@@ -44,27 +42,25 @@ const Profile = () => {
             <label className="">
               Passed Interviews<span className="text-red-500">*</span>
             </label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="passed interviews"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
           <div className="">
             <label className="">
               Failed Interviews<span className="text-red-500">*</span>
             </label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="passed interviews"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
         </div>
         <div className="grid grid-cols-4 gap-5">
@@ -72,14 +68,13 @@ const Profile = () => {
             <label className="">
               Interviews on Hold<span className="text-red-500">*</span>
             </label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="interviews on hold"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
 
           <div className="">

@@ -51,14 +51,13 @@ const EmergencyContacts = () => {
           <div className="grid grid-cols-2 gap-3">
             <div className="">
               <label className="">Contacts Relations<span className="text-red-500">*</span></label>
-              <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-                <input
-                  placeholder="Contacts Relations"
-                  required
-                  className="outline-none w-full"
-                />
-                <img src={Pencil} alt="pencil" />
-              </div>
+              <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
             </div>
           </div>
         </div>

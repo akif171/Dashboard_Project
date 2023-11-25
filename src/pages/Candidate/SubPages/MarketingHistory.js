@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const MarketingHistory = () => {
   return (
     <div>
-      <from className="flex flex-col gap-y-6 mt-5 text-sm font-normal text-text-hint">
+      <from className="flex flex-col gap-y-7 mt-5 text-sm font-normal text-text-hint">
         <div className="grid grid-cols-4 gap-3">
           <div className="">
             <label className="">Candidate Name</label>
@@ -15,7 +15,6 @@ const MarketingHistory = () => {
                 required
                 className="outline-none w-full"
               />
-              <img src={Pencil} alt="pencil" />
             </div>
           </div>
           <div className="">
@@ -26,20 +25,16 @@ const MarketingHistory = () => {
                 required
                 className="outline-none w-full"
               />
-              <img src={Pencil} alt="pencil" />
             </div>
           </div>
           <div className="">
-            <label className="">
-              Marketing Email
-            </label>
+            <label className="">Marketing Email</label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 placeholder="youremail@gmail.com"
                 required
                 className="outline-none w-full"
               />
-              <img src={Pencil} alt="pencil" />
             </div>
           </div>
         </div>
@@ -53,7 +48,6 @@ const MarketingHistory = () => {
                 required
                 className="outline-none w-full appearance-none flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg "
               />
-              {/* <img src={Pencil} alt="pencil" /> */}
             </div>
           </div>
           <div className="">
@@ -64,19 +58,17 @@ const MarketingHistory = () => {
                 required
                 className="outline-none w-full appearance-none flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg "
               />
-              {/* <img src={Pencil} alt="pencil" /> */}
             </div>
           </div>
           <div className="">
             <label className="">Marketing Status</label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="Marketing Status"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
         </div>
         <div className="grid grid-cols-4 gap-3">
@@ -88,7 +80,6 @@ const MarketingHistory = () => {
                 required
                 className="outline-none w-full"
               />
-              <img src={Pencil} alt="pencil" />
             </div>
           </div>
           <div className="">
@@ -99,7 +90,6 @@ const MarketingHistory = () => {
                 required
                 className="outline-none w-full"
               />
-              <img src={Pencil} alt="pencil" />
             </div>
           </div>
         </div>
@@ -112,7 +102,6 @@ const MarketingHistory = () => {
                 required
                 className="outline-none w-full"
               />
-              <img src={Pencil} alt="pencil" />
             </div>
           </div>
           <div className="">
@@ -123,7 +112,6 @@ const MarketingHistory = () => {
                 required
                 className="outline-none w-full"
               />
-              <img src={Pencil} alt="pencil" />
             </div>
           </div>
         </div>
@@ -136,7 +124,6 @@ const MarketingHistory = () => {
                 required
                 className="outline-none w-full"
               />
-              <img src={Pencil} alt="pencil" />
             </div>
           </div>
         </div>

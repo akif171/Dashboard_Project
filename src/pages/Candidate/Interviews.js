@@ -27,22 +27,22 @@ const Interviews = () => {
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="course_name" className="text-text-hint mb-1">
-                  Course Name
+                  Job
                 </label>
                 <input
                   type="text"
-                  placeholder="Course Name"
+                  placeholder="Job"
                   id="course_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="course_name" className="text-text-hint mb-1">
-                  Course Name
+                  Company
                 </label>
                 <input
                   type="text"
-                  placeholder="Course Name"
+                  placeholder="Company"
                   id="course_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
@@ -51,32 +51,32 @@ const Interviews = () => {
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="vendor" className="text-text-hint mb-1">
-                  Vendor
+                  Candidate Name
                 </label>
                 <input
                   type="text"
-                  placeholder="Vendor"
+                  placeholder="Candidate Name"
                   id="vendor"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="vendor" className="text-text-hint mb-1">
-                  Vendor
+                  Candidate Email
                 </label>
                 <input
                   type="text"
-                  placeholder="Vendor"
+                  placeholder="Candidate Email"
                   id="vendor"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="client" className="text-text-hint mb-1">
-                  Client
+                  Date of Birth
                 </label>
                 <input
-                  type="text"
+                  type="date"
                   placeholder="client"
                   id="client"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
@@ -86,22 +86,22 @@ const Interviews = () => {
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="course_name" className="text-text-hint mb-1">
-                  Course Name
+                  Technology
                 </label>
                 <input
                   type="text"
-                  placeholder="Course Name"
+                  placeholder="Technology"
                   id="course_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="course_name" className="text-text-hint mb-1">
-                  Course Name
+                  Vendor
                 </label>
                 <input
                   type="text"
-                  placeholder="Course Name"
+                  placeholder="Vendor"
                   id="course_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
@@ -110,22 +110,22 @@ const Interviews = () => {
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="course_name" className="text-text-hint mb-1">
-                  Course Name
+                  Client Company
                 </label>
                 <input
                   type="text"
-                  placeholder="Course Name"
+                  placeholder="Client Company"
                   id="course_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="course_name" className="text-text-hint mb-1">
-                  Course Name
+                  Client Name
                 </label>
                 <input
                   type="text"
-                  placeholder="Course Name"
+                  placeholder="Client Name"
                   id="course_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />

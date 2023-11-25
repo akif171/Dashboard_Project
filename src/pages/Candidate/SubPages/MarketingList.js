@@ -6,6 +6,7 @@ import { RiSoundModuleLine } from "react-icons/ri";
 import StarRating from "../../../components/StarRating";
 import { Link } from "react-router-dom";
 import Modal from "../../../components/ModalComponents/Modal";
+import Dropdown from "../../../components/Dropdown";
 
 const tabelHeadArr = [
   "Sales Manager",
@@ -187,7 +188,8 @@ const MarketingList = () => {
             <BsThreeDotsVertical size={20} />
           </div>
           <div>
-            <div className="flex items-center ">
+            <div className="flex items-center gap-3 ">
+              <Dropdown />
               <button
                 onClick={openModal}
                 className=" bg-secondary-700 text-white py-2 px-5 rounded-full font-normal"

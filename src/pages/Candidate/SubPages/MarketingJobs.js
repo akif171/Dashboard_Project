@@ -6,6 +6,7 @@ import { RiSoundModuleLine } from "react-icons/ri";
 import StarRating from "../../../components/StarRating";
 import { Link } from "react-router-dom";
 import Modal from "../../../components/ModalComponents/Modal";
+import Dropdown from "../../../components/Dropdown";
 
 const MarketingJobs = () => {
   const [buttonId, setButtonId] = useState("");
@@ -448,6 +449,7 @@ const MarketingJobs = () => {
             <BsThreeDotsVertical size={20} />
           </div>
           <div className="flex items-center gap-5">
+            <Dropdown />  
             <button
               onClick={handleAddJobsModal}
               id="add_jobs"
