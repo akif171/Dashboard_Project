@@ -82,12 +82,13 @@ const SalesTeams = () => {
                 <label htmlFor="job_title" className="text-text-hint mb-1">
                   Reporting Manager <span className="text-danger-500">*</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="Reporting Manager"
-                  id="job_title"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-5">
@@ -161,12 +162,13 @@ const SalesTeams = () => {
                 <label htmlFor="relation" className="text-text-hint mb-1">
                   Contacts Relation<span className="text-danger-500">*</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="Contacts Relation"
-                  id="relation"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-6">

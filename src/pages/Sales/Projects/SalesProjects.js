@@ -169,12 +169,13 @@ const SalesProjects = () => {
                 <label htmlFor="duration" className="text-text-hint mb-1">
                   Duration
                 </label>
-                <input
-                  type="text"
-                  placeholder="Duration"
-                  id="duration"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
             </div>
 
@@ -183,23 +184,25 @@ const SalesProjects = () => {
                 <label htmlFor="State" className="text-text-hint mb-1">
                   State
                 </label>
-                <input
-                  type="text"
-                  placeholder="State"
-                  id="State"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="city" className="text-text-hint mb-1">
                   City
                 </label>
-                <input
-                  type="text"
-                  placeholder="City"
-                  id="city"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-6">

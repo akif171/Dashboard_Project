@@ -10,7 +10,9 @@ const EmergencyContacts = () => {
           <h3 className="text-text-default">Emergency Contacts 1</h3>
           <div className="grid grid-cols-2 gap-3">
             <div className="">
-              <label className="">Contacts Name<span className="text-red-500">*</span></label>
+              <label className="">
+                Contacts Name<span className="text-red-500">*</span>
+              </label>
               <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
                 <input
                   placeholder="Contacts Name"
@@ -21,7 +23,9 @@ const EmergencyContacts = () => {
               </div>
             </div>
             <div className="">
-              <label className="">Contacts Phone Number<span className="text-red-500">*</span></label>
+              <label className="">
+                Contacts Phone Number<span className="text-red-500">*</span>
+              </label>
               <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
                 <input
                   placeholder="Contacts Phone Number"
@@ -50,14 +54,16 @@ const EmergencyContacts = () => {
 
           <div className="grid grid-cols-2 gap-3">
             <div className="">
-              <label className="">Contacts Relations<span className="text-red-500">*</span></label>
+              <label className="">
+                Contacts Relations<span className="text-red-500">*</span>
+              </label>
               <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
             </div>
           </div>
         </div>
@@ -66,7 +72,9 @@ const EmergencyContacts = () => {
           <h3 className="text-text-default">Emergency Contacts 1</h3>
           <div className="grid grid-cols-2 gap-3">
             <div className="">
-              <label className="">Contacts Name<span className="text-red-500">*</span></label>
+              <label className="">
+                Contacts Name<span className="text-red-500">*</span>
+              </label>
               <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
                 <input
                   placeholder="Contacts Name"
@@ -77,7 +85,9 @@ const EmergencyContacts = () => {
               </div>
             </div>
             <div className="">
-              <label className="">Contacts Phone Number<span className="text-red-500">*</span></label>
+              <label className="">
+                Contacts Phone Number<span className="text-red-500">*</span>
+              </label>
               <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
                 <input
                   placeholder="Contacts Phone Number"
@@ -106,7 +116,9 @@ const EmergencyContacts = () => {
 
           <div className="grid grid-cols-2 gap-3">
             <div className="">
-              <label className="">Contacts Relations<span className="text-red-500">*</span></label>
+              <label className="">
+                Contacts Relations<span className="text-red-500">*</span>
+              </label>
               <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
                 <input
                   placeholder="Contacts Relations"

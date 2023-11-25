@@ -49,12 +49,13 @@ const SalesInterviews = () => {
                 <label htmlFor="cnadidate_name" className="text-text-hint mb-1">
                   Candidate Name
                 </label>
-                <input
-                  type="text"
-                  placeholder="Candidate Name "
-                  id="cnadidate_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-5">
@@ -62,23 +63,25 @@ const SalesInterviews = () => {
                 <label htmlFor="technology" className="text-text-hint mb-1">
                   Technology
                 </label>
-                <input
-                  type="text"
-                  placeholder="Technology"
-                  id="technology"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="vendor" className="text-text-hint mb-1">
                   Vendor
                 </label>
-                <input
-                  type="text"
-                  placeholder="Vendor"
-                  id="vendor"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-5">

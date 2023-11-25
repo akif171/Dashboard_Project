@@ -21,186 +21,44 @@ const Classes = () => {
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="first_name" className="text-text-hint mb-1">
-                  First Name
+                  Class Name
                 </label>
                 <input
                   type="text"
-                  placeholder="First Name"
+                  placeholder="Class Name"
                   id="first_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="middle_name" className="text-text-hint mb-1">
-                  Middle Name
+                  Faculty Name
                 </label>
                 <input
                   type="text"
-                  placeholder="Middle Name"
+                  placeholder="Faculty Name"
                   id="middle_name"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="last_name" className="text-text-hint mb-1">
-                  Last Name
+                  Technologies
                 </label>
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  id="last_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col w-72">
-                <label htmlFor="last_name" className="text-text-hint mb-1">
-                  Preferred Name<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  id="last_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-              <div className="">
-                <label className="">
-                  Email<span className="text-danger-500">*</span>
-                </label>
-                <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-                  <input
-                    placeholder="youremail@gmail.com"
-                    required
-                    className="outline-none w-full"
-                  />
-                  {/* <img src={Pencil} alt="pencil" /> */}
-                </div>
-              </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="job_title" className="text-text-hint mb-1">
-                  Job Title<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Job"
-                  id="job_title"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col w-72">
-                <label htmlFor="mobile_number" className="text-text-hint mb-1">
-                  Mobile Numbner<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Mobile Numbner"
-                  id="mobile_number"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="mobile_number" className="text-text-hint mb-1">
-                  Mobile Numbner<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Mobile Numbner"
-                  id="mobile_number"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="fox" className="text-text-hint mb-1">
-                  Fox<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Fox"
-                  id="fox"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col w-72">
-                <label htmlFor="address_line_1" className="text-text-hint mb-1">
-                  Address Line 1<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Address Line 1"
-                  id="address_line_1"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="address_line_2" className="text-text-hint mb-1">
-                  Address Line 2<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Address Line 2"
-                  id="address_line_2"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col w-72">
-                <label htmlFor="state" className="text-text-hint mb-1">
-                  State<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="State"
-                  id="state"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="city" className="text-text-hint mb-1">
-                  City<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="City"
-                  id="city"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col w-72">
-                <label htmlFor="zip_code" className="text-text-hint mb-1">
-                  Zip Code<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Zip Code"
-                  id="zip_code"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="country" className="text-text-hint mb-1">
-                  Country<span className="text-danger-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Country"
-                  id="country"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-            </div>
+
             <div className="grid grid-cols-3 gap-6">
               <div className="flex flex-col w-72">
                 <label htmlFor="date" className="text-text-hint mb-1">
-                  Created - Date
+                  Start Date
                 </label>
                 <input
                   type="date"
@@ -210,30 +68,7 @@ const Classes = () => {
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="date" className="text-text-hint mb-1">
-                  Created - Time
-                </label>
-                <input
-                  type="time"
-                  id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
-                />
-              </div>
-              <div className="flex flex-col w-72">
-                <label htmlFor="created_by" className="text-text-hint mb-1">
-                  Created By
-                </label>
-                <input
-                  type="text"
-                  placeholder="Created By"
-                  id="created_by"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-3 gap-6">
-              <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
-                  Updated - Date
+                  End Date
                 </label>
                 <input
                   type="date"
@@ -241,66 +76,78 @@ const Classes = () => {
                   className="outline-none border-2 border-text-hint rounded-lg "
                 />
               </div>
+            </div>
+            <div className="grid grid-cols-3 gap-6">
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
-                  Updated - Time
+                <label htmlFor="first_name" className="text-text-hint mb-1">
+                  MIN Enrollment
                 </label>
                 <input
-                  type="time"
-                  id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  type="text"
+                  placeholder="MIN"
+                  id="first_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col w-72">
+                <label htmlFor="middle_name" className="text-text-hint mb-1">
+                  MAX Enrollment
+                </label>
+                <input
+                  type="text"
+                  placeholder="MAX"
+                  id="middle_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                />
+              </div>
+              <div className="flex flex-col w-72">
+                <label htmlFor="middle_name" className="text-text-hint mb-1">
+                  Current Enrollment
+                </label>
+                <input
+                  type="text"
+                  placeholder="Current"
+                  id="middle_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-5">
-              <div className="flex flex-col col-span-3 ">
-                <label htmlFor="document_type" className="text-text-hint mb-1">
-                  Notes
-                </label>
-                <textarea
-                  type="text"
-                  placeholder="Notes"
-                  id="document_type"
-                  className="focus:outline-none border  rounded-lg "
-                  rows={4}
-                />
-              </div>
-            </div>
+          
             <div className="grid grid-cols-3 gap-6">
-              <div className="">
+              <div className="text-sm">
                 <label>
-                  Vendor Status<span className="text-red-500">*</span>
+                  Class Status<span className="text-red-500">*</span>
                 </label>
                 <ul className="grid grid-cols-3 mt-1">
                   <li className="relative">
                     <input
                       className="sr-only peer"
                       type="radio"
-                      value="active"
-                      name="vendor_status"
+                      value="enrollment"
+                      name="class_status"
                       id="active"
                     />
                     <label
                       className="flex justify-center items-center py-2 px-3 bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
                       htmlFor="active"
                     >
-                      Active
+                      Enrollment
                     </label>
                   </li>
                   <li className="relative">
                     <input
                       className="sr-only peer"
                       type="radio"
-                      value="in active"
-                      name="vendor_status"
+                      value="closed"
+                      name="class_status"
                       id="in_active"
                     />
                     <label
                       className="flex justify-center items-center py-2 px-3 bg-white border border-t-secondary-800 border-b-secondary-800 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
                       htmlFor="in_active"
                     >
-                      In Active
+                    Closed
                     </label>
                   </li>
 
@@ -308,15 +155,15 @@ const Classes = () => {
                     <input
                       className="sr-only peer"
                       type="radio"
-                      value="fraud"
-                      name="vendor_status"
+                      value="completed"
+                      name="class_status"
                       id="fraud"
                     />
                     <label
-                      className="flex justify-center items-center py-2 px-3 bg-white text-danger-500 border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
+                      className="flex justify-center items-center py-2 px-3 bg-white  border border-secondary-800 rounded-tr-full rounded-br-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
                       htmlFor="fraud"
                     >
-                      Fraud
+                      Completed
                     </label>
                   </li>
                 </ul>
@@ -394,7 +241,7 @@ const Classes = () => {
                       12
                     </p>
                   </td>
-                 
+
                   <td className="">12</td>
                   <td className="flex">
                     <p className="border border-danger-500 text-danger-500 text-xs py-2 px-6 rounded-full">

@@ -9,14 +9,13 @@ const CompanyPreference = () => {
         <div className="grid grid-cols-4 gap-3">
           <div className="">
             <label className="">Contact Method</label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="Contact Method"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select> 
           </div>
         </div>
         <div className="grid grid-cols-4 gap-3">
@@ -80,10 +79,7 @@ const CompanyPreference = () => {
         </div>
       </from>
       <div className="w-full h-52 py-10 px-8 flex justify-end items-end">
-      <button
-          
-          className="text-white bg-secondary-700 py-2 px-5 rounded-full text-base"
-        >
+        <button className="text-white bg-secondary-700 py-2 px-5 rounded-full text-base">
           Save
         </button>
       </div>

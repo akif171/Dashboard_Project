@@ -95,7 +95,7 @@ const SalesContacts = () => {
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="mobile_number" className="text-text-hint mb-1">
-                  Mobile Numbner<span className="text-danger-500">*</span>
+                  Mobile Number<span className="text-danger-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -106,7 +106,7 @@ const SalesContacts = () => {
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="mobile_number" className="text-text-hint mb-1">
-                  Mobile Numbner<span className="text-danger-500">*</span>
+                  Mobile Number<span className="text-danger-500">*</span>
                 </label>
                 <input
                   type="text"

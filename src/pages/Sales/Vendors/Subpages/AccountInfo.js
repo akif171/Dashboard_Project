@@ -9,42 +9,39 @@ const AccountInfo = () => {
         <div className="grid grid-cols-4 gap-3">
           <div className="">
             <label className="">Vendor Name</label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="Vendor Name"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
           <div className="">
             <label className="">Phone Number</label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="Phone Name"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
           <div className="">
             <label className="">Fox</label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="Fox  "
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
         </div>
         <div className="grid grid-cols-4 gap-3">
           <div className="">
             <label className="">Type</label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+            <div className="flex justify-center items-center px-3 py-2  border border-neutral-500 rounded-lg">
               <input
                 placeholder="Type"
                 required
@@ -55,31 +52,29 @@ const AccountInfo = () => {
           </div>
           <div className="">
             <label className="">Account Type</label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="Account Type"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
           <div className="">
             <label className="">Annual Return</label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="Annual Return  "
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
         </div>
         <div className="grid grid-cols-4 gap-3">
           <div className="">
             <label className="">Website</label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+            <div className="flex justify-center items-center px-3 py-2  border border-neutral-500 rounded-lg">
               <input
                 placeholder="Website"
                 required
@@ -90,14 +85,13 @@ const AccountInfo = () => {
           </div>
           <div className="">
             <label className="">Payment Account</label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="Payment Account"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
         </div>
       </from>

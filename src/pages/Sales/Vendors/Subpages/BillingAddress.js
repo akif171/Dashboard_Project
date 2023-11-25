@@ -26,7 +26,7 @@ const BillingAddress = () => {
             <label className="">
               Address line 1<span className="text-danger-500">*</span>
             </label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+            <div className="flex justify-center items-center px-3 py-2  border border-neutral-500 rounded-lg">
               <input
                 placeholder="Address line 1"
                 required
@@ -39,7 +39,7 @@ const BillingAddress = () => {
             <label className="">
               Address line 2<span className="text-danger-500">*</span>
             </label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+            <div className="flex justify-center items-center px-3 py-2   border border-neutral-500 rounded-lg">
               <input
                 placeholder="Address line 2"
                 required
@@ -54,27 +54,25 @@ const BillingAddress = () => {
             <label className="">
               City<span className="text-danger-500">*</span>
             </label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="City"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
           <div className="">
             <label className="">
               State/Province<span className="text-danger-500">*</span>
             </label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="State/Province"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
         </div>
         <div className="grid grid-cols-4 gap-3">
@@ -82,7 +80,7 @@ const BillingAddress = () => {
             <label className="">
               Postal Code<span className="text-danger-500">*</span>
             </label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
+            <div className="flex justify-center items-center px-3 py-2  border border-neutral-500 rounded-lg">
               <input
                 placeholder="Postal Code"
                 required
@@ -95,22 +93,18 @@ const BillingAddress = () => {
             <label className="">
               Country/Region<span className="text-danger-500">*</span>
             </label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                placeholder="Country/Region"
-                required
-                className="outline-none w-full"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
           </div>
         </div>
       </from>
       <div className="w-full py-10 px-8 flex justify-end items-baseline">
-        <button
-          
-          className="text-white bg-secondary-700 py-2 px-5 rounded-full text-base"
-        >
+        <button className="text-white bg-secondary-700 py-2 px-5 rounded-full text-base">
           Save
         </button>
       </div>

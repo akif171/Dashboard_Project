@@ -51,12 +51,13 @@ const JobLeads = () => {
                 <label htmlFor="duration" className="text-text-hint mb-1">
                   Duration in Months
                 </label>
-                <input
-                  type="text"
-                  placeholder="Duration "
-                  id="duration"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-5">
@@ -75,12 +76,13 @@ const JobLeads = () => {
                 <label htmlFor="technology" className="text-text-hint mb-1">
                   Technology
                 </label>
-                <input
-                  type="text"
-                  placeholder="Technology"
-                  id="technology"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="client" className="text-text-hint mb-1">
@@ -99,12 +101,13 @@ const JobLeads = () => {
                 <label htmlFor="sales_manager" className="text-text-hint mb-1">
                   Sales Manager
                 </label>
-                <input
-                  type="text"
-                  placeholder="Sales Manager"
-                  id="sales_manager"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="bill_rate" className="text-text-hint mb-1">
@@ -121,12 +124,13 @@ const JobLeads = () => {
                 <label htmlFor="pay_type" className="text-text-hint mb-1">
                   Pay Type
                 </label>
-                <input
-                  type="text"
-                  placeholder="Pay Type"
-                  id="pay_type"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-5">
@@ -134,23 +138,25 @@ const JobLeads = () => {
                 <label htmlFor="state" className="text-text-hint mb-1">
                   State
                 </label>
-                <input
-                  type="text"
-                  placeholder="State"
-                  id="state"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="city" className="text-text-hint mb-1">
                   City
                 </label>
-                <input
-                  type="text"
-                  placeholder="City"
-                  id="city"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-6">
@@ -178,7 +184,6 @@ const JobLeads = () => {
                   rows={4}
                 />
               </div>
-             
             </div>
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
@@ -205,7 +210,7 @@ const JobLeads = () => {
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="job_phone" className="text-text-hint mb-1">
-                  Job Contact Phone Number 
+                  Job Contact Phone Number
                 </label>
                 <input
                   type="text"
