@@ -14,7 +14,7 @@ const Modal = ({ isOpen, onClose, children }) => {
           className="fixed inset-0 transition-opacity"
           aria-hidden="true"
         >
-          <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+          <div className="absolute inset-0 bg-gray-500 opacity-50"></div>
         </div>
         <div className="z-50 w-auto p-4 bg-white rounded-lg shadow-lg">
           <div className="relative ">

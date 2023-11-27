@@ -4,8 +4,10 @@ import GifLogo from "../../images/main-logo.gif";
 import GoogleIcon from "../../images/google-icon.png";
 import Pencil from "../../images/pencil.png";
 import { Link } from "react-router-dom";
+import Modal from "../../components/ModalComponents/Modal";
 
 const SignUp = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [businessName, setBusinessName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNum, setPhoneNum] = useState();
@@ -18,14 +20,43 @@ const SignUp = () => {
 
   const isData =
     (businessName?.length >= 3) &
-    (password?.length >= 8) &
     (phoneNum?.length >= 7) &
     (password?.length >= 8) &
     (confirmPassword?.length >= 8) &
     isValidEmail;
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleSignUp = () => {
+    openModal();
+    setBusinessName("");
+    setEmail("");
+    setPhoneNum("");
+    setPassword("");
+    setConfirmPassword("");
+  };
+
+  if (isModalOpen) {
+    setTimeout(() => {
+      setIsModalOpen(false);
+    }, 5000);
+  }
+  
   console.log(isData);
   return (
     <div className="flex justify-between  w-full h-auto min-h-screen bg-gradient-to-b from-primary-500 to-secondary-500 py-10 px-16">
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <h1 className="text-base font-bold  p-6 ">
+          Your Account will be activated after verification.
+        </h1>
+      </Modal>
+
       <div className="flex flex-col gap-5 h-full">
         <div className="flex items-center gap-3">
           <img src={AuthLogo} alt="logo" className="w-[60px]" />
@@ -254,7 +285,10 @@ const SignUp = () => {
         <p>or</p>
         <div className="flex flex-col justify-between mt-3 items-center w-full">
           {isData ? (
-            <button className="w-full py-2 px-4 text-base rounded-full text-white bg-secondary-600">
+            <button
+              onClick={handleSignUp}
+              className="w-full py-2 px-4 text-base rounded-full text-white bg-secondary-600"
+            >
               SignUp
             </button>
           ) : (

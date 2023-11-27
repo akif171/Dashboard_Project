@@ -9,7 +9,36 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 const Subscribe = () => {
+  const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState();
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [businessName, setBusinessName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address1, setAddress1] = useState("");
+  const [address2, setAddress2] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zipCode, setZipCode] = useState("");
+
+  const isValidEmail = /\S+@\S+\.\S+/.test(email);
+
+  const isData =
+    (businessName?.length >= 3) &
+    (firstName?.length >= 3) &
+    (lastName?.length >= 3) &
+    (middleName?.length >= 3) &
+    (city?.length >= 3) &
+    (state?.length >= 3) &
+    (zipCode?.length >= 3) &
+    (address1?.length >= 10) &
+    (address2?.length >= 10) &
+    (phoneNumber?.length >= 7) &
+    (password?.length >= 8) &
+    (confirmPassword?.length >= 8) &
+    isValidEmail;
 
   return (
     <div className="flex justify-between  w-full h-auto min-h-screen bg-gradient-to-b from-primary-500 to-secondary-500 p-16">
@@ -42,6 +71,8 @@ const Subscribe = () => {
               <div className="flex  items-center px-2 border border-neutral-500 rounded-lg">
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="email"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -60,7 +91,7 @@ const Subscribe = () => {
                   international
                   country="US"
                   value={phoneNumber}
-                  onChange={setPhoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
                   placeholder="Enter phone number"
                   numberInputProps={{
                     className:
@@ -77,6 +108,8 @@ const Subscribe = () => {
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
                   type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="******"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -91,6 +124,8 @@ const Subscribe = () => {
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
                   type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                   placeholder="******"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -104,7 +139,9 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
-                  type="password"
+                  type="text"
+                  value={businessName}
+                  onChange={(e) => setBusinessName(e.target.value)}
                   required
                   placeholder="Business"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -119,6 +156,8 @@ const Subscribe = () => {
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
                   type="text"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                   required
                   placeholder="First Name"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -127,13 +166,15 @@ const Subscribe = () => {
               </div>
             </div>
 
-             <div className="">
+            <div className="">
               <label htmlFor="password" className="text-text-hint">
                 Middle Name<span className="text-red-500">*</span>
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
                   type="text"
+                  value={middleName}
+                  onChange={(e) => setMiddleName(e.target.value)}
                   required
                   placeholder="Middle Name"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -148,6 +189,8 @@ const Subscribe = () => {
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
                   type="text"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                   required
                   placeholder="Last Name"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -162,6 +205,8 @@ const Subscribe = () => {
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
                   type="text"
+                  value={address1}
+                  onChange={(e) => setAddress1(e.target.value)}
                   required
                   placeholder="Address Line 1"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -176,6 +221,8 @@ const Subscribe = () => {
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
                   type="text"
+                  value={address2}
+                  onChange={(e) => setAddress2(e.target.value)}
                   required
                   placeholder="Address Line 2"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -190,6 +237,8 @@ const Subscribe = () => {
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
                   type="text"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
                   required
                   placeholder="City"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -204,6 +253,8 @@ const Subscribe = () => {
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
                   type="text"
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
                   required
                   placeholder="State"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -218,6 +269,8 @@ const Subscribe = () => {
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
                   type="text"
+                  value={zipCode}
+                  onChange={(e) => setZipCode(e.target.value)}
                   required
                   placeholder="Code"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -225,7 +278,6 @@ const Subscribe = () => {
                 <img src={Pencil} alt="pencil" className="w-6 h-6" />
               </div>
             </div>
-          
           </div>
           {/* <div className="flex justify-between text-xs mt-4">
             <div className="flex gap-2">
@@ -237,12 +289,19 @@ const Subscribe = () => {
         </div>
 
         <div className=" ">
-          <button
-            disabled={true}
-            className="w-full my-8 py-3 px-16 text-base rounded-full text-white bg-secondary-600"
-          >
-            Subscribe
-          </button>
+          {isData ? (
+            <button className="w-full my-8 py-3 px-16 text-base rounded-full text-white bg-secondary-600">
+              Subscribe
+            </button>
+          ) : (
+            <button
+              disabled={true}
+              className="w-full my-8 py-3 px-16 text-base rounded-full text-text-muted bg-neutral-50"
+            >
+              Subscribe
+            </button>
+          )}
+
           {/* <p className="text-sm text-center ">
             Don't you have an account?{" "}
             <Link to="/signup" className="text-info-500">
