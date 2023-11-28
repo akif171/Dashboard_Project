@@ -9,36 +9,57 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 const Subscribe = () => {
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [businessName, setBusinessName] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [middleName, setMiddleName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [address1, setAddress1] = useState("");
-  const [address2, setAddress2] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [zipCode, setZipCode] = useState("");
+  // const [phoneNumber, setPhoneNumber] = useState("");
+  const initialSubscribeData = {
+    email: "",
+    phoneNumber: "",
+    password: "",
+    confirmPassword: "",
+    businessName: "",
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    address1: "",
+    address2: "",
+    city: "",
+    state: "",
+    zipCode: "",
+  };
 
-  const isValidEmail = /\S+@\S+\.\S+/.test(email);
+  const [subscribeData, setSubscribeData] = useState(initialSubscribeData);
+
+  const isValidEmail = /\S+@\S+\.\S+/.test(subscribeData.email);
 
   const isData =
-    (businessName?.length >= 3) &
-    (firstName?.length >= 3) &
-    (lastName?.length >= 3) &
-    (middleName?.length >= 3) &
-    (city?.length >= 3) &
-    (state?.length >= 3) &
-    (zipCode?.length >= 3) &
-    (address1?.length >= 10) &
-    (address2?.length >= 10) &
-    (phoneNumber?.length >= 7) &
-    (password?.length >= 8) &
-    (confirmPassword?.length >= 8) &
+    (subscribeData.businessName?.length >= 3) &
+    (subscribeData.firstName?.length >= 3) &
+    (subscribeData.lastName?.length >= 3) &
+    (subscribeData.middleName?.length >= 3) &
+    (subscribeData.city?.length >= 3) &
+    (subscribeData.state?.length >= 3) &
+    (subscribeData.zipCode?.length >= 3) &
+    (subscribeData.address1?.length >= 10) &
+    (subscribeData.address2?.length >= 10) &
+    (subscribeData.phoneNumber?.length >= 7) &
+    (subscribeData.password?.length >= 8) &
+    (subscribeData.confirmPassword?.length >= 8) &
     isValidEmail;
+
+  const handleChange = (e) => {
+    console.log(e);
+    const { name, value } = e.target;
+    setSubscribeData((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubscribe = () => {
+    // setPhoneNumber("");
+    setSubscribeData(initialSubscribeData);
+  };
+
+  console.log(subscribeData);
 
   return (
     <div className="flex justify-between  w-full h-auto min-h-screen bg-gradient-to-b from-primary-500 to-secondary-500 p-16">
@@ -70,9 +91,10 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center px-2 border border-neutral-500 rounded-lg">
                 <input
+                  onChange={handleChange}
+                  value={subscribeData.email}
+                  name="email"
                   type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="email"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -90,13 +112,19 @@ const Subscribe = () => {
                 <PhoneInput
                   international
                   country="US"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  value={subscribeData.phoneNumber}
+                  onChange={handleChange}
                   placeholder="Enter phone number"
                   numberInputProps={{
                     className:
                       "rounded-md px-4 focus:ring-0 outline-none border-none ",
+                    // value:{subscribeData.phoneNumber},
+                    // onchange:{handleChange}
                   }}
+                  // inputComponent={{
+                  //   onChange: { handleChange },
+                  //   name: "phoneNumber",
+                  // }}
                 />
                 <img src={Pencil} alt="pencil" className="w-6 h-6" />
               </div>
@@ -107,9 +135,10 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
+                  onChange={handleChange}
+                  value={subscribeData.password}
+                  name="password"
                   type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="******"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -123,9 +152,10 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
+                  onChange={handleChange}
+                  value={subscribeData.confirmPassword}
+                  name="confirmPassword"
                   type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                   placeholder="******"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -139,9 +169,10 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
+                  onChange={handleChange}
+                  value={subscribeData.businessName}
+                  name="businessName"
                   type="text"
-                  value={businessName}
-                  onChange={(e) => setBusinessName(e.target.value)}
                   required
                   placeholder="Business"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -155,9 +186,10 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
+                  onChange={handleChange}
+                  value={subscribeData.firstName}
+                  name="firstName"
                   type="text"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
                   required
                   placeholder="First Name"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -172,10 +204,11 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
-                  type="text"
-                  value={middleName}
-                  onChange={(e) => setMiddleName(e.target.value)}
+                  onChange={handleChange}
+                  value={subscribeData.middleName}
+                  name="middleName"
                   required
+                  type="text"
                   placeholder="Middle Name"
                   className="outline-none border-none focus:ring-0 flex-grow"
                 />
@@ -188,9 +221,10 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
+                  onChange={handleChange}
+                  value={subscribeData.lastName}
+                  name="lastName"
                   type="text"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
                   required
                   placeholder="Last Name"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -204,9 +238,10 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
+                  onChange={handleChange}
+                  value={subscribeData.address1}
+                  name="address1"
                   type="text"
-                  value={address1}
-                  onChange={(e) => setAddress1(e.target.value)}
                   required
                   placeholder="Address Line 1"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -220,9 +255,10 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
+                  onChange={handleChange}
+                  value={subscribeData.address2}
+                  name="address2"
                   type="text"
-                  value={address2}
-                  onChange={(e) => setAddress2(e.target.value)}
                   required
                   placeholder="Address Line 2"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -236,9 +272,10 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
+                  onChange={handleChange}
+                  value={subscribeData.city}
+                  name="city"
                   type="text"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
                   required
                   placeholder="City"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -252,9 +289,10 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
+                  onChange={handleChange}
+                  value={subscribeData.state}
+                  name="state"
                   type="text"
-                  value={state}
-                  onChange={(e) => setState(e.target.value)}
                   required
                   placeholder="State"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -268,9 +306,10 @@ const Subscribe = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
+                  onChange={handleChange}
+                  value={subscribeData.zipCode}
+                  name="zipCode"
                   type="text"
-                  value={zipCode}
-                  onChange={(e) => setZipCode(e.target.value)}
                   required
                   placeholder="Code"
                   className="outline-none border-none focus:ring-0 flex-grow"
@@ -290,7 +329,10 @@ const Subscribe = () => {
 
         <div className=" ">
           {isData ? (
-            <button className="w-full my-8 py-3 px-16 text-base rounded-full text-white bg-secondary-600">
+            <button
+              onClick={handleSubscribe}
+              className="w-full my-8 py-3 px-16 text-base rounded-full text-white bg-secondary-600"
+            >
               Subscribe
             </button>
           ) : (

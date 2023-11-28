@@ -6,17 +6,30 @@ import Pencil from "../../images/pencil.png";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  // const initialLoginData = {
-  //   email: "",
-  //   password: "",
-  // };
+  const initialLoginData = {
+    email: "",
+    password: "",
+  };
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [loginData, setLoginData] = useState(initialLoginData);
   const [showPassword, setShowPassword] = useState("password");
 
-  const isValidEmail = /\S+@\S+\.\S+/.test(email);
+  const isValidEmail = /\S+@\S+\.\S+/.test(loginData.email);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setLoginData((pervDate) => ({
+      ...pervDate,
+      [name]: value,
+    }));
+  };
+  console.log(loginData);
+
+  const isData = (loginData.password?.length >= 8) & isValidEmail;
+
+  const handleLogin = () => {
+    setLoginData(initialLoginData);
+  };
 
   return (
     <div className="flex justify-between  w-full h-auto min-h-screen bg-gradient-to-b from-primary-500 to-secondary-500 py-10 px-16">
@@ -52,8 +65,9 @@ const Login = () => {
               </label>
               <div className="flex  items-center px-2 border border-neutral-500 rounded-lg">
                 <input
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
+                  onChange={handleChange}
+                  value={loginData.email}
+                  name="email"
                   type="email"
                   required
                   placeholder="email"
@@ -68,8 +82,9 @@ const Login = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
+                  onChange={handleChange}
+                  value={loginData.password}
+                  name="password"
                   type={showPassword}
                   required
                   placeholder="password"
@@ -143,8 +158,11 @@ const Login = () => {
           </div>
         </div>
         <div className="flex flex-col justify-between gap-2 items-center w-full">
-          {isValidEmail & (password.length >= 8) ? (
-            <button className="w-full py-2 px-4 text-base rounded-full text-white bg-secondary-600">
+          {isData ? (
+            <button
+              onClick={handleLogin}
+              className="w-full py-2 px-4 text-base rounded-full text-white bg-secondary-600"
+            >
               Login
             </button>
           ) : (
