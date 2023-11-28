@@ -7,22 +7,37 @@ import { Link } from "react-router-dom";
 import Modal from "../../components/ModalComponents/Modal";
 
 const SignUp = () => {
+  const initialSignupData = {
+    businessName: "",
+    email: "",
+    phoneNum: "",
+    password: "",
+    confirmPassword: "",
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [businessName, setBusinessName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNum, setPhoneNum] = useState();
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState("password");
+  const [signUpData, setSignUpData] = useState(initialSignupData);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setSignUpData((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+    console.log(signUpData);
+  };
+
   const [showConfirmPassword, setShowConfirmPassword] = useState("password");
 
-  const isValidEmail = /\S+@\S+\.\S+/.test(email);
+  const isValidEmail = /\S+@\S+\.\S+/.test(signUpData.email);
 
   const isData =
-    (businessName?.length >= 3) &
-    (phoneNum?.length >= 7) &
-    (password?.length >= 8) &
-    (confirmPassword?.length >= 8) &
+    (signUpData.businessName?.length >= 3) &
+    (signUpData.phoneNum?.length >= 7) &
+    (signUpData.password?.length >= 8) &
+    (signUpData.confirmPassword?.length >= 8) &
     isValidEmail;
 
   const openModal = () => {
@@ -34,12 +49,9 @@ const SignUp = () => {
   };
 
   const handleSignUp = () => {
+    console.log("data :",signUpData);
     openModal();
-    setBusinessName("");
-    setEmail("");
-    setPhoneNum("");
-    setPassword("");
-    setConfirmPassword("");
+    setSignUpData(initialSignupData);
   };
 
   if (isModalOpen) {
@@ -47,7 +59,7 @@ const SignUp = () => {
       setIsModalOpen(false);
     }, 5000);
   }
-  
+
   console.log(isData);
   return (
     <div className="flex justify-between  w-full h-auto min-h-screen bg-gradient-to-b from-primary-500 to-secondary-500 py-10 px-16">
@@ -85,8 +97,9 @@ const SignUp = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
-                  onChange={(e) => setBusinessName(e.target.value)}
-                  value={businessName}
+                  onChange={handleChange}
+                  value={signUpData.businessName}
+                  name="businessName"
                   type="text"
                   required
                   placeholder="Business"
@@ -101,8 +114,9 @@ const SignUp = () => {
               </label>
               <div className="flex  items-center px-2 border border-neutral-500 rounded-lg">
                 <input
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
+                  onChange={handleChange}
+                  value={signUpData.email}
+                  name="email"
                   type="email"
                   required
                   placeholder="email"
@@ -118,8 +132,9 @@ const SignUp = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
-                  onChange={(e) => setPhoneNum(e.target.value)}
-                  value={phoneNum}
+                  onChange={handleChange}
+                  value={signUpData.phoneNum}
+                  name="phoneNum"
                   type="number"
                   required
                   placeholder="Phone Number"
@@ -134,8 +149,9 @@ const SignUp = () => {
               </label>
               <div className="flex  items-center px-2 border border-neutral-500 rounded-lg">
                 <input
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
+                  onChange={handleChange}
+                  value={signUpData.password}
+                  name="password"
                   type={showPassword}
                   required
                   placeholder="password"
@@ -203,8 +219,9 @@ const SignUp = () => {
               </label>
               <div className="flex  items-center  px-2 border border-neutral-500 rounded-lg">
                 <input
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  value={confirmPassword}
+                  onChange={handleChange}
+                  value={signUpData.confirmPassword}
+                  name="confirmPassword"
                   type={showConfirmPassword}
                   required
                   placeholder="confirm password"

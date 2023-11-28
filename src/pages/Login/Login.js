@@ -6,8 +6,14 @@ import Pencil from "../../images/pencil.png";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  // const initialLoginData = {
+  //   email: "",
+  //   password: "",
+  // };
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [showPassword, setShowPassword] = useState("password");
 
   const isValidEmail = /\S+@\S+\.\S+/.test(email);
