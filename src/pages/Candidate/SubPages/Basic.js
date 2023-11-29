@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import Pencil from "../../../images/pencil.png";
 import { Link } from "react-router-dom";
+import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
 
 const Basic = () => {
+  const inititalBasicData = {
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    gender: "",
+    maritalStatus: "",
+    dateOfBirth: "",
+    email: "",
+    phoneNum: "",
+    alternatePhoneNum: "",
+    address1: "",
+    address2: "",
+  };
+  const data = useSelector((state) => state.personal);
+  const [basicData, setBasicData] = useState(inititalBasicData);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setBasicData((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+  console.log(basicData);
+
   return (
     <div className="">
       <from className="flex flex-col gap-y-6 mt-5 text-sm font-normal text-text-hint">
@@ -13,6 +39,9 @@ const Basic = () => {
             </label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
+                onChange={handleChange}
+                value={basicData.firstName}
+                name="firstName"
                 placeholder="First Name"
                 required
                 className="outline-none w-full"
@@ -26,6 +55,9 @@ const Basic = () => {
             </label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
+                onChange={handleChange}
+                value={basicData.lastName}
+                name="lastName"
                 placeholder="Last Name"
                 required
                 className="outline-none w-full"
@@ -39,6 +71,9 @@ const Basic = () => {
             </label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
+                onChange={handleChange}
+                value={basicData.middleName}
+                name="middleName"
                 placeholder="Middle Name"
                 required
                 className="outline-none w-full"
@@ -55,9 +90,11 @@ const Basic = () => {
             <ul className="grid grid-cols-3 mt-1">
               <li className="relative">
                 <input
+                  onChange={handleChange}
+                  value="male"
+                  checked={basicData.gender === "male"}
                   className="sr-only peer"
                   type="radio"
-                  value="male"
                   name="gender"
                   id="male"
                 />
@@ -70,9 +107,11 @@ const Basic = () => {
               </li>
               <li className="relative">
                 <input
+                  onChange={handleChange}
+                  value="female"
+                  checked={basicData.gender === "female"}
                   className="sr-only peer"
                   type="radio"
-                  value="female"
                   name="gender"
                   id="female"
                 />
@@ -86,9 +125,11 @@ const Basic = () => {
 
               <li className="relative">
                 <input
+                  onChange={handleChange}
+                  value="other"
+                  checked={basicData.gender === "other"}
                   className="sr-only peer"
                   type="radio"
-                  value="other"
                   name="gender"
                   id="other"
                 />
@@ -108,12 +149,13 @@ const Basic = () => {
             <ul className="grid grid-cols-3 mt-1">
               <li className="relative">
                 <input
+                  onChange={handleChange}
+                  value="single"
+                  checked={basicData.maritalStatus === "single"}
                   className="sr-only peer"
                   type="radio"
-                  value="single"
-                  name="marital_status"
+                  name="maritalStatus"
                   id="single"
-                  checked
                 />
                 <label
                   className="flex justify-center items-center py-2 px-3 bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
@@ -125,10 +167,12 @@ const Basic = () => {
 
               <li className="relative">
                 <input
+                  onChange={handleChange}
+                  value="married"
+                  checked={basicData.maritalStatus === "married"}
                   className="sr-only peer"
                   type="radio"
-                  value="married"
-                  name="marital_status"
+                  name="maritalStatus"
                   id="married"
                 />
                 <label
@@ -148,6 +192,9 @@ const Basic = () => {
             </label>
             <div className="">
               <input
+                onChange={handleChange}
+                value={basicData.dateOfBirth}
+                name="dateOfBirth"
                 type="date"
                 required
                 className="outline-none w-full appearance-none flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg "
@@ -163,6 +210,9 @@ const Basic = () => {
             </label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
+                onChange={handleChange}
+                value={basicData.email}
+                name="email"
                 placeholder="youremail@gmail.com"
                 required
                 className="outline-none w-full"
@@ -178,6 +228,9 @@ const Basic = () => {
             </label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
+                onChange={handleChange}
+                value={basicData.phoneNum}
+                name="phoneNum"
                 placeholder="99999999"
                 required
                 className="outline-none w-full"
@@ -191,6 +244,9 @@ const Basic = () => {
             </label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
+                onChange={handleChange}
+                value={basicData.alternatePhoneNum}
+                name="alternatePhoneNum"
                 placeholder="99999999"
                 required
                 className="outline-none w-full"
@@ -206,6 +262,9 @@ const Basic = () => {
             </label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
+                onChange={handleChange}
+                value={basicData.address1}
+                name="address1"
                 placeholder="Address Line 1"
                 required
                 className="outline-none w-full"
@@ -219,6 +278,9 @@ const Basic = () => {
             </label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
+                onChange={handleChange}
+                value={basicData.address2}
+                name="address2"
                 placeholder="Address Line 2"
                 required
                 className="outline-none w-full"
