@@ -5,6 +5,7 @@ import GoogleIcon from "../../images/google-icon.png";
 import Pencil from "../../images/pencil.png";
 import { Link } from "react-router-dom";
 import Modal from "../../components/ModalComponents/Modal";
+import { signup } from "../../api/auth";
 
 const SignUp = () => {
   const initialSignupData = {
@@ -48,8 +49,10 @@ const SignUp = () => {
     setIsModalOpen(false);
   };
 
-  const handleSignUp = () => {
-    console.log("data :",signUpData);
+  const handleSignUp = async () => {
+    const response = await signup(signUpData);
+    console.log(response);
+    console.log("data :", signUpData);
     openModal();
     setSignUpData(initialSignupData);
   };

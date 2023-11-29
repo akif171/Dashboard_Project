@@ -4,6 +4,7 @@ import GifLogo from "../../images/main-logo.gif";
 import GoogleIcon from "../../images/google-icon.png";
 import Pencil from "../../images/pencil.png";
 import { Link } from "react-router-dom";
+import { login } from "../../api/auth";
 
 const Login = () => {
   const initialLoginData = {
@@ -27,7 +28,9 @@ const Login = () => {
 
   const isData = (loginData.password?.length >= 8) & isValidEmail;
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
+    const response = await login(loginData);
+    console.log(response);
     setLoginData(initialLoginData);
   };
 

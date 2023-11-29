@@ -7,9 +7,13 @@ import { Link } from "react-router-dom";
 import PhoneNumberInput from "../../components/PhoneNumberInput";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import Modal from "../../components/ModalComponents/Modal";
+import { subscribe } from "../../api/auth";
 
 const Subscribe = () => {
-  // const [phoneNumber, setPhoneNumber] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState();
+  console.log(phoneNumber);
   const initialSubscribeData = {
     email: "",
     phoneNumber: "",
@@ -40,29 +44,55 @@ const Subscribe = () => {
     (subscribeData.zipCode?.length >= 3) &
     (subscribeData.address1?.length >= 10) &
     (subscribeData.address2?.length >= 10) &
-    (subscribeData.phoneNumber?.length >= 7) &
+    (phoneNumber?.length >= 7) &
     (subscribeData.password?.length >= 8) &
     (subscribeData.confirmPassword?.length >= 8) &
     isValidEmail;
+
+  console.log(isData);
 
   const handleChange = (e) => {
     console.log(e);
     const { name, value } = e.target;
     setSubscribeData((pervData) => ({
       ...pervData,
+      phoneNumber: phoneNumber,
       [name]: value,
     }));
   };
 
-  const handleSubscribe = () => {
-    // setPhoneNumber("");
+  const handleSubscribe = async () => {
+    const response = await subscribe(subscribeData);
+    console.log(response);
+    setIsModalOpen(true);
+    setPhoneNumber("");
     setSubscribeData(initialSubscribeData);
   };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  if (isModalOpen) {
+    setTimeout(() => {
+      setIsModalOpen(false);
+    }, 5000);
+  }
 
   console.log(subscribeData);
 
   return (
     <div className="flex justify-between  w-full h-auto min-h-screen bg-gradient-to-b from-primary-500 to-secondary-500 p-16">
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <h1 className="text-base font-bold  p-6 ">
+          Your Account will be activated after verification.
+        </h1>
+      </Modal>
+
       <div className="flex flex-col gap-5 h-full">
         <div className="flex items-center gap-3">
           <img src={AuthLogo} alt="logo" className="w-[60px]" />
@@ -112,19 +142,15 @@ const Subscribe = () => {
                 <PhoneInput
                   international
                   country="US"
-                  value={subscribeData.phoneNumber}
-                  onChange={handleChange}
+                  value={phoneNumber}
+                  onChange={setPhoneNumber}
                   placeholder="Enter phone number"
+                  name="phoneNumber"
                   numberInputProps={{
                     className:
                       "rounded-md px-4 focus:ring-0 outline-none border-none ",
                     // value:{subscribeData.phoneNumber},
-                    // onchange:{handleChange}
                   }}
-                  // inputComponent={{
-                  //   onChange: { handleChange },
-                  //   name: "phoneNumber",
-                  // }}
                 />
                 <img src={Pencil} alt="pencil" className="w-6 h-6" />
               </div>
