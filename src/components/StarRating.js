@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const StarRating = ({ initialRating, onRatingChange, fontSize }) => {
+const StarRating = ({
+  initialRating,
+  onRatingChange,
+  fontSize,
+  setProfileRating,
+}) => {
   const [rating, setRating] = useState(initialRating);
 
   const handleStarClick = (newRating) => {
@@ -9,6 +14,10 @@ const StarRating = ({ initialRating, onRatingChange, fontSize }) => {
       onRatingChange(newRating);
     }
   };
+
+  useEffect(() => {
+    setProfileRating(rating);
+  }, [rating]);
 
   return (
     <div>

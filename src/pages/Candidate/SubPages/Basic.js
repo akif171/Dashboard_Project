@@ -30,7 +30,7 @@ const Basic = () => {
     address2,
     phoneNum,
     alternatePhoneNum,
-  } = useSelector((state) => state.personal);
+  } = useSelector((state) => state.personal.basic);
   // const [genderStatus, setGenderStatus] = useState("");
   // const [personMaritalStatus, setPersonMaritalStatus] = useState("");
   const [basicData, setBasicData] = useState({

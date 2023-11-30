@@ -1,14 +1,77 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Pencil from "../../../images/pencil.png";
 import { Link } from "react-router-dom";
 import StarRating from "../../../components/StarRating";
+import { useDispatch, useSelector } from "react-redux";
+import { setProfileInfo } from "../../../features/candidate/personalSlice";
 
+const options = [
+  { value: "", text: "--Choose an option--" },
+  { value: "option1", text: "option1" },
+  { value: "option2", text: "option2" },
+  { value: "option3", text: "option3" },
+  { value: "option4", text: "option4" },
+  { value: "option5", text: "option5" },
+];
 const Profile = () => {
+  const dispatch = useDispatch();
+
+  const initialProfileData = {
+    totalInterviews: "",
+    activeInterviews: "",
+    passedInterviews: "",
+    failedInterviews: "",
+    holdInterviews: "",
+    lastInterviewOn: "",
+    rating: 0,
+  };
+
+  const {
+    totalInterviews,
+    activeInterviews,
+    passedInterviews,
+    failedInterviews,
+    holdInterviews,
+    lastInterviewOn,
+    rating,
+  } = useSelector((state) => state.personal.profile);
+
+  const [profileRating, setProfileRating] = useState(rating);
+
+  const [profileData, setProfileData] = useState({
+    totalInterviews,
+    activeInterviews,
+    passedInterviews,
+    failedInterviews,
+    holdInterviews,
+    lastInterviewOn,
+    rating,
+  });
+  console.log(profileData);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProfileData((pervData) => ({
+      ...pervData,
+      rating: profileRating,
+      [name]: value,
+    }));
+  };
+
+  console.log(profileRating);
+
+  useEffect(() => {
+    dispatch(setProfileInfo(profileData));
+  }, [profileData, profileRating]);
+
   return (
     <div className="">
       <div className="mt-5">
         <h3>Rating</h3>
-        <StarRating fontSize={24} initialRating={3} />
+        <StarRating
+          fontSize={24}
+          initialRating={rating}
+          setProfileRating={setProfileRating}
+        />
       </div>
       <from className="flex flex-col gap-y-6 mt-5 text-sm font-normal text-text-hint">
         <div className="grid grid-cols-4 gap-5">
@@ -16,24 +79,34 @@ const Profile = () => {
             <label className="">
               Total Interviews<span className="text-red-500">*</span>
             </label>
-            <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select
+              onChange={handleChange}
+              name="totalInterviews"
+              value={totalInterviews}
+              className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
+            >
+              {options.map((option) => (
+                <option className="" key={option.value} value={option.value}>
+                  {option.text}
+                </option>
+              ))}
             </select>
           </div>
           <div className="">
             <label className="">
               Active Interviews<span className="text-red-500">*</span>
             </label>
-            <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select
+              onChange={handleChange}
+              name="activeInterviews"
+              value={activeInterviews}
+              className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
+            >
+              {options.map((option) => (
+                <option className="" key={option.value} value={option.value}>
+                  {option.text}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -42,24 +115,34 @@ const Profile = () => {
             <label className="">
               Passed Interviews<span className="text-red-500">*</span>
             </label>
-            <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select
+              onChange={handleChange}
+              name="passedInterviews"
+              value={passedInterviews}
+              className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
+            >
+              {options.map((option) => (
+                <option className="" key={option.value} value={option.value}>
+                  {option.text}
+                </option>
+              ))}
             </select>
           </div>
           <div className="">
             <label className="">
               Failed Interviews<span className="text-red-500">*</span>
             </label>
-            <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select
+              onChange={handleChange}
+              name="failedInterviews"
+              value={failedInterviews}
+              className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
+            >
+              {options.map((option) => (
+                <option className="" key={option.value} value={option.value}>
+                  {option.text}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -68,12 +151,17 @@ const Profile = () => {
             <label className="">
               Interviews on Hold<span className="text-red-500">*</span>
             </label>
-            <select className="flex justify-center items-center focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select
+              onChange={handleChange}
+              name="holdInterviews"
+              value={holdInterviews}
+              className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
+            >
+              {options.map((option) => (
+                <option className="" key={option.value} value={option.value}>
+                  {option.text}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -82,9 +170,12 @@ const Profile = () => {
               Last Interviewed on<span className="text-red-500">*</span>
             </label>
             <input
+              onChange={handleChange}
+              name="lastInterviewOn"
+              value={lastInterviewOn}
               type="date"
               required
-              className="outline-none w-full appearance-none flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg "
+              className="outline-none w-full appearance-none text-black flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg "
             />
           </div>
         </div>
