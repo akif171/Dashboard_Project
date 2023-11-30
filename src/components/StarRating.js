@@ -16,7 +16,9 @@ const StarRating = ({
   };
 
   useEffect(() => {
-    setProfileRating(rating);
+    if (setProfileRating) {
+      setProfileRating(rating);
+    }
   }, [rating]);
 
   return (
