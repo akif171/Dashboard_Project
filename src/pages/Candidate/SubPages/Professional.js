@@ -4,6 +4,15 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setProfessionalInfo } from "../../../features/candidate/personalSlice";
 
+const options = [
+  { value: "", text: "--Choose an option--" },
+  { value: "option1", text: "option1" },
+  { value: "option2", text: "option2" },
+  { value: "option3", text: "option3" },
+  { value: "option4", text: "option4" },
+  { value: "option5", text: "option5" },
+];
+
 const Professional = () => {
   const initialProfessionalData = {
     jobTitle: "",
@@ -20,7 +29,7 @@ const Professional = () => {
   const dispatch = useDispatch();
   const {
     jobTitle,
-    salesPeson,
+    salesPerson,
     technology,
     workPermitStatus,
     workPermitIssueDate,
@@ -32,7 +41,7 @@ const Professional = () => {
 
   const [professionalData, setProfessionalData] = useState({
     jobTitle,
-    salesPeson,
+    salesPerson,
     technology,
     workPermitStatus,
     workPermitIssueDate,
@@ -66,7 +75,7 @@ const Professional = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={professionalData.jobTitle}
+                value={jobTitle}
                 name="jobTitle"
                 placeholder="Job Title"
                 required
@@ -79,17 +88,18 @@ const Professional = () => {
             <label className="">
               Sales Person<span className="text-red-500">*</span>
             </label>
-            <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
-              <input
-                onChange={handleChange}
-                value={professionalData.salesPeson}
-                name="salesPeson"
-                placeholder="Sales person"
-                required
-                className="outline-none w-full text-black"
-              />
-              <img src={Pencil} alt="pencil" />
-            </div>
+            <select
+              onChange={handleChange}
+              name="salesPerson"
+              value={salesPerson}
+              className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
+            >
+              {options.map((option) => (
+                <option className="" key={option.value} value={option.value}>
+                  {option.text}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
         <div className="grid grid-cols-4 gap-3">
@@ -100,7 +110,7 @@ const Professional = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={professionalData.technology}
+                value={technology}
                 name="technology"
                 placeholder="Technology"
                 required
@@ -118,7 +128,7 @@ const Professional = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={professionalData.workPermitStatus}
+                value={workPermitStatus}
                 name="workPermitStatus"
                 placeholder="work peemit status"
                 required
@@ -135,7 +145,7 @@ const Professional = () => {
             </label>
             <input
               onChange={handleChange}
-              value={professionalData.workPermitIssueDate}
+              value={workPermitIssueDate}
               name="workPermitIssueDate"
               type="date"
               required
@@ -148,7 +158,7 @@ const Professional = () => {
             </label>
             <input
               onChange={handleChange}
-              value={professionalData.workPermitExpireDate}
+              value={workPermitExpireDate}
               name="workPermitExpireDate"
               type="date"
               required
@@ -164,7 +174,7 @@ const Professional = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={professionalData.SSN}
+                value={SSN}
                 name="SSN"
                 placeholder="SSN"
                 required
@@ -182,7 +192,7 @@ const Professional = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={professionalData.employmentStatus}
+                value={employmentStatus}
                 name="employmentStatus"
                 placeholder="Employment status"
                 required
@@ -198,7 +208,7 @@ const Professional = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={professionalData.referredBy}
+                value={referredBy}
                 name="referredBy"
                 placeholder="Referred By"
                 required

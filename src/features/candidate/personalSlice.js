@@ -16,7 +16,7 @@ const initialState = {
   },
   professional: {
     jobTitle: "",
-    salesPeson: "",
+    salesPerson: "",
     technology: "",
     workPermitStatus: "",
     workPermitIssueDate: "",
@@ -33,6 +33,20 @@ const initialState = {
     holdInterviews: "",
     lastInterviewOn: "",
     rating: 0,
+  },
+  emergencyContacts: {
+    contactInfo1: {
+      contactName: "",
+      contactPhoneNum: "",
+      email: "",
+      contactRelation: "",
+    },
+    contactInfo2: {
+      contactName: "",
+      contactPhoneNum: "",
+      email: "",
+      contactRelation: "",
+    },
   },
 };
 
@@ -55,7 +69,7 @@ const personalSlice = createSlice({
     },
     setProfessionalInfo: (state, action) => {
       state.professional.jobTitle = action.payload.jobTitle;
-      state.professional.salesPeson = action.payload.salesPeson;
+      state.professional.salesPerson = action.payload.salesPerson;
       state.professional.technology = action.payload.technology;
       state.professional.workPermitStatus = action.payload.workPermitStatus;
       state.professional.SSN = action.payload.SSN;
@@ -75,9 +89,36 @@ const personalSlice = createSlice({
       state.profile.lastInterviewOn = action.payload.lastInterviewOn;
       state.profile.rating = action.payload.rating;
     },
+    setEmergencyContact1: (state, action) => {
+      // set contact1
+      state.emergencyContacts.contactInfo1.contactName =
+        action.payload.contact1.contactName;
+      state.emergencyContacts.contactInfo1.contactPhoneNum =
+        action.payload.contact1.contactPhoneNum;
+      state.emergencyContacts.contactInfo1.email =
+        action.payload.contact1.email;
+      state.emergencyContacts.contactInfo1.contactRelation =
+        action.payload.contact1.contactRelation;
+    },
+    setEmergencyContact2: (state, action) => {
+      state.emergencyContacts.contactInfo2.contactName =
+        action.payload.contact2.contactName;
+      state.emergencyContacts.contactInfo2.contactPhoneNum =
+        action.payload.contact2.contactPhoneNum;
+      state.emergencyContacts.contactInfo2.email =
+        action.payload.contact2.email;
+      state.emergencyContacts.contactInfo2.contactRelation =
+        action.payload.contact2.contactRelation;
+    },
   },
 });
 
-export const { setBasicInfo, setProfessionalInfo,setProfileInfo } = personalSlice.actions;
+export const {
+  setBasicInfo,
+  setProfessionalInfo,
+  setProfileInfo,
+  setEmergencyContact1,
+  setEmergencyContact2,
+} = personalSlice.actions;
 
 export default personalSlice.reducer;
