@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Pencil from "../../../images/pencil.png";
 import { Link } from "react-router-dom";
-import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector, useDispatch } from "react-redux";
+import { setBasicInfo } from "../../../features/candidate/personalSlice";
 
 const Basic = () => {
   const inititalBasicData = {
@@ -17,17 +18,51 @@ const Basic = () => {
     address1: "",
     address2: "",
   };
-  const data = useSelector((state) => state.personal);
-  const [basicData, setBasicData] = useState(inititalBasicData);
+  const {
+    firstName,
+    lastName,
+    middleName,
+    gender,
+    maritalStatus,
+    dateOfBirth,
+    email,
+    address1,
+    address2,
+    phoneNum,
+    alternatePhoneNum,
+  } = useSelector((state) => state.personal);
+  // const [genderStatus, setGenderStatus] = useState("");
+  // const [personMaritalStatus, setPersonMaritalStatus] = useState("");
+  const [basicData, setBasicData] = useState({
+    firstName,
+    lastName,
+    middleName,
+    gender,
+    maritalStatus,
+    dateOfBirth,
+    email,
+    address1,
+    address2,
+    phoneNum,
+    alternatePhoneNum,
+  });
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
+    e.preventDefault();
     const { name, value } = e.target;
     setBasicData((pervData) => ({
       ...pervData,
+
       [name]: value,
     }));
   };
   console.log(basicData);
+
+  useEffect(() => {
+    dispatch(setBasicInfo(basicData));
+    localStorage.setItem("state", JSON.stringify(basicData));
+  }, [basicData]);
 
   return (
     <div className="">
@@ -40,11 +75,11 @@ const Basic = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={basicData.firstName}
+                value={firstName}
                 name="firstName"
                 placeholder="First Name"
                 required
-                className="outline-none w-full"
+                className="outline-none w-full text-black"
               />
               <img src={Pencil} alt="pencil" />
             </div>
@@ -56,11 +91,11 @@ const Basic = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={basicData.lastName}
+                value={lastName}
                 name="lastName"
                 placeholder="Last Name"
                 required
-                className="outline-none w-full"
+                className="outline-none w-full text-black"
               />
               <img src={Pencil} alt="pencil" />
             </div>
@@ -72,11 +107,11 @@ const Basic = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={basicData.middleName}
+                value={middleName}
                 name="middleName"
                 placeholder="Middle Name"
                 required
-                className="outline-none w-full"
+                className="outline-none w-full text-black"
               />
               <img src={Pencil} alt="pencil" />
             </div>
@@ -193,11 +228,11 @@ const Basic = () => {
             <div className="">
               <input
                 onChange={handleChange}
-                value={basicData.dateOfBirth}
+                value={dateOfBirth}
                 name="dateOfBirth"
                 type="date"
                 required
-                className="outline-none w-full appearance-none flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg "
+                className="outline-none w-full text-black appearance-none flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg "
               />
               {/* <img src={Pencil} alt="pencil" /> */}
             </div>
@@ -211,11 +246,11 @@ const Basic = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={basicData.email}
+                value={email}
                 name="email"
                 placeholder="youremail@gmail.com"
                 required
-                className="outline-none w-full"
+                className="outline-none w-full text-black"
               />
               <img src={Pencil} alt="pencil" />
             </div>
@@ -229,11 +264,11 @@ const Basic = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={basicData.phoneNum}
+                value={phoneNum}
                 name="phoneNum"
                 placeholder="99999999"
                 required
-                className="outline-none w-full"
+                className="outline-none w-full text-black"
               />
               <img src={Pencil} alt="pencil" />
             </div>
@@ -245,11 +280,11 @@ const Basic = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={basicData.alternatePhoneNum}
+                value={alternatePhoneNum}
                 name="alternatePhoneNum"
                 placeholder="99999999"
                 required
-                className="outline-none w-full"
+                className="outline-none w-full text-black"
               />
               <img src={Pencil} alt="pencil" />
             </div>
@@ -263,11 +298,11 @@ const Basic = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={basicData.address1}
+                value={address1}
                 name="address1"
                 placeholder="Address Line 1"
                 required
-                className="outline-none w-full"
+                className="outline-none w-full text-black"
               />
               <img src={Pencil} alt="pencil" />
             </div>
@@ -279,11 +314,11 @@ const Basic = () => {
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
                 onChange={handleChange}
-                value={basicData.address2}
+                value={address2}
                 name="address2"
                 placeholder="Address Line 2"
                 required
-                className="outline-none w-full"
+                className="outline-none w-full text-black"
               />
               <img src={Pencil} alt="pencil" />
             </div>
