@@ -61,9 +61,11 @@ import Users from "./pages/Administration/Users";
 import UserRoles from "./pages/Administration/UserRoles";
 import Settings from "./pages/Administration/Settings";
 import Trainings from "./pages/Training/Trainings";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [isAuth, setIsAuth] = useState(true);
+  // const [isAuth, setIsAuth] = useState(true);
+  const { isAuth } = useSelector((state) => state.user);
 
   return (
     <>

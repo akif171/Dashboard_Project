@@ -1,7 +1,22 @@
+import { handler } from "@tailwindcss/line-clamp";
 import React, { useState } from "react";
 
 const NewNote = ({ isNewNote, setIsNewNote }) => {
   //   const [isNoteOpen, setIsOpen] = useState(false);
+
+  const [note, setNote] = useState({
+    author: "babu vasa",
+    content: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNote((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+  console.log(note);
 
   return (
     <div
@@ -61,6 +76,9 @@ const NewNote = ({ isNewNote, setIsNewNote }) => {
           doloribus tenetur
         </p> */}
         <textarea
+          onChange={handleChange}
+          value={note.content}
+          name="content"
           className="w-full focus:ring-0 border-none outline-none "
           rows={3}
         ></textarea>
