@@ -19,17 +19,17 @@ const options = [
 
 const EmergencyContacts = () => {
   const initialContact1 = {
-    contactName1: "",
-    contactPhoneNum1: "",
-    email1: "",
-    contactRelation1: "",
+    contactName: "",
+    contactPhoneNum: "",
+    email: "",
+    contactRelation: "",
   };
 
   const initialContact2 = {
-    contactName2: "",
-    contactPhoneNum2: "",
-    email2: "",
-    contactRelation2: "",
+    contactName: "",
+    contactPhoneNum: "",
+    email: "",
+    contactRelation: "",
   };
 
   const dispatch = useDispatch();
@@ -37,7 +37,10 @@ const EmergencyContacts = () => {
   const { contactInfo1, contactInfo2 } = useSelector(
     (state) => state.personal.emergencyContacts
   );
-  console.log(contactInfo1, contactInfo2);
+
+  const personalInfo = useSelector((state) => state.personal);
+
+  // console.log(contactInfo1, contactInfo2);
   const [contact1, setContact1] = useState(contactInfo1);
   const [contact2, setContact2] = useState(contactInfo2);
 
@@ -52,23 +55,23 @@ const EmergencyContacts = () => {
 
   const handleChange2 = (e) => {
     const { name, value } = e.target;
-    console.log(e);
+    // console.log(e);
     setContact2((pervData) => ({
       ...pervData,
       [name]: value,
     }));
   };
 
-  useEffect(() => {
-    dispatch(setEmergencyContact1(contact1));
-  }, [contact1]);
+  const handleSubmit = () => {
+    console.log(personalInfo);
+  };
 
   useEffect(() => {
-    dispatch(setEmergencyContact2(contact2));
-  }, [contact2]);
+    dispatch(setEmergencyContacts({ contact1, contact2 }));
+  }, [contact1, contact2]);
 
-  console.log("contact1", contact1);
-  console.log("contact2", contact2);
+  // console.log("contact1", contact1);
+  // console.log("contact2", contact2);
 
   return (
     <div className="">
@@ -233,6 +236,7 @@ const EmergencyContacts = () => {
           Previous
         </Link>
         <Link
+          onClick={handleSubmit}
           to={`/candidate/add-candidate/notes`}
           className="text-white bg-secondary-700 py-2 px-5 rounded-full text-base"
         >

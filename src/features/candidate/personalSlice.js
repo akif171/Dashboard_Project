@@ -89,7 +89,7 @@ const personalSlice = createSlice({
       state.profile.lastInterviewOn = action.payload.lastInterviewOn;
       state.profile.rating = action.payload.rating;
     },
-    setEmergencyContact1: (state, action) => {
+    setEmergencyContacts: (state, action) => {
       // set contact1
       state.emergencyContacts.contactInfo1.contactName =
         action.payload.contact1.contactName;
@@ -99,8 +99,8 @@ const personalSlice = createSlice({
         action.payload.contact1.email;
       state.emergencyContacts.contactInfo1.contactRelation =
         action.payload.contact1.contactRelation;
-    },
-    setEmergencyContact2: (state, action) => {
+
+      // set contact2
       state.emergencyContacts.contactInfo2.contactName =
         action.payload.contact2.contactName;
       state.emergencyContacts.contactInfo2.contactPhoneNum =
@@ -117,8 +117,7 @@ export const {
   setBasicInfo,
   setProfessionalInfo,
   setProfileInfo,
-  setEmergencyContact1,
-  setEmergencyContact2,
+  setEmergencyContacts,
 } = personalSlice.actions;
 
 export default personalSlice.reducer;
