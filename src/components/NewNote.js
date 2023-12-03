@@ -1,5 +1,6 @@
 import { handler } from "@tailwindcss/line-clamp";
 import React, { useState } from "react";
+import { createNote } from "../api/candidiate";
 
 const NewNote = ({ isNewNote, setIsNewNote }) => {
   //   const [isNoteOpen, setIsOpen] = useState(false);
@@ -16,6 +17,12 @@ const NewNote = ({ isNewNote, setIsNewNote }) => {
       [name]: value,
     }));
   };
+
+  const handleSubmit = async () => {
+    const response = await createNote(note);
+    setIsNewNote(false);
+  };
+
   console.log(note);
 
   return (
@@ -50,7 +57,7 @@ const NewNote = ({ isNewNote, setIsNewNote }) => {
         </div>
         <div className="flex gap-2">
           <button
-            onClick={() => setIsNewNote(false)}
+            onClick={handleSubmit}
             className="text-xs bg-secondary-700 text-white py-2 px-5 rounded-full"
           >
             Save

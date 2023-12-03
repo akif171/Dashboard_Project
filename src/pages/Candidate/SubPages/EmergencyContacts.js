@@ -7,7 +7,7 @@ import {
   setEmergencyContact2,
   setEmergencyContacts,
 } from "../../../features/candidate/personalSlice";
-
+import { createCandidate } from "../../../api/candidiate";
 const options = [
   { value: "", text: "--Choose an option--" },
   { value: "option1", text: "option1" },
@@ -62,7 +62,9 @@ const EmergencyContacts = () => {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    const response = await createCandidate(personalInfo);
+
     console.log(personalInfo);
   };
 

@@ -245,7 +245,7 @@ const Interviews = () => {
             </thead>
             {/* table content/data */}
             <tbody
-              className="flex flex-col items-center justify-between overflow-y-scroll w-full h-screen"
+              className="flex flex-col items-center overflow-y-scroll w-full h-screen"
               // style={{ height: "90vh" }}
             >
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (

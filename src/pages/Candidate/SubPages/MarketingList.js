@@ -7,6 +7,7 @@ import StarRating from "../../../components/StarRating";
 import { Link } from "react-router-dom";
 import Modal from "../../../components/ModalComponents/Modal";
 import Dropdown from "../../../components/Dropdown";
+import { createMarketingList } from "../../../api/candidiate";
 
 const tabelHeadArr = [
   "Sales Manager",
@@ -19,7 +20,19 @@ const tabelHeadArr = [
 ];
 
 const MarketingList = () => {
+  const initialMarketingList = {
+    salesManager: "",
+    salesPerson: "",
+    salesStartDate: "",
+    salesEndDate: "",
+    jobsApplied: "",
+    interviewsAttended: "",
+    marketingStatus: "",
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [marketingList, setMarketingList] = useState(initialMarketingList);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -28,6 +41,24 @@ const MarketingList = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setMarketingList((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async () => {
+    const response = await createMarketingList(marketingList);
+    setMarketingList(initialMarketingList);
+    closeModal();
+  };
+
+  console.log(marketingList);
+
   return (
     <div>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
@@ -39,6 +70,9 @@ const MarketingList = () => {
                   Sales Manager
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={marketingList.salesManager}
+                  name="salesManager"
                   type="text"
                   placeholder="Sales manager"
                   id="sales_manager"
@@ -50,6 +84,9 @@ const MarketingList = () => {
                   Sales Person
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={marketingList.salesPerson}
+                  name="salesPerson"
                   type="text"
                   placeholder="Sales Person"
                   id="sales_person"
@@ -66,6 +103,9 @@ const MarketingList = () => {
                   Sales Start Date
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={marketingList.salesStartDate}
+                  name="salesStartDate"
                   type="date"
                   id="sales_start_date"
                   className="outline-none border-2 border-text-hint rounded-lg "
@@ -77,6 +117,9 @@ const MarketingList = () => {
                   Sales End Date
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={marketingList.salesEndDate}
+                  name="salesEndDate"
                   type="date"
                   id="sales_end_date"
                   className="outline-none border-2 border-text-hint rounded-lg "
@@ -89,6 +132,9 @@ const MarketingList = () => {
                   Jobs Applied
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={marketingList.jobsApplied}
+                  name="jobsApplied"
                   type="text"
                   placeholder="Sales manager"
                   id="jobs_applied"
@@ -100,11 +146,14 @@ const MarketingList = () => {
                   htmlFor="interview_attended"
                   className="text-text-hint mb-1"
                 >
-                  Interview Attended
+                  Interviews Attended
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={marketingList.interviewsAttended}
+                  name="interviewsAttended"
                   type="text"
-                  placeholder="Interview Attended"
+                  placeholder="Interviews Attended"
                   id="interview_attended"
                   className="outline-none border-2 border-secondary-500 rounded-lg "
                 />
@@ -117,10 +166,12 @@ const MarketingList = () => {
                 <ul className="grid grid-cols-3 mt-1">
                   <li className="relative">
                     <input
+                      onChange={handleChange}
                       className="sr-only peer"
                       type="radio"
                       value="In Progress"
-                      name="marketing_status"
+                      checked={marketingList.marketingStatus === "In Progress"}
+                      name="marketingStatus"
                       id="not_completed"
                     />
                     <label
@@ -132,10 +183,12 @@ const MarketingList = () => {
                   </li>
                   <li className="relative">
                     <input
+                      onChange={handleChange}
                       className="sr-only peer"
                       type="radio"
                       value="shortlisted"
-                      name="marketing_status"
+                      checked={marketingList.marketingStatus === "shortlisted"}
+                      name="marketingStatus"
                       id="in_progress"
                     />
                     <label
@@ -148,10 +201,12 @@ const MarketingList = () => {
 
                   <li className="relative">
                     <input
+                      onChange={handleChange}
                       className="sr-only peer"
                       type="radio"
                       value="Not Selected"
-                      name="marketing_status"
+                      checked={marketingList.marketingStatus === "Not Selected"}
+                      name="marketingStatus"
                       id="completed"
                     />
                     <label
@@ -173,7 +228,7 @@ const MarketingList = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save

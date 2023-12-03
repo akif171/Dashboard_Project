@@ -7,10 +7,29 @@ import StarRating from "../../../components/StarRating";
 import { Link } from "react-router-dom";
 import Modal from "../../../components/ModalComponents/Modal";
 import Dropdown from "../../../components/Dropdown";
+import { createMarketingJob } from "../../../api/candidiate";
 
 const MarketingJobs = () => {
-  const [buttonId, setButtonId] = useState("");
+  const initialMarketingJobs = {
+    jobId: "",
+    jobTitle: "",
+    vendorName: "",
+    vendorEmail: "",
+    vendorNumber: "",
+    technology: "",
+    city: "",
+    state: "",
+    jobType: "",
+    salesPerson: "",
+    billRate: "",
+    duration: "",
+    status: "",
+  };
+
+  const [marketingJob, setMarketingJob] = useState(initialMarketingJobs);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [buttonId, setButtonId] = useState("");
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -29,7 +48,20 @@ const MarketingJobs = () => {
     openModal();
   };
 
-  console.log(buttonId);
+  const handleChange = async (e) => {
+    const { name, value } = e.target;
+    setMarketingJob((pervDate) => ({
+      ...pervDate,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async () => {
+    const response = await createMarketingJob(marketingJob);
+    closeModal();
+  };
+
+  console.log(marketingJob);
   return (
     <div>
       {buttonId === "add-jobs" ? (
@@ -42,6 +74,9 @@ const MarketingJobs = () => {
                     Job ID
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={marketingJob.jobId}
+                    name="jobId"
                     type="text"
                     placeholder="Job ID"
                     id="job_id"
@@ -53,6 +88,9 @@ const MarketingJobs = () => {
                     Job Title
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={marketingJob.jobTitle}
+                    name="jobTitle"
                     type="text"
                     placeholder="Job Title"
                     id="job_title"
@@ -67,6 +105,9 @@ const MarketingJobs = () => {
                     Vendor Name
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={marketingJob.vendorName}
+                    name="vendorName"
                     type="text"
                     placeholder="Vendor Name"
                     id="vendor_name"
@@ -78,6 +119,9 @@ const MarketingJobs = () => {
                     Vendor Email
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={marketingJob.vendorEmail}
+                    name="vendorEmail"
                     type="text"
                     placeholder="Vendor Email"
                     id="vendor_email"
@@ -92,6 +136,9 @@ const MarketingJobs = () => {
                     Vendor Number
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={marketingJob.vendorNumber}
+                    name="vendorNumber"
                     type="text"
                     placeholder="Vendor Number"
                     id="city"
@@ -103,6 +150,9 @@ const MarketingJobs = () => {
                     Technology
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={marketingJob.technology}
+                    name="technology"
                     type="text"
                     placeholder="Technology"
                     id="technology"
@@ -116,6 +166,9 @@ const MarketingJobs = () => {
                     City
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={marketingJob.city}
+                    name="city"
                     type="text"
                     placeholder="City"
                     id="city"
@@ -127,6 +180,9 @@ const MarketingJobs = () => {
                     State
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={marketingJob.state}
+                    name="state"
                     type="text"
                     placeholder="State"
                     id="state"
@@ -141,10 +197,12 @@ const MarketingJobs = () => {
                     <ul className="grid grid-cols-3 mt-1">
                       <li className="relative">
                         <input
+                          onChange={handleChange}
+                          checked={marketingJob.jobType === "Remote"}
                           className="sr-only peer"
                           type="radio"
                           value="Remote"
-                          name="job_type"
+                          name="jobType"
                           id="remote"
                         />
                         <label
@@ -156,10 +214,12 @@ const MarketingJobs = () => {
                       </li>
                       <li className="relative">
                         <input
+                          onChange={handleChange}
+                          checked={marketingJob.jobType === "On-Site"}
                           className="sr-only peer"
                           type="radio"
-                          value="shortlisted"
-                          name="job_type"
+                          value="On-Site"
+                          name="jobType"
                           id="on-site"
                         />
                         <label
@@ -172,10 +232,12 @@ const MarketingJobs = () => {
 
                       <li className="relative">
                         <input
+                          onChange={handleChange}
+                          checked={marketingJob.jobType === "Hybrid"}
                           className="sr-only peer"
                           type="radio"
-                          value="Not Selected"
-                          name="job_type"
+                          value="Hybrid"
+                          name="jobType"
                           id="hybrid"
                         />
                         <label
@@ -193,6 +255,9 @@ const MarketingJobs = () => {
                     Sales Person
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={marketingJob.salesPerson}
+                    name="salesPerson"
                     type="text"
                     placeholder="Sales Person"
                     id="sales-person"
@@ -206,6 +271,9 @@ const MarketingJobs = () => {
                     Bill Rate
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={marketingJob.billRate}
+                    name="billRate"
                     type="text"
                     placeholder="Bill Rate"
                     id="bill-rate"
@@ -217,6 +285,9 @@ const MarketingJobs = () => {
                     Duration
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={marketingJob.duration}
+                    name="duration"
                     type="text"
                     placeholder="Duration"
                     id="duration"
@@ -230,10 +301,12 @@ const MarketingJobs = () => {
                   <ul className="grid grid-cols-3 mt-1">
                     <li className="relative">
                       <input
+                        onChange={handleChange}
+                        checked={marketingJob.status === "In Progress"}
                         className="sr-only peer"
                         type="radio"
                         value="In Progress"
-                        name="marketing_status"
+                        name="status"
                         id="not_completed"
                       />
                       <label
@@ -245,10 +318,12 @@ const MarketingJobs = () => {
                     </li>
                     <li className="relative">
                       <input
+                        onChange={handleChange}
+                        checked={marketingJob.status === "shortlisted"}
                         className="sr-only peer"
                         type="radio"
                         value="shortlisted"
-                        name="marketing_status"
+                        name="status"
                         id="in_progress"
                       />
                       <label
@@ -261,10 +336,12 @@ const MarketingJobs = () => {
 
                     <li className="relative">
                       <input
+                        onChange={handleChange}
+                        checked={marketingJob.status === "Not Selected"}
                         className="sr-only peer"
                         type="radio"
                         value="Not Selected"
-                        name="marketing_status"
+                        name="status"
                         id="completed"
                       />
                       <label
@@ -286,7 +363,7 @@ const MarketingJobs = () => {
                 Close
               </button>
               <button
-                onClick={closeModal}
+                onClick={handleSubmit}
                 className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
               >
                 Save
@@ -449,7 +526,7 @@ const MarketingJobs = () => {
             <BsThreeDotsVertical size={20} />
           </div>
           <div className="flex items-center gap-5">
-            <Dropdown />  
+            <Dropdown />
             <button
               onClick={handleAddJobsModal}
               id="add_jobs"
@@ -529,14 +606,14 @@ const MarketingJobs = () => {
                   <td className="py-2 border border-success-700 text-success-700 text-xs rounded-full flex justify-center items-center">
                     Remote
                   </td>
-                  <td className="">120</td>
+                  <td className="pl-3">120</td>
                   <td className=" text-xs">
                     <p className="flex gap-3">
                       <span>12</span>
                       <span className="text-text-hint">Months</span>
                     </p>
                   </td>
-                  <td className="text-sm">Person</td>
+                  <td className="text-sm pl-3">Person</td>
                   <td className="py-2 border border-success-700 text-success-700 text-xs rounded-full flex justify-center items-center">
                     Employed
                   </td>
