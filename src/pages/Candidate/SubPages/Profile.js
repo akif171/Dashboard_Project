@@ -48,11 +48,18 @@ const Profile = () => {
     rating,
   });
   console.log(profileData);
+
+  const onRatingChange = (rating) => {
+    setProfileData((pervData) => ({
+      ...pervData,
+      rating,
+    }));
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfileData((pervData) => ({
       ...pervData,
-      rating: profileRating,
       [name]: value,
     }));
   };
@@ -71,6 +78,7 @@ const Profile = () => {
           fontSize={24}
           initialRating={rating}
           setProfileRating={setProfileRating}
+          onRatingChange={onRatingChange}
         />
       </div>
       <from className="flex flex-col gap-y-6 mt-5 text-sm font-normal text-text-hint">

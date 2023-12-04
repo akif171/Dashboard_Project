@@ -7,7 +7,10 @@ import StarRating from "../../../components/StarRating";
 import { Link } from "react-router-dom";
 import Modal from "../../../components/ModalComponents/Modal";
 import Dropdown from "../../../components/Dropdown";
-import { createMarketingJob } from "../../../api/candidiate";
+import {
+  createMarketingJob,
+  createJobInterview,
+} from "../../../api/candidiate";
 
 const MarketingJobs = () => {
   const initialMarketingJobs = {
@@ -26,11 +29,32 @@ const MarketingJobs = () => {
     status: "",
   };
 
+  const initialInterview = {
+    interviewDate: "",
+    interviewTime: "",
+    timeStandard: "",
+    appointmentDetails: "",
+    appointmentDetailsLink: "",
+    panelDetails: "",
+    panelDetailsLink: "",
+    feedBack: "",
+    rating: "",
+  };
+
   const [marketingJob, setMarketingJob] = useState(initialMarketingJobs);
+  const [jobInterview, setJobInterview] = useState(initialInterview);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [buttonId, setButtonId] = useState("");
+  const [profileRating, setProfileRating] = useState(0);
 
+  const onRatingChange = (rating) => {
+    setJobInterview((pervData) => ({
+      ...pervData,
+      rating,
+    }));
+  };
+  console.log(profileRating);
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -48,20 +72,36 @@ const MarketingJobs = () => {
     openModal();
   };
 
-  const handleChange = async (e) => {
+  const handleChangeJob = async (e) => {
     const { name, value } = e.target;
     setMarketingJob((pervDate) => ({
+      ...pervDate,
+      rating: profileRating,
+      [name]: value,
+    }));
+  };
+
+  const handleChangeInterview = (e) => {
+    const { name, value } = e.target;
+    setJobInterview((pervDate) => ({
       ...pervDate,
       [name]: value,
     }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmitJob = async () => {
     const response = await createMarketingJob(marketingJob);
     closeModal();
   };
 
-  console.log(marketingJob);
+  const handleSubmitInterview = async () => {
+    const response = await createJobInterview(jobInterview);
+    closeModal();
+  };
+
+  // console.log(marketingJob);
+  console.log(jobInterview);
+
   return (
     <div>
       {buttonId === "add-jobs" ? (
@@ -74,7 +114,7 @@ const MarketingJobs = () => {
                     Job ID
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeJob}
                     value={marketingJob.jobId}
                     name="jobId"
                     type="text"
@@ -88,7 +128,7 @@ const MarketingJobs = () => {
                     Job Title
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeJob}
                     value={marketingJob.jobTitle}
                     name="jobTitle"
                     type="text"
@@ -105,7 +145,7 @@ const MarketingJobs = () => {
                     Vendor Name
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeJob}
                     value={marketingJob.vendorName}
                     name="vendorName"
                     type="text"
@@ -119,7 +159,7 @@ const MarketingJobs = () => {
                     Vendor Email
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeJob}
                     value={marketingJob.vendorEmail}
                     name="vendorEmail"
                     type="text"
@@ -136,7 +176,7 @@ const MarketingJobs = () => {
                     Vendor Number
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeJob}
                     value={marketingJob.vendorNumber}
                     name="vendorNumber"
                     type="text"
@@ -150,7 +190,7 @@ const MarketingJobs = () => {
                     Technology
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeJob}
                     value={marketingJob.technology}
                     name="technology"
                     type="text"
@@ -166,7 +206,7 @@ const MarketingJobs = () => {
                     City
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeJob}
                     value={marketingJob.city}
                     name="city"
                     type="text"
@@ -180,7 +220,7 @@ const MarketingJobs = () => {
                     State
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeJob}
                     value={marketingJob.state}
                     name="state"
                     type="text"
@@ -197,7 +237,7 @@ const MarketingJobs = () => {
                     <ul className="grid grid-cols-3 mt-1">
                       <li className="relative">
                         <input
-                          onChange={handleChange}
+                          onChange={handleChangeJob}
                           checked={marketingJob.jobType === "Remote"}
                           className="sr-only peer"
                           type="radio"
@@ -214,7 +254,7 @@ const MarketingJobs = () => {
                       </li>
                       <li className="relative">
                         <input
-                          onChange={handleChange}
+                          onChange={handleChangeJob}
                           checked={marketingJob.jobType === "On-Site"}
                           className="sr-only peer"
                           type="radio"
@@ -232,7 +272,7 @@ const MarketingJobs = () => {
 
                       <li className="relative">
                         <input
-                          onChange={handleChange}
+                          onChange={handleChangeJob}
                           checked={marketingJob.jobType === "Hybrid"}
                           className="sr-only peer"
                           type="radio"
@@ -255,7 +295,7 @@ const MarketingJobs = () => {
                     Sales Person
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeJob}
                     value={marketingJob.salesPerson}
                     name="salesPerson"
                     type="text"
@@ -271,7 +311,7 @@ const MarketingJobs = () => {
                     Bill Rate
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeJob}
                     value={marketingJob.billRate}
                     name="billRate"
                     type="text"
@@ -285,7 +325,7 @@ const MarketingJobs = () => {
                     Duration
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handleChangeJob}
                     value={marketingJob.duration}
                     name="duration"
                     type="text"
@@ -301,7 +341,7 @@ const MarketingJobs = () => {
                   <ul className="grid grid-cols-3 mt-1">
                     <li className="relative">
                       <input
-                        onChange={handleChange}
+                        onChange={handleChangeJob}
                         checked={marketingJob.status === "In Progress"}
                         className="sr-only peer"
                         type="radio"
@@ -318,7 +358,7 @@ const MarketingJobs = () => {
                     </li>
                     <li className="relative">
                       <input
-                        onChange={handleChange}
+                        onChange={handleChangeJob}
                         checked={marketingJob.status === "shortlisted"}
                         className="sr-only peer"
                         type="radio"
@@ -336,7 +376,7 @@ const MarketingJobs = () => {
 
                     <li className="relative">
                       <input
-                        onChange={handleChange}
+                        onChange={handleChangeJob}
                         checked={marketingJob.status === "Not Selected"}
                         className="sr-only peer"
                         type="radio"
@@ -363,7 +403,7 @@ const MarketingJobs = () => {
                 Close
               </button>
               <button
-                onClick={handleSubmit}
+                onClick={handleSubmitJob}
                 className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
               >
                 Save
@@ -384,6 +424,9 @@ const MarketingJobs = () => {
                     Interview Date
                   </label>
                   <input
+                    onChange={handleChangeInterview}
+                    value={jobInterview.interviewDate}
+                    name="interviewDate"
                     type="date"
                     id="interview_date"
                     className="outline-none border-2 border-text-hint rounded-lg "
@@ -399,11 +442,17 @@ const MarketingJobs = () => {
                   </label>
                   <div className="flex outline-none border-2 border-text-hint rounded-lg px-1">
                     <input
+                      onChange={handleChangeInterview}
+                      value={jobInterview.interviewTime}
+                      name="interviewTime"
                       type="time"
                       id="interview_time"
                       className="outline-none border-none focus:ring-0"
                     />{" "}
                     <input
+                      onChange={handleChangeInterview}
+                      value={jobInterview.timeStandard}
+                      name="timeStandard"
                       type="text"
                       id="interview_time"
                       placeholder="IST"
@@ -421,6 +470,9 @@ const MarketingJobs = () => {
                     Appointment Details
                   </label>
                   <textarea
+                    onChange={handleChangeInterview}
+                    value={jobInterview.appointmentDetails}
+                    name="appointmentDetails"
                     type="text"
                     placeholder="Appointment Details"
                     id="appointment_details"
@@ -440,6 +492,9 @@ const MarketingJobs = () => {
                       Add Link
                     </label>
                     <input
+                      onChange={handleChangeInterview}
+                      value={jobInterview.appointmentDetailsLink}
+                      name="appointmentDetailsLink"
                       type="text"
                       placeholder="Link"
                       id="add_link"
@@ -457,6 +512,9 @@ const MarketingJobs = () => {
                     Interview Panel Details
                   </label>
                   <textarea
+                    onChange={handleChangeInterview}
+                    value={jobInterview.panelDetails}
+                    name="panelDetails"
                     type="text"
                     placeholder="Interview Panel Details"
                     id="interview-panel"
@@ -476,6 +534,9 @@ const MarketingJobs = () => {
                       Add Link
                     </label>
                     <input
+                      onChange={handleChangeInterview}
+                      value={jobInterview.panelDetailsLink}
+                      name="panelDetailsLink"
                       type="text"
                       placeholder="Link"
                       id="add_link"
@@ -489,6 +550,9 @@ const MarketingJobs = () => {
                   FeedBack
                 </label>
                 <textarea
+                  onChange={handleChangeInterview}
+                  value={jobInterview.feedBack}
+                  name="feedBack"
                   type="text"
                   placeholder="FeedBack"
                   id="feedback"
@@ -498,7 +562,12 @@ const MarketingJobs = () => {
               </div>
               <div>
                 <label className="text-text-hint mb-1">Rating</label>
-                <StarRating initialRating={3} fontSize={24} />
+                <StarRating
+                  onRatingChange={onRatingChange}
+                  initialRating={jobInterview.rating}
+                  fontSize={24}
+                  setProfileRating={setProfileRating}
+                />
               </div>
             </form>
             <div className="flex justify-between p-6 mt-6">
@@ -509,7 +578,7 @@ const MarketingJobs = () => {
                 Close
               </button>
               <button
-                onClick={closeModal}
+                onClick={handleSubmitInterview}
                 className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
               >
                 Save

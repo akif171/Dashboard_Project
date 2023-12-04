@@ -7,10 +7,27 @@ import StarRating from "../../components/StarRating";
 import { Link } from "react-router-dom";
 import QrCodeIcon from "../../images/Qr-code.png";
 import Modal from "../../components/ModalComponents/Modal";
+import { createInterview } from "../../api/candidiate";
 
 const Interviews = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const initialInterview = {
+    job: "",
+    company: "",
+    candidateName: "",
+    candidateEmail: "",
+    dateOfBirth: "",
+    technology: "",
+    vendor: "",
+    clientCompany: "",
+    clientName: "",
+    date: "",
+    panelDetails: "",
+    panelDetailsLink: "",
+    feedBack: "",
+  };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [interview, setInterview] = useState(initialInterview);
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -19,6 +36,20 @@ const Interviews = () => {
     setIsModalOpen(false);
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setInterview((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async () => {
+    const response = await createInterview(interview);
+    closeModal();
+  };
+  console.log(interview);
   return (
     <div>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
@@ -30,6 +61,9 @@ const Interviews = () => {
                   Job
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={interview.job}
+                  name="job"
                   type="text"
                   placeholder="Job"
                   id="course_name"
@@ -41,6 +75,9 @@ const Interviews = () => {
                   Company
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={interview.company}
+                  name="company"
                   type="text"
                   placeholder="Company"
                   id="course_name"
@@ -54,6 +91,9 @@ const Interviews = () => {
                   Candidate Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={interview.candidateName}
+                  name="candidateName"
                   type="text"
                   placeholder="Candidate Name"
                   id="vendor"
@@ -65,6 +105,9 @@ const Interviews = () => {
                   Candidate Email
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={interview.candidateEmail}
+                  name="candidateEmail"
                   type="text"
                   placeholder="Candidate Email"
                   id="vendor"
@@ -76,6 +119,9 @@ const Interviews = () => {
                   Date of Birth
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={interview.dateOfBirth}
+                  name="dateOfBirth"
                   type="date"
                   placeholder="client"
                   id="client"
@@ -89,6 +135,9 @@ const Interviews = () => {
                   Technology
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={interview.technology}
+                  name="technology"
                   type="text"
                   placeholder="Technology"
                   id="course_name"
@@ -100,6 +149,9 @@ const Interviews = () => {
                   Vendor
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={interview.vendor}
+                  name="vendor"
                   type="text"
                   placeholder="Vendor"
                   id="course_name"
@@ -113,6 +165,9 @@ const Interviews = () => {
                   Client Company
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={interview.clientCompany}
+                  name="clientCompany"
                   type="text"
                   placeholder="Client Company"
                   id="course_name"
@@ -124,6 +179,9 @@ const Interviews = () => {
                   Client Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={interview.clientName}
+                  name="clientName"
                   type="text"
                   placeholder="Client Name"
                   id="course_name"
@@ -137,6 +195,9 @@ const Interviews = () => {
                   Date
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={interview.date}
+                  name="date"
                   type="date"
                   id="date"
                   className="outline-none border-2 border-text-hint rounded-lg "
@@ -149,6 +210,9 @@ const Interviews = () => {
                   Interview Panel Details
                 </label>
                 <textarea
+                  onChange={handleChange}
+                  value={interview.panelDetails}
+                  name="panelDetails"
                   type="text"
                   placeholder="Link"
                   id="document_type"
@@ -168,6 +232,9 @@ const Interviews = () => {
                     Add Link
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={interview.panelDetailsLink}
+                    name="panelDetailsLink"
                     type="text"
                     placeholder="Link"
                     id="add_link"
@@ -182,6 +249,9 @@ const Interviews = () => {
                   FeedBack
                 </label>
                 <textarea
+                  onChange={handleChange}
+                  value={interview.feedBack}
+                  name="feedBack"
                   type="text"
                   placeholder="Link"
                   id="document_type"
@@ -199,7 +269,7 @@ const Interviews = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save

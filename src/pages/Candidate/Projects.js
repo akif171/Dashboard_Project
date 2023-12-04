@@ -7,8 +7,23 @@ import StarRating from "../../components/StarRating";
 import { Link } from "react-router-dom";
 import QrCodeIcon from "../../images/Qr-code.png";
 import Modal from "../../components/ModalComponents/Modal";
+import { createProject } from "../../api/candidiate";
 
 const Projects = () => {
+  const initialProject = {
+    jobTitle: "",
+    job: "",
+    vendor: "",
+    client: "",
+    city: "",
+    startDate: "",
+    endDate: "",
+    statusReason: "",
+    projectStatus: "",
+  };
+
+  const [project, setProject] = useState(initialProject);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -18,6 +33,22 @@ const Projects = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setProject((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async () => {
+    const response = await createProject(project);
+    closeModal();
+  };
+
+  console.log(project);
 
   return (
     <div>
@@ -30,6 +61,9 @@ const Projects = () => {
                   Job Title
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={project.jobTitle}
+                  name="jobTitle"
                   type="text"
                   placeholder="Job title"
                   id="job_title"
@@ -41,6 +75,9 @@ const Projects = () => {
                   Job
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={project.job}
+                  name="job"
                   type="text"
                   placeholder="Job"
                   id="job"
@@ -54,6 +91,9 @@ const Projects = () => {
                   Vendor
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={project.vendor}
+                  name="vendor"
                   type="text"
                   placeholder="Vendor"
                   id="vendor"
@@ -65,6 +105,9 @@ const Projects = () => {
                   Client
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={project.client}
+                  name="client"
                   type="text"
                   placeholder="Client"
                   id="client"
@@ -78,6 +121,9 @@ const Projects = () => {
                   City
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={project.city}
+                  name="city"
                   type="text"
                   placeholder="LA"
                   id="city"
@@ -91,6 +137,9 @@ const Projects = () => {
                   Start Date
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={project.startDate}
+                  name="startDate"
                   type="date"
                   id="start_date"
                   className="outline-none border-2 border-text-hint rounded-lg "
@@ -102,6 +151,9 @@ const Projects = () => {
                   End Date
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={project.endDate}
+                  name="endDate"
                   type="date"
                   id="end_date"
                   className="outline-none border-2 border-text-hint rounded-lg "
@@ -114,6 +166,9 @@ const Projects = () => {
                   Status Reason
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={project.statusReason}
+                  name="statusReason"
                   type="text"
                   placeholder="status reason"
                   id="status_reason"
@@ -123,14 +178,16 @@ const Projects = () => {
             </div>
             <div className="">
               <div className="w-96">
-                <label className="text-text-hint ">Training Status</label>
+                <label className="text-text-hint ">Project Status</label>
                 <ul className="grid grid-cols-3 mt-1">
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={project.projectStatus === "Not Completed"}
+                      name="projectStatus"
                       className="sr-only peer"
                       type="radio"
                       value="Not Completed"
-                      name="training_status"
                       id="not_completed"
                     />
                     <label
@@ -142,10 +199,12 @@ const Projects = () => {
                   </li>
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      name="projectStatus"
+                      checked={project.projectStatus === "InProgress"}
                       className="sr-only peer"
                       type="radio"
-                      value="InProgree"
-                      name="training_status"
+                      value="InProgress"
                       id="in_progress"
                     />
                     <label
@@ -158,10 +217,12 @@ const Projects = () => {
 
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={project.projectStatus === "Completed"}
+                      name="projectStatus"
                       className="sr-only peer"
                       type="radio"
                       value="Completed"
-                      name="training_status"
                       id="completed"
                     />
                     <label
@@ -183,7 +244,7 @@ const Projects = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save

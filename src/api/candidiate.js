@@ -53,3 +53,34 @@ export const createMarketingJob = async (data) => {
       return error;
     }
   };
+
+
+  export const createJobInterview = async (data) => {
+    let response;
+    try {
+      response = await api.post("endpoint", data);
+      return response;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  export const createInterview = async (data) => {
+    let response;
+    try {
+      response = await api.post("endpoint", data);
+      return response;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  export const createProject = async (data) => {
+    let response;
+    try {
+      response = await api.post("endpoint", data);
+      return response;
+    } catch (error) {
+      return error;
+    }
+  };
