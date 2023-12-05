@@ -5,6 +5,15 @@ import { Link } from "react-router-dom";
 import Modal from "../../../components/ModalComponents/Modal";
 import Pencil from "../../../images/pencil.png";
 
+const options = [
+  { value: "", text: "--Choose an option--" },
+  { value: "option1", text: "option1" },
+  { value: "option2", text: "option2" },
+  { value: "option3", text: "option3" },
+  { value: "option4", text: "option4" },
+  { value: "option5", text: "option5" },
+];
+
 const SalesContacts = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -127,6 +136,30 @@ const SalesContacts = () => {
                 />
               </div>
             </div>
+
+            <div className="grid grid-cols-3 gap-5">
+              <div className="flex flex-col w-72">
+                <label htmlFor="address_line_1" className="text-text-hint mb-1">
+                  Contact Type<span className="text-danger-500">*</span>
+                </label>
+                <select
+                  // onChange={handleChange}
+                  name="totalInterviews"
+                  // value={totalInterviews}
+                  className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="address_line_1" className="text-text-hint mb-1">
@@ -156,23 +189,43 @@ const SalesContacts = () => {
                 <label htmlFor="state" className="text-text-hint mb-1">
                   State<span className="text-danger-500">*</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="State"
-                  id="state"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select
+                  // onChange={handleChange}
+                  name="totalInterviews"
+                  // value={totalInterviews}
+                  className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="city" className="text-text-hint mb-1">
                   City<span className="text-danger-500">*</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="City"
-                  id="city"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select
+                  // onChange={handleChange}
+                  name="totalInterviews"
+                  // value={totalInterviews}
+                  className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-5">
@@ -191,12 +244,22 @@ const SalesContacts = () => {
                 <label htmlFor="country" className="text-text-hint mb-1">
                   Country<span className="text-danger-500">*</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="Country"
-                  id="country"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select
+                  // onChange={handleChange}
+                  name="totalInterviews"
+                  // value={totalInterviews}
+                  className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-6">
@@ -253,7 +316,6 @@ const SalesContacts = () => {
                   className="outline-none border-2 border-text-hint rounded-lg "
                 />
               </div>
-              
             </div>
 
             <div className="grid grid-cols-3 gap-5">

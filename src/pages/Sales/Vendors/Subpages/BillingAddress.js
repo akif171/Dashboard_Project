@@ -2,6 +2,15 @@ import React from "react";
 import Pencil from "../../../../images/pencil.png";
 import { Link } from "react-router-dom";
 
+const options = [
+  { value: "", text: "--Choose an option--" },
+  { value: "option1", text: "option1" },
+  { value: "option2", text: "option2" },
+  { value: "option3", text: "option3" },
+  { value: "option4", text: "option4" },
+  { value: "option5", text: "option5" },
+];
+
 const BillingAddress = () => {
   return (
     <div>
@@ -55,11 +64,11 @@ const BillingAddress = () => {
               City<span className="text-danger-500">*</span>
             </label>
             <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              {options.map((option) => (
+                <option className="" key={option.value} value={option.value}>
+                  {option.text}
+                </option>
+              ))}
             </select>
           </div>
           <div className="">
@@ -67,11 +76,11 @@ const BillingAddress = () => {
               State/Province<span className="text-danger-500">*</span>
             </label>
             <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              {options.map((option) => (
+                <option className="" key={option.value} value={option.value}>
+                  {option.text}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -94,11 +103,11 @@ const BillingAddress = () => {
               Country/Region<span className="text-danger-500">*</span>
             </label>
             <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              {options.map((option) => (
+                <option className="" key={option.value} value={option.value}>
+                  {option.text}
+                </option>
+              ))}
             </select>
           </div>
         </div>

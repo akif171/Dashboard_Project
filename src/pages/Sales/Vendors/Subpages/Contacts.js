@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Pencil from "../../../../images/pencil.png";
 import { RxReload } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { createContact } from "../../../../api/sales";
 
 const Contacts = () => {
+  const initialContact = {
+    primaryContact: "",
+    email: "",
+  };
+
+  const [contact, setContact] = useState(initialContact);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setContact((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  console.log(contact);
+  const handleSubmit = async () => {
+    const response = await createContact(contact);
+    console.log(contact);
+    setContact(initialContact);
+  };
+
   return (
     <div>
       <from className="flex flex-col gap-y-6 mt-5 text-sm font-normal text-text-hint">
@@ -13,6 +36,9 @@ const Contacts = () => {
             <label className="">Primary Contact</label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg h-11">
               <input
+                onChange={handleChange}
+                value={contact.primaryContact}
+                name="primaryContact"
                 placeholder="Primary Contact"
                 required
                 className="outline-none w-full"
@@ -24,6 +50,9 @@ const Contacts = () => {
             <label className="">Email ID</label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg h-11">
               <input
+                onChange={handleChange}
+                value={contact.email}
+                name="email"
                 type="email"
                 placeholder="Email ID"
                 required
@@ -33,7 +62,10 @@ const Contacts = () => {
             </div>
           </div>
           <div className="col-span-2 flex justify-end items-center">
-            <button className="bg-secondary-700 text-white py-3 px-5 text-base rounded-full">
+            <button
+              onClick={handleSubmit}
+              className="bg-secondary-700 text-white py-3 px-5 text-base rounded-full"
+            >
               Save
             </button>
           </div>
