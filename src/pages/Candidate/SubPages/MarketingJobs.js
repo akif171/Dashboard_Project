@@ -13,7 +13,7 @@ import {
 } from "../../../api/candidiate";
 
 const MarketingJobs = () => {
-  const initialMarketingJobs = {
+  const initialMarketingJob = {
     jobId: "",
     jobTitle: "",
     vendorName: "",
@@ -38,10 +38,10 @@ const MarketingJobs = () => {
     panelDetails: "",
     panelDetailsLink: "",
     feedBack: "",
-    rating: "",
+    rating: 0,
   };
 
-  const [marketingJob, setMarketingJob] = useState(initialMarketingJobs);
+  const [marketingJob, setMarketingJob] = useState(initialMarketingJob);
   const [jobInterview, setJobInterview] = useState(initialInterview);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -92,11 +92,13 @@ const MarketingJobs = () => {
   const handleSubmitJob = async () => {
     const response = await createMarketingJob(marketingJob);
     closeModal();
+    setMarketingJob(initialMarketingJob);
   };
 
   const handleSubmitInterview = async () => {
     const response = await createJobInterview(jobInterview);
     closeModal();
+    setJobInterview(initialInterview);
   };
 
   // console.log(marketingJob);

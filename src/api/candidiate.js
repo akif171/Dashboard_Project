@@ -84,3 +84,25 @@ export const createMarketingJob = async (data) => {
       return error;
     }
   };
+
+
+
+  export const createTraining = async (data) => {
+    let response;
+    try {
+      response = await api.post("endpoint", data);
+      return response;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  export const createDocment = async (data) => {
+    let response;
+    try {
+      response = await api.post("endpoint", data);
+      return response;
+    } catch (error) {
+      return error;
+    }
+  };

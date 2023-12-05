@@ -6,9 +6,20 @@ import { RiSoundModuleLine } from "react-icons/ri";
 import StarRating from "../../components/StarRating";
 import { Link } from "react-router-dom";
 import Modal from "../../components/ModalComponents/Modal";
+import { createTraining } from "../../api/candidiate";
 
 const CandidateTrainings = () => {
+  const initialTraining = {
+    clientName: "",
+    vendor: "",
+    client: "",
+    city: "",
+    startDate: "",
+    endDate: "",
+    trainingStatus: "",
+  };
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [training, setTraning] = useState(initialTraining);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -17,6 +28,22 @@ const CandidateTrainings = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setTraning((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async () => {
+    const response = await createTraining(training);
+    closeModal();
+    setTraning(initialTraining);
+  };
+
+  console.log(training);
 
   return (
     <div>
@@ -29,6 +56,9 @@ const CandidateTrainings = () => {
                   Course Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={training.clientName}
+                  name="clientName"
                   type="text"
                   placeholder="Course Name"
                   id="course_name"
@@ -42,6 +72,9 @@ const CandidateTrainings = () => {
                   Vendor
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={training.vendor}
+                  name="vendor"
                   type="text"
                   placeholder="Vendor"
                   id="vendor"
@@ -53,6 +86,9 @@ const CandidateTrainings = () => {
                   Client
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={training.client}
+                  name="client"
                   type="text"
                   placeholder="client"
                   id="client"
@@ -66,6 +102,9 @@ const CandidateTrainings = () => {
                   City
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={training.city}
+                  name="city"
                   type="text"
                   placeholder="LA"
                   id="city"
@@ -79,6 +118,9 @@ const CandidateTrainings = () => {
                   Start Date
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={training.startDate}
+                  name="startDate"
                   type="date"
                   id="start_date"
                   className="outline-none border-2 border-text-hint rounded-lg "
@@ -90,6 +132,9 @@ const CandidateTrainings = () => {
                   End Date
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={training.endDate}
+                  name="endDate"
                   type="date"
                   id="end_date"
                   className="outline-none border-2 border-text-hint rounded-lg "
@@ -102,10 +147,12 @@ const CandidateTrainings = () => {
                 <ul className="grid grid-cols-3 mt-1">
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={training.trainingStatus === "Not Completed"}
                       className="sr-only peer"
                       type="radio"
                       value="Not Completed"
-                      name="training_status"
+                      name="trainingStatus"
                       id="not_completed"
                     />
                     <label
@@ -117,10 +164,12 @@ const CandidateTrainings = () => {
                   </li>
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={training.trainingStatus === "InProgree"}
                       className="sr-only peer"
                       type="radio"
                       value="InProgree"
-                      name="training_status"
+                      name="trainingStatus"
                       id="in_progress"
                     />
                     <label
@@ -133,10 +182,12 @@ const CandidateTrainings = () => {
 
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={training.trainingStatus === "Completed"}
                       className="sr-only peer"
                       type="radio"
                       value="Completed"
-                      name="training_status"
+                      name="trainingStatus"
                       id="completed"
                     />
                     <label
@@ -158,7 +209,7 @@ const CandidateTrainings = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save

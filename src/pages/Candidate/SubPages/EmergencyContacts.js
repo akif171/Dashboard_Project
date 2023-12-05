@@ -3,8 +3,7 @@ import Pencil from "../../../images/pencil.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setEmergencyContact1,
-  setEmergencyContact2,
+  resetState,
   setEmergencyContacts,
 } from "../../../features/candidate/personalSlice";
 import { createCandidate } from "../../../api/candidiate";
@@ -64,8 +63,8 @@ const EmergencyContacts = () => {
 
   const handleSubmit = async () => {
     const response = await createCandidate(personalInfo);
-
     console.log(personalInfo);
+    dispatch(resetState());
   };
 
   useEffect(() => {

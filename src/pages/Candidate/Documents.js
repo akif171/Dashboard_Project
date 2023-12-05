@@ -6,9 +6,19 @@ import { RiSoundModuleLine } from "react-icons/ri";
 import StarRating from "../../components/StarRating";
 import { AbortedDeferredError, Link } from "react-router-dom";
 import Modal from "../../components/ModalComponents/Modal";
+import { createDocment } from "../../api/candidiate";
 
 const Documents = () => {
+  const initialDocument = {
+    documentName: "",
+    link: "",
+    description: "",
+    createdDate: "",
+    updatedDate: "",
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [document, setDocument] = useState(initialDocument);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -17,6 +27,23 @@ const Documents = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDocument((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async () => {
+    const response = await createDocment(document);
+    closeModal();
+    setDocument(initialDocument);
+  };
+
+  console.log(document);
+
   return (
     <div>
       {" "}
@@ -29,6 +56,9 @@ const Documents = () => {
                   Document Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={document.documentName}
+                  name="documentName"
                   type="text"
                   placeholder="Document Name"
                   id="document_type"
@@ -46,24 +76,33 @@ const Documents = () => {
                     Link
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={document.link}
+                    name="link"
                     type="text"
                     placeholder="Link"
                     id="document_link"
                     className="outline-none  border-2 border-secondary-500 rounded-lg flex-grow"
                   />
                 </div>
-                <button className="py-2 px-6 bg-secondary-700 text-text-light rounded-full">
+                <button
+                  disabled
+                  className="py-2 px-6 bg-secondary-700 text-text-light rounded-full"
+                >
                   Add
                 </button>
               </div>
             </div>
             <div className="flex flex-col">
               <label htmlFor="document_type" className="text-text-hint mb-1">
-                Document Name
+                Description
               </label>
               <textarea
+                onChange={handleChange}
+                value={document.description}
+                name="description"
                 type="text"
-                placeholder="Document Name"
+                placeholder="Description"
                 id="document_type"
                 className="focus:outline-none border  rounded-lg "
                 rows={4}
@@ -75,6 +114,9 @@ const Documents = () => {
                   Created Date
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={document.createdDate}
+                  name="createdDate"
                   type="date"
                   placeholder="Document Name"
                   id="created_date"
@@ -87,13 +129,15 @@ const Documents = () => {
                   Updated Date
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={document.updatedDate}
+                  name="updatedDate"
                   type="date"
                   id="updated_date"
                   className="outline-none border-2 border-text-hint rounded-lg "
                 />
               </div>
             </div>
-            
           </form>
           <div className="flex justify-between p-6 mt-6">
             <button
@@ -103,7 +147,7 @@ const Documents = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save

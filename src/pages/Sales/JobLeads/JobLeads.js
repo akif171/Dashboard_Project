@@ -7,9 +7,41 @@ import Dropdown from "../../../components/Dropdown";
 import Filter from "../../../components/Filter";
 import StarRating from "../../../components/StarRating";
 import Modal from "../../../components/ModalComponents/Modal";
+import { createJobLead } from "../../../api/sales";
+
+const options = [
+  { value: "", text: "--Choose an option--" },
+  { value: "option1", text: "option1" },
+  { value: "option2", text: "option2" },
+  { value: "option3", text: "option3" },
+  { value: "option4", text: "option4" },
+  { value: "option5", text: "option5" },
+];
 
 const JobLeads = () => {
+  const initialJobLead = {
+    jobTitle: "",
+    vendor: "",
+    durationMonths: "",
+    client: "",
+    technology: "",
+    numOfPositions: "",
+    salesManager: "",
+    billRate: "",
+    payType: "",
+    state: "",
+    city: "",
+    createdOn: "",
+    city: "",
+    statusReason: "",
+    jobContactName: "",
+    jobContactEmail: "",
+    jobContactPhoneNum: "",
+    jobDescription: "",
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [jobLead, setJobLead] = useState(initialJobLead);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -17,6 +49,22 @@ const JobLeads = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setJobLead((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  console.log(jobLead);
+
+  const handleSubmit = async () => {
+    const response = await createJobLead(jobLead);
+    closeModal();
+    setJobLead(initialJobLead);
   };
 
   return (
@@ -30,6 +78,9 @@ const JobLeads = () => {
                   Job Title
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={jobLead.jobTitle}
+                  name="jobTitle"
                   type="text"
                   placeholder="Job Title"
                   id="job_title"
@@ -41,6 +92,9 @@ const JobLeads = () => {
                   Vendor
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={jobLead.vendor}
+                  name="vendor"
                   type="text"
                   placeholder="Vendor"
                   id="vendor"
@@ -51,12 +105,21 @@ const JobLeads = () => {
                 <label htmlFor="duration" className="text-text-hint mb-1">
                   Duration in Months
                 </label>
-                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select
+                  onChange={handleChange}
+                  value={jobLead.durationMonths}
+                  name="durationMonths"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -66,6 +129,9 @@ const JobLeads = () => {
                   Client
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={jobLead.client}
+                  name="client"
                   type="text"
                   placeholder="Client "
                   id="client"
@@ -76,12 +142,21 @@ const JobLeads = () => {
                 <label htmlFor="technology" className="text-text-hint mb-1">
                   Technology
                 </label>
-                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select
+                  onChange={handleChange}
+                  value={jobLead.technology}
+                  name="technology"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="flex flex-col w-72">
@@ -89,6 +164,9 @@ const JobLeads = () => {
                   Number of Positions
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={jobLead.numOfPositions}
+                  name="numOfPositions"
                   type="text"
                   placeholder="Number of Positions"
                   id="client"
@@ -101,12 +179,21 @@ const JobLeads = () => {
                 <label htmlFor="sales_manager" className="text-text-hint mb-1">
                   Sales Manager
                 </label>
-                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select
+                  onChange={handleChange}
+                  value={jobLead.salesManager}
+                  name="salesManager"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="flex flex-col w-72">
@@ -114,6 +201,9 @@ const JobLeads = () => {
                   Bill Rate
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={jobLead.billRate}
+                  name="billRate"
                   type="text"
                   placeholder="Bill Rate"
                   id="bill_rate"
@@ -124,12 +214,21 @@ const JobLeads = () => {
                 <label htmlFor="pay_type" className="text-text-hint mb-1">
                   Pay Type
                 </label>
-                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select
+                  onChange={handleChange}
+                  value={jobLead.payType}
+                  name="payType"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -138,24 +237,42 @@ const JobLeads = () => {
                 <label htmlFor="state" className="text-text-hint mb-1">
                   State
                 </label>
-                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select
+                  onChange={handleChange}
+                  value={jobLead.state}
+                  name="state"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="city" className="text-text-hint mb-1">
                   City
                 </label>
-                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select
+                  onChange={handleChange}
+                  value={jobLead.city}
+                  name="city"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -165,6 +282,9 @@ const JobLeads = () => {
                   Ceated on
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={jobLead.createdOn}
+                  name="createdOn"
                   type="date"
                   id="created_date"
                   className="outline-none border-2 border-text-hint rounded-lg "
@@ -177,6 +297,9 @@ const JobLeads = () => {
                   Status Reason
                 </label>
                 <textarea
+                  onChange={handleChange}
+                  value={jobLead.statusReason}
+                  name="statusReason"
                   type="text"
                   placeholder="Status Reason"
                   id="document_type"
@@ -191,6 +314,9 @@ const JobLeads = () => {
                   Job Contact Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={jobLead.jobContactName}
+                  name="jobContactName"
                   type="text"
                   placeholder="Job Contact Name"
                   id="job_contat"
@@ -202,6 +328,9 @@ const JobLeads = () => {
                   Job Contact Email
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={jobLead.jobContactEmail}
+                  name="jobContactEmail"
                   type="text"
                   placeholder="Job Contact Email"
                   id="job_email"
@@ -213,6 +342,9 @@ const JobLeads = () => {
                   Job Contact Phone Number
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={jobLead.jobContactPhoneNum}
+                  name="jobContactPhoneNum"
                   type="text"
                   placeholder="Job Contact Phone Number "
                   id="job_phone"
@@ -226,6 +358,9 @@ const JobLeads = () => {
                   Job Description
                 </label>
                 <textarea
+                  onChange={handleChange}
+                  value={jobLead.jobDescription}
+                  name="jobDescription"
                   type="text"
                   placeholder="Description"
                   id="document_type"
@@ -243,7 +378,7 @@ const JobLeads = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save

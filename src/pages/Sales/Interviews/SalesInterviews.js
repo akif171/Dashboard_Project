@@ -3,9 +3,38 @@ import Modal from "../../../components/ModalComponents/Modal";
 import { RxReload } from "react-icons/rx";
 import StarRating from "../../../components/StarRating";
 import QrCode from "../../../images/Qr-code.png";
+import { createSalesInterview } from "../../../api/sales";
+
+const options = [
+  { value: "", text: "--Choose an option--" },
+  { value: "option1", text: "option1" },
+  { value: "option2", text: "option2" },
+  { value: "option3", text: "option3" },
+  { value: "option4", text: "option4" },
+  { value: "option5", text: "option5" },
+];
 
 const SalesInterviews = () => {
+  const initialSalesInterview = {
+    job: "",
+    jobTitle: "",
+    candidateName: "",
+    technology: "",
+    vendor: "",
+    clientCompany: "",
+    clientName: "",
+    createdOn: "",
+    interviewer1: "",
+    interviewer2: "",
+    jobDescription: "",
+    link: "",
+    interviewStatus: "",
+    rating: 0,
+    feedBack: "",
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [salesInterview, setSalesInterview] = useState(initialSalesInterview);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -13,6 +42,29 @@ const SalesInterviews = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const onRatingChange = (rating) => {
+    setSalesInterview((pervData) => ({
+      ...pervData,
+      rating: rating,
+    }));
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setSalesInterview((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  console.log(salesInterview);
+
+  const handleSubmit = async () => {
+    const response = await createSalesInterview(salesInterview);
+    closeModal();
+    setSalesInterview(initialSalesInterview);
   };
 
   return (
@@ -26,6 +78,9 @@ const SalesInterviews = () => {
                   Job
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesInterview.job}
+                  name="job"
                   type="text"
                   placeholder="Job"
                   id="job"
@@ -37,6 +92,9 @@ const SalesInterviews = () => {
                   Job Title
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesInterview.jobTitle}
+                  name="jobTitle"
                   type="text"
                   placeholder="Job Title"
                   id="job_title"
@@ -49,12 +107,21 @@ const SalesInterviews = () => {
                 <label htmlFor="cnadidate_name" className="text-text-hint mb-1">
                   Candidate Name
                 </label>
-                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select
+                  onChange={handleChange}
+                  value={salesInterview.candidateName}
+                  name="candidateName"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -63,24 +130,42 @@ const SalesInterviews = () => {
                 <label htmlFor="technology" className="text-text-hint mb-1">
                   Technology
                 </label>
-                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select
+                  onChange={handleChange}
+                  value={salesInterview.technology}
+                  name="technology"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="vendor" className="text-text-hint mb-1">
                   Vendor
                 </label>
-                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select
+                  onChange={handleChange}
+                  value={salesInterview.vendor}
+                  name="vendor"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -90,6 +175,9 @@ const SalesInterviews = () => {
                   Client Company
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesInterview.clientCompany}
+                  name="clientCompany"
                   type="text"
                   placeholder="Client Company"
                   id="client_company"
@@ -101,6 +189,9 @@ const SalesInterviews = () => {
                   Client Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesInterview.clientName}
+                  name="clientName"
                   type="text"
                   placeholder="Client Name"
                   id="client_name"
@@ -114,6 +205,9 @@ const SalesInterviews = () => {
                   Ceated on
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesInterview.createdOn}
+                  name="createdOn"
                   type="date"
                   id="created_date"
                   className="outline-none border-2 border-text-hint rounded-lg "
@@ -127,6 +221,9 @@ const SalesInterviews = () => {
                   Interviewer 1
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesInterview.interviewer1}
+                  name="interviewer1"
                   type="text"
                   placeholder="Interviewer 1"
                   id="interviewer_1"
@@ -138,6 +235,9 @@ const SalesInterviews = () => {
                   Interviewer 2
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesInterview.interviewer2}
+                  name="interviewer2"
                   type="text"
                   placeholder="Interviewer 2"
                   id="interviewer_2"
@@ -152,6 +252,9 @@ const SalesInterviews = () => {
                   Job Description
                 </label>
                 <textarea
+                  onChange={handleChange}
+                  value={salesInterview.jobDescription}
+                  name="jobDescription"
                   type="text"
                   placeholder="Description"
                   id="document_type"
@@ -166,6 +269,9 @@ const SalesInterviews = () => {
                   Add Link
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesInterview.link}
+                  name="link"
                   type="text"
                   placeholder="Link"
                   id="add_link"
@@ -185,10 +291,12 @@ const SalesInterviews = () => {
                 <ul className="grid grid-cols-3 mt-1">
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={salesInterview.interviewStatus === "InPrgress"}
                       className="sr-only peer"
                       type="radio"
                       value="InPrgress"
-                      name="interview_status"
+                      name="interviewStatus"
                       id="in_progress"
                     />
                     <label
@@ -200,10 +308,12 @@ const SalesInterviews = () => {
                   </li>
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={salesInterview.interviewStatus === "ShortListed"}
                       className="sr-only peer"
                       type="radio"
                       value="ShortListed"
-                      name="interview_status"
+                      name="interviewStatus"
                       id="shortlisted"
                     />
                     <label
@@ -216,10 +326,14 @@ const SalesInterviews = () => {
 
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={
+                        salesInterview.interviewStatus === "Not Selected"
+                      }
                       className="sr-only peer"
                       type="radio"
                       value="Not Selected"
-                      name="interview_status"
+                      name="interviewStatus"
                       id="not_selected"
                     />
                     <label
@@ -234,7 +348,11 @@ const SalesInterviews = () => {
             </div>
             <div>
               <h3>Rating</h3>
-              <StarRating initialRating={3} fontSize={24} />
+              <StarRating
+                initialRating={salesInterview.rating}
+                fontSize={24}
+                onRatingChange={onRatingChange}
+              />
             </div>
             <div className="grid grid-cols-2 gap-5">
               <div className="flex flex-col col-span-3 ">
@@ -242,6 +360,9 @@ const SalesInterviews = () => {
                   Feedback
                 </label>
                 <textarea
+                  onChange={handleChange}
+                  value={salesInterview.feedBack}
+                  name="feedBack"
                   type="text"
                   placeholder="Feedback"
                   id="feedback"
@@ -259,7 +380,7 @@ const SalesInterviews = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save

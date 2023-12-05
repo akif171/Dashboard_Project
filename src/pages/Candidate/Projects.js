@@ -46,6 +46,7 @@ const Projects = () => {
   const handleSubmit = async () => {
     const response = await createProject(project);
     closeModal();
+    setProject(initialProject);
   };
 
   console.log(project);

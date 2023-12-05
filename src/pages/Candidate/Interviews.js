@@ -48,6 +48,7 @@ const Interviews = () => {
   const handleSubmit = async () => {
     const response = await createInterview(interview);
     closeModal();
+    setInterview(initialInterview);
   };
   console.log(interview);
   return (

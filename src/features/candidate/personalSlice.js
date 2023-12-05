@@ -110,6 +110,8 @@ const personalSlice = createSlice({
       state.emergencyContacts.contactInfo2.contactRelation =
         action.payload.contact2.contactRelation;
     },
+
+    resetState: (state, action) => initialState,
   },
 });
 
@@ -118,6 +120,7 @@ export const {
   setProfessionalInfo,
   setProfileInfo,
   setEmergencyContacts,
+  resetState,
 } = personalSlice.actions;
 
 export default personalSlice.reducer;
