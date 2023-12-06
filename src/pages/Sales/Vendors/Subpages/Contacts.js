@@ -41,7 +41,7 @@ const Contacts = () => {
                 name="primaryContact"
                 placeholder="Primary Contact"
                 required
-                className="outline-none w-full"
+                className="outline-none w-full text-black"
               />
               <img src={Pencil} alt="pencil" />
             </div>
@@ -56,7 +56,7 @@ const Contacts = () => {
                 type="email"
                 placeholder="Email ID"
                 required
-                className="outline-none border-none w-full focus:ring-0 "
+                className="outline-none border-none w-full text-black focus:ring-0 "
               />
               <img src={Pencil} alt="pencil" />
             </div>

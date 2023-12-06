@@ -54,7 +54,7 @@ const Sidebar = () => {
   return (
     <aside
       id="sidebar-multi-level-sidebar"
-      className="fixed  left-0 overflow-y-auto w-52 h-screen transition-transform -translate-x-full sm:translate-x-0 "
+      className="fixed  left-0 overflow-y-auto w-52 h-full transition-transform -translate-x-full sm:translate-x-0 "
       aria-label="Sidebar"
       rounded-lg
     >

@@ -53,7 +53,7 @@ const AccountInfo = () => {
               onChange={handleChange}
               value={accountInfo.vendorName}
               name="vendorName"
-              className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+              className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full text-black"
             >
               {options.map((option) => (
                 <option className="" key={option.value} value={option.value}>
@@ -68,7 +68,7 @@ const AccountInfo = () => {
               onChange={handleChange}
               value={accountInfo.phoneNumber}
               name="phoneNumber"
-              className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+              className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full text-black"
             >
               {options.map((option) => (
                 <option className="" key={option.value} value={option.value}>
@@ -83,7 +83,7 @@ const AccountInfo = () => {
               onChange={handleChange}
               value={accountInfo.fox}
               name="fox"
-              className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+              className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full text-black"
             >
               {options.map((option) => (
                 <option className="" key={option.value} value={option.value}>
@@ -103,7 +103,7 @@ const AccountInfo = () => {
                 name="type"
                 placeholder="Type"
                 required
-                className="outline-none w-full"
+                className="outline-none w-full text-black"
               />
               <img src={Pencil} alt="pencil" />
             </div>
@@ -114,7 +114,7 @@ const AccountInfo = () => {
               onChange={handleChange}
               value={accountInfo.accountType}
               name="accountType"
-              className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+              className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full text-black"
             >
               {options.map((option) => (
                 <option className="" key={option.value} value={option.value}>
@@ -129,7 +129,7 @@ const AccountInfo = () => {
               onChange={handleChange}
               value={accountInfo.annualReturn}
               name="annualReturn"
-              className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+              className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full text-black"
             >
               {options.map((option) => (
                 <option className="" key={option.value} value={option.value}>
@@ -149,7 +149,7 @@ const AccountInfo = () => {
                 name="website"
                 placeholder="Website"
                 required
-                className="outline-none w-full"
+                className="outline-none w-full text-black"
               />
               <img src={Pencil} alt="pencil" />
             </div>
@@ -160,7 +160,7 @@ const AccountInfo = () => {
               onChange={handleChange}
               value={accountInfo.paymentAccount}
               name="paymentAccount"
-              className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+              className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full text-black"
             >
               {options.map((option) => (
                 <option className="" key={option.value} value={option.value}>

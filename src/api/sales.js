@@ -14,35 +14,57 @@ export const createJobLead = async (data) => {
 };
 
 export const createSalesInterview = async (data) => {
-    let response;
-  
-    try {
-      response = await api.post("endpoint", data);
-      return response;
-    } catch (error) {
-      return error;
-    }
-  };
+  let response;
 
-  export const createAccountInfo = async (data) => {
-    let response;
-  
-    try {
-      response = await api.post("endpoint", data);
-      return response;
-    } catch (error) {
-      return error;
-    }
-  };
+  try {
+    response = await api.post("endpoint", data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const createAccountInfo = async (data) => {
+  let response;
+
+  try {
+    response = await api.post("endpoint", data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const createContact = async (data) => {
+  let response;
+
+  try {
+    response = await api.post("endpoint", data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const createBillAddress = async (data) => {
+  let response;
+
+  try {
+    response = await api.post("endpoint", data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
 
 
-  export const createContact = async (data) => {
-    let response;
-  
-    try {
-      response = await api.post("endpoint", data);
-      return response;
-    } catch (error) {
-      return error;
-    }
-  };
+export const createCompanyProfile = async (data) => {
+  let response;
+
+  try {
+    response = await api.post("endpoint", data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
