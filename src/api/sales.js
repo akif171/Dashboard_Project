@@ -57,8 +57,39 @@ export const createBillAddress = async (data) => {
   }
 };
 
-
 export const createCompanyProfile = async (data) => {
+  let response;
+
+  try {
+    response = await api.post("endpoint", data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const createCompanyPreference = async (data) => {
+  let response;
+
+  try {
+    response = await api.post("endpoint", data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const createBillingTerm = async (data) => {
+  let response;
+
+  try {
+    response = await api.post("endpoint", data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+export const createDescription = async (data) => {
   let response;
 
   try {

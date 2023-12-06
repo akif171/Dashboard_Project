@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import Pencil from "../../../../images/pencil.png";
 import { Link } from "react-router-dom";
+import { createBillingTerm } from "../../../../api/sales";
 
 const BillingTerms = () => {
+  const initialBillingTerm = {
+    currency: "",
+    creditLimit: "",
+    creditHold: "",
+    feedBack: "",
+  };
+
+  const [billingTerm, setBillingTerm] = useState(initialBillingTerm);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setBillingTerm((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  console.log(billingTerm);
+
+  const handleSubmit = async () => {
+    const response = await createBillingTerm(billingTerm);
+    console.log(billingTerm);
+    setBillingTerm(initialBillingTerm);
+  };
+
   return (
     <div className="w-full h-full">
       <from className="flex flex-col gap-y-6 mt-5 text-sm font-normal text-text-hint">
@@ -11,6 +37,9 @@ const BillingTerms = () => {
             <label className="">Currency</label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
+                onChange={handleChange}
+                value={billingTerm.currency}
+                name="currency"
                 placeholder="Currency"
                 required
                 className="outline-none w-full"
@@ -25,6 +54,9 @@ const BillingTerms = () => {
             <label className="">Credit Limit</label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
+                onChange={handleChange}
+                value={billingTerm.creditLimit}
+                name="creditLimit"
                 placeholder="Credit Limit"
                 required
                 className="outline-none w-full"
@@ -36,6 +68,9 @@ const BillingTerms = () => {
             <label className="">Credit Hold</label>
             <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
               <input
+                onChange={handleChange}
+                value={billingTerm.creditHold}
+                name="creditHold"
                 placeholder="Credit Hold"
                 required
                 className="outline-none w-full"
@@ -50,6 +85,9 @@ const BillingTerms = () => {
               FeedBack
             </label>
             <textarea
+              onChange={handleChange}
+              value={billingTerm.feedBack}
+              name="feedBack"
               type="text"
               placeholder="Link"
               id="document_type"
@@ -60,8 +98,8 @@ const BillingTerms = () => {
         </div>
       </from>
       <div className="w-full py-10 px-8 flex justify-end items-end">
-      <button
-          
+        <button
+          onClick={handleSubmit}
           className="text-white bg-secondary-700 py-2 px-5 rounded-full text-base"
         >
           Save
