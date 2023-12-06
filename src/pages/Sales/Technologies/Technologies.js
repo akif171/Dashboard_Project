@@ -4,9 +4,17 @@ import { RxReload } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import Pencil from "../../../images/pencil.png";
 import Modal from "../../../components/ModalComponents/Modal";
+import { createTechnology } from "../../../api/sales";
 
 const Technologies = () => {
+  const initialTechnology = {
+    technologyName: "",
+    terminology: "",
+    description: "",
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [technology, setTechnology] = useState(initialTechnology);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -15,6 +23,23 @@ const Technologies = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setTechnology((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  console.log(technology);
+
+  const handleSubmit = async () => {
+    const response = await createTechnology(technology);
+    setTechnology(initialTechnology);
+    closeModal();
+  };
+
   return (
     <div className="p-5">
       <Modal isOpen={isModalOpen} onClose={closeModal}>
@@ -29,6 +54,9 @@ const Technologies = () => {
                   Technology Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={technology.technologyName}
+                  name="technologyName"
                   type="text"
                   placeholder="Technology Name"
                   id="technology_name"
@@ -40,6 +68,9 @@ const Technologies = () => {
                   Terminology
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={technology.terminology}
+                  name="terminology"
                   type="text"
                   placeholder="Terminology"
                   id="terminology"
@@ -53,6 +84,9 @@ const Technologies = () => {
                   Description
                 </label>
                 <textarea
+                  onChange={handleChange}
+                  value={technology.description}
+                  name="description"
                   type="text"
                   placeholder="Description"
                   id="document_type"
@@ -63,51 +97,53 @@ const Technologies = () => {
             </div>
             <div className="grid grid-cols-3 gap-6">
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Created - Date
                 </label>
                 <input
+                  disabled
                   type="date"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint rounded-lg  disabled:border-gray-300   text-gray-300"
                 />
               </div>
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Created - Time
                 </label>
                 <input
+                  disabled
                   type="time"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint rounded-lg  disabled:border-gray-300   text-gray-300"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-3 gap-6">
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Updated - Date
                 </label>
                 <input
+                  disabled
                   type="date"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint rounded-lg   disabled:border-gray-300 text-gray-300"
                 />
               </div>
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Updated - Time
                 </label>
                 <input
+                  disabled
                   type="time"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint rounded-lg disabled:border-gray-300  text-gray-300"
                 />
               </div>
             </div>
-
-          
           </form>
           <div className="flex justify-between p-6 mt-6">
             <button
@@ -117,7 +153,7 @@ const Technologies = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save

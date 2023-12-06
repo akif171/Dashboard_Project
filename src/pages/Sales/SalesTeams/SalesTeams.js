@@ -4,10 +4,38 @@ import { RxReload } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import Modal from "../../../components/ModalComponents/Modal";
 import Pencil from "../../../images/pencil.png";
+import { createSalesTeam } from "../../../api/sales";
+
+const options = [
+  { value: "", text: "--Choose an option--" },
+  { value: "option1", text: "option1" },
+  { value: "option2", text: "option2" },
+  { value: "option3", text: "option3" },
+  { value: "option4", text: "option4" },
+  { value: "option5", text: "option5" },
+];
 
 const SalesTeams = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const initialSalesTeam = {
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    preferredName: "",
+    jobTitle: "",
+    reportingManager: "",
+    mobileNum: "",
+    email: "",
+    contactName: "",
+    contactPhoneNum: "",
+    contactEmail: "",
+    contactRelation: "",
 
+    notes: "",
+    salesStatus: "",
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [salesTeam, setSalesTeam] = useState(initialSalesTeam);
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -15,6 +43,23 @@ const SalesTeams = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setSalesTeam((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+  console.log(salesTeam);
+
+  const handleSubmit = async () => {
+    const response = await createSalesTeam(salesTeam);
+
+    closeModal();
+    setSalesTeam(initialSalesTeam);
+  };
+
   return (
     <div className="p-5">
       <Modal isOpen={isModalOpen} onClose={closeModal}>
@@ -26,6 +71,9 @@ const SalesTeams = () => {
                   First Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesTeam.firstName}
+                  name="firstName"
                   type="text"
                   placeholder="First Name"
                   id="first_name"
@@ -37,6 +85,9 @@ const SalesTeams = () => {
                   Middle Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesTeam.middleName}
+                  name="middleName"
                   type="text"
                   placeholder="Middle Name"
                   id="middle_name"
@@ -48,6 +99,9 @@ const SalesTeams = () => {
                   Last Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesTeam.lastName}
+                  name="lastName"
                   type="text"
                   placeholder="Last Name"
                   id="last_name"
@@ -61,6 +115,9 @@ const SalesTeams = () => {
                   Preferred Name<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesTeam.preferredName}
+                  name="preferredName"
                   type="text"
                   placeholder="Last Name"
                   id="last_name"
@@ -72,6 +129,9 @@ const SalesTeams = () => {
                   Job Title<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesTeam.jobTitle}
+                  name="jobTitle"
                   type="text"
                   placeholder="Job"
                   id="job_title"
@@ -82,12 +142,21 @@ const SalesTeams = () => {
                 <label htmlFor="job_title" className="text-text-hint mb-1">
                   Reporting Manager <span className="text-danger-500">*</span>
                 </label>
-                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select
+                  onChange={handleChange}
+                  value={salesTeam.reportingManager}
+                  name="reportingManager"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -97,6 +166,9 @@ const SalesTeams = () => {
                   Mobile Number<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesTeam.mobileNum}
+                  name="mobileNum"
                   type="text"
                   placeholder="Mobile Numbner"
                   id="mobile_number"
@@ -109,6 +181,9 @@ const SalesTeams = () => {
                 </label>
                 <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
                   <input
+                    onChange={handleChange}
+                    value={salesTeam.email}
+                    name="email"
                     placeholder="youremail@gmail.com"
                     required
                     className="outline-none w-full"
@@ -120,9 +195,12 @@ const SalesTeams = () => {
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="address_line_1" className="text-text-hint mb-1">
-                  Contacts Name<span className="text-danger-500">*</span>
+                  Contact's Name<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesTeam.contactName}
+                  name="contactName"
                   type="text"
                   placeholder="Contacts Name"
                   id="address_line_1"
@@ -131,10 +209,13 @@ const SalesTeams = () => {
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="address_line_2" className="text-text-hint mb-1">
-                  Contacts Phone Number
+                  Contact's Phone Number
                   <span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesTeam.contactPhoneNum}
+                  name="contactPhoneNum"
                   type="text"
                   placeholder="+91 99999999999"
                   id="address_line_2"
@@ -145,10 +226,13 @@ const SalesTeams = () => {
             <div className="grid grid-cols-3 gap-5">
               <div className="col-span-2">
                 <label className="">
-                  Email ID<span className="text-danger-500">*</span>
+                  Contact's Email ID<span className="text-danger-500">*</span>
                 </label>
                 <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
                   <input
+                    onChange={handleChange}
+                    value={salesTeam.contactEmail}
+                    name="contactEmail"
                     placeholder="youremail@gmail.com"
                     required
                     className="outline-none w-full"
@@ -162,67 +246,81 @@ const SalesTeams = () => {
                 <label htmlFor="relation" className="text-text-hint mb-1">
                   Contacts Relation<span className="text-danger-500">*</span>
                 </label>
-                <select className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select
+                  onChange={handleChange}
+                  value={salesTeam.contactRelation}
+                  name="contactRelation"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none w-full"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-6">
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Created - Date
                 </label>
                 <input
+                  disabled
                   type="date"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint disabled:border-gray-300 text-gray-300 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Created - Time
                 </label>
                 <input
+                  disabled
                   type="time"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint disabled:border-gray-300 text-gray-300 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
-                <label htmlFor="created_by" className="text-text-hint mb-1">
+                <label htmlFor="created_by" className="text-gray-300 mb-1">
                   Created By
                 </label>
                 <input
+                  disabled
                   type="text"
                   placeholder="Created By"
                   id="created_by"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 disabled:border-gray-300 text-gray-300 placeholder:text-gray-300 rounded-lg "
                 />
               </div>
             </div>
             <div className="grid grid-cols-3 gap-6">
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Updated - Date
                 </label>
                 <input
+                  disabled
                   type="date"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint disabled:border-gray-300 text-gray-300 rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Updated - Time
                 </label>
                 <input
+                  disabled
                   type="time"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint disabled:border-gray-300 text-gray-300 rounded-lg "
                 />
               </div>
             </div>
@@ -233,6 +331,9 @@ const SalesTeams = () => {
                   Notes
                 </label>
                 <textarea
+                  onChange={handleChange}
+                  value={salesTeam.notes}
+                  name="notes"
                   type="text"
                   placeholder="Notes"
                   id="document_type"
@@ -249,10 +350,12 @@ const SalesTeams = () => {
                 <ul className="grid grid-cols-3 mt-1">
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={salesTeam.salesStatus === "active"}
                       className="sr-only peer"
                       type="radio"
                       value="active"
-                      name="sales_status"
+                      name="salesStatus"
                       id="active"
                     />
                     <label
@@ -264,10 +367,12 @@ const SalesTeams = () => {
                   </li>
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={salesTeam.salesStatus === "in active"}
                       className="sr-only peer"
                       type="radio"
                       value="in active"
-                      name="sales_status"
+                      name="salesStatus"
                       id="in_active"
                     />
                     <label
@@ -280,10 +385,12 @@ const SalesTeams = () => {
 
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={salesTeam.salesStatus === "fraud"}
                       className="sr-only peer"
                       type="radio"
                       value="fraud"
-                      name="sales_status"
+                      name="salesStatus"
                       id="fraud"
                     />
                     <label
@@ -305,7 +412,7 @@ const SalesTeams = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save

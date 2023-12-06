@@ -4,6 +4,7 @@ import { RxReload } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import Modal from "../../../components/ModalComponents/Modal";
 import Pencil from "../../../images/pencil.png";
+import { createSalesContact } from "../../../api/sales";
 
 const options = [
   { value: "", text: "--Choose an option--" },
@@ -15,7 +16,29 @@ const options = [
 ];
 
 const SalesContacts = () => {
+  const initialSalesContact = {
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    preferredName: "",
+    email: "",
+    jobTitle: "",
+    mobileNum1: "",
+    mobileNum2: "",
+    fox: "",
+    contactType: "",
+    address1: "",
+    address2: "",
+    city: "",
+    state: "",
+    country: "",
+    zipCode: "",
+    notes: "",
+    vendorStatus: "",
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [salesContact, setSalesContact] = useState(initialSalesContact);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -24,6 +47,23 @@ const SalesContacts = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setSalesContact((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+  console.log(salesContact);
+
+  const handleSubmit = async () => {
+    const response = await createSalesContact(salesContact);
+    console.log(salesContact);
+    closeModal();
+    setSalesContact(initialSalesContact);
+  };
+
   return (
     <div className="p-5">
       <Modal isOpen={isModalOpen} onClose={closeModal}>
@@ -35,10 +75,13 @@ const SalesContacts = () => {
                   First Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesContact.firstName}
+                  name="firstName"
                   type="text"
                   placeholder="First Name"
                   id="first_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -46,10 +89,13 @@ const SalesContacts = () => {
                   Middle Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesContact.middleName}
+                  name="middleName"
                   type="text"
                   placeholder="Middle Name"
                   id="middle_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -57,10 +103,13 @@ const SalesContacts = () => {
                   Last Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesContact.lastName}
+                  name="lastName"
                   type="text"
                   placeholder="Last Name"
                   id="last_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
             </div>
@@ -70,10 +119,13 @@ const SalesContacts = () => {
                   Preferred Name<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesContact.preferredName}
+                  name="preferredName"
                   type="text"
                   placeholder="Last Name"
                   id="last_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="">
@@ -82,9 +134,12 @@ const SalesContacts = () => {
                 </label>
                 <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
                   <input
+                    onChange={handleChange}
+                    value={salesContact.email}
+                    name="email"
                     placeholder="youremail@gmail.com"
                     required
-                    className="outline-none w-full"
+                    className="outline-none w-fulltext-black"
                   />
                   {/* <img src={Pencil} alt="pencil" /> */}
                 </div>
@@ -94,10 +149,13 @@ const SalesContacts = () => {
                   Job Title<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesContact.jobTitle}
+                  name="jobTitle"
                   type="text"
                   placeholder="Job"
                   id="job_title"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
             </div>
@@ -107,10 +165,13 @@ const SalesContacts = () => {
                   Mobile Number<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesContact.mobileNum1}
+                  name="mobileNum1"
                   type="text"
                   placeholder="Mobile Numbner"
                   id="mobile_number"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -118,10 +179,13 @@ const SalesContacts = () => {
                   Mobile Number<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesContact.mobileNum2}
+                  name="mobileNum2"
                   type="text"
                   placeholder="Mobile Numbner"
                   id="mobile_number"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -129,10 +193,13 @@ const SalesContacts = () => {
                   Fox<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesContact.fox}
+                  name="fox"
                   type="text"
                   placeholder="Fox"
                   id="fox"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
             </div>
@@ -143,9 +210,9 @@ const SalesContacts = () => {
                   Contact Type<span className="text-danger-500">*</span>
                 </label>
                 <select
-                  // onChange={handleChange}
-                  name="totalInterviews"
-                  // value={totalInterviews}
+                  onChange={handleChange}
+                  value={salesContact.contactType}
+                  name="contactType"
                   className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
                 >
                   {options.map((option) => (
@@ -166,10 +233,13 @@ const SalesContacts = () => {
                   Address Line 1<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesContact.address1}
+                  name="address1"
                   type="text"
                   placeholder="Address Line 1"
                   id="address_line_1"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -177,10 +247,13 @@ const SalesContacts = () => {
                   Address Line 2<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesContact.address2}
+                  name="address2"
                   type="text"
                   placeholder="Address Line 2"
                   id="address_line_2"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
             </div>
@@ -190,9 +263,9 @@ const SalesContacts = () => {
                   State<span className="text-danger-500">*</span>
                 </label>
                 <select
-                  // onChange={handleChange}
-                  name="totalInterviews"
-                  // value={totalInterviews}
+                  onChange={handleChange}
+                  value={salesContact.state}
+                  name="state"
                   className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
                 >
                   {options.map((option) => (
@@ -211,9 +284,9 @@ const SalesContacts = () => {
                   City<span className="text-danger-500">*</span>
                 </label>
                 <select
-                  // onChange={handleChange}
-                  name="totalInterviews"
-                  // value={totalInterviews}
+                  onChange={handleChange}
+                  value={salesContact.city}
+                  name="city"
                   className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
                 >
                   {options.map((option) => (
@@ -234,10 +307,13 @@ const SalesContacts = () => {
                   Zip Code<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={salesContact.zipCode}
+                  name="zipCode"
                   type="text"
                   placeholder="Zip Code"
                   id="zip_code"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -245,9 +321,9 @@ const SalesContacts = () => {
                   Country<span className="text-danger-500">*</span>
                 </label>
                 <select
-                  // onChange={handleChange}
-                  name="totalInterviews"
-                  // value={totalInterviews}
+                  onChange={handleChange}
+                  value={salesContact.country}
+                  name="country"
                   className="flex justify-center items-center text-black focus:ring-0 px-3 py-2 mt-1 border border-neutral-500 rounded-lg outline-none w-full"
                 >
                   {options.map((option) => (
@@ -263,57 +339,62 @@ const SalesContacts = () => {
               </div>
             </div>
             <div className="grid grid-cols-3 gap-6">
-              <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+              <div className="flex flex-col w-72 ">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Created - Date
                 </label>
                 <input
+                  disabled
                   type="date"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 disabled:border-gray-300 text-gray-300 border-text-hint rounded-lg "
                 />
               </div>
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Created - Time
                 </label>
                 <input
+                  disabled
                   type="time"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint rounded-lg   disabled:border-gray-300 text-gray-300"
                 />
               </div>
               <div className="flex flex-col w-72">
-                <label htmlFor="created_by" className="text-text-hint mb-1">
+                <label htmlFor="created_by" className="text-gray-300  mb-1">
                   Created By
                 </label>
                 <input
+                  disabled
                   type="text"
                   placeholder="Created By"
                   id="created_by"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none placeholder:text-gray-300 border-2 border-secondary-500 rounded-lg  disabled:border-gray-300 text-gray-300"
                 />
               </div>
             </div>
             <div className="grid grid-cols-3 gap-6">
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Updated - Date
                 </label>
                 <input
+                  disabled
                   type="date"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint rounded-lg  disabled:border-gray-300 text-gray-300 "
                 />
               </div>
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Updated - Time
                 </label>
                 <input
+                  disabled
                   type="time"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint rounded-lg   disabled:border-gray-300 text-gray-300"
                 />
               </div>
             </div>
@@ -324,10 +405,13 @@ const SalesContacts = () => {
                   Notes
                 </label>
                 <textarea
+                  onChange={handleChange}
+                  value={salesContact.notes}
+                  name="notes"
                   type="text"
                   placeholder="Notes"
                   id="document_type"
-                  className="focus:outline-none border  rounded-lg "
+                  className="focus:outline-none border  rounded-lg text-black"
                   rows={4}
                 />
               </div>
@@ -340,10 +424,12 @@ const SalesContacts = () => {
                 <ul className="grid grid-cols-3 mt-1">
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={salesContact.vendorStatus === "active"}
+                      name="vendorStatus"
                       className="sr-only peer"
                       type="radio"
                       value="active"
-                      name="vendor_status"
                       id="active"
                     />
                     <label
@@ -355,10 +441,12 @@ const SalesContacts = () => {
                   </li>
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={salesContact.vendorStatus === "in active"}
                       className="sr-only peer"
                       type="radio"
                       value="in active"
-                      name="vendor_status"
+                      name="vendorStatus"
                       id="in_active"
                     />
                     <label
@@ -371,10 +459,12 @@ const SalesContacts = () => {
 
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={salesContact.vendorStatus === "fraud"}
                       className="sr-only peer"
                       type="radio"
                       value="fraud"
-                      name="vendor_status"
+                      name="vendorStatus"
                       id="fraud"
                     />
                     <label
@@ -396,7 +486,7 @@ const SalesContacts = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save
