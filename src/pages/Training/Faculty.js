@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { createFactory, useState } from "react";
 import Modal from "../../components/ModalComponents/Modal";
 import { RxReload } from "react-icons/rx";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { createFaculty } from "../../api/training";
 
 const Faculty = () => {
+  const initialFaculty = {
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    preferredName: "",
+    mobileNum: "",
+    email: "",
+    skills: "",
+    notes: "",
+    status: "",
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [faculty, setFaculty] = useState(initialFaculty);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -13,6 +28,23 @@ const Faculty = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFaculty((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  console.log(faculty);
+  const handleSubmit = async () => {
+    const response = await createFaculty(faculty);
+    closeModal();
+    setFaculty(initialFaculty);
+  };
+
   return (
     <div className="p-5">
       <Modal isOpen={isModalOpen} onClose={closeModal}>
@@ -24,10 +56,13 @@ const Faculty = () => {
                   First Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={faculty.firstName}
+                  name="firstName"
                   type="text"
                   placeholder="First Name"
                   id="first_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black   "
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -35,10 +70,13 @@ const Faculty = () => {
                   Middle Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={faculty.middleName}
+                  name="middleName"
                   type="text"
                   placeholder="Middle Name"
                   id="middle_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black   "
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -46,10 +84,13 @@ const Faculty = () => {
                   Last Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={faculty.lastName}
+                  name="lastName"
                   type="text"
                   placeholder="Last Name"
                   id="last_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black   "
                 />
               </div>
             </div>
@@ -59,10 +100,13 @@ const Faculty = () => {
                   Preferred Name<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={faculty.preferredName}
+                  name="preferredName"
                   type="text"
                   placeholder="Last Name"
                   id="last_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black   "
                 />
               </div>
             </div>
@@ -72,10 +116,13 @@ const Faculty = () => {
                   Mobile Numbner<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={faculty.mobileNum}
+                  name="mobileNum"
                   type="text"
                   placeholder="Mobile Numbner"
                   id="mobile_number"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black "
                 />
               </div>
               <div className="">
@@ -84,11 +131,14 @@ const Faculty = () => {
                 </label>
                 <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
                   <input
+                    onChange={handleChange}
+                    value={faculty.email}
+                    name="email"
                     placeholder="youremail@gmail.com"
                     required
-                    className="outline-none w-full"
+                    className="outline-none w-full text-black "
                   />
-                  {/* <img src={Pencil} alt="pencil" /> */}
+                  {/* <img src text-black={Pencil} alt="pencil" /> */}
                 </div>
               </div>
             </div>
@@ -99,10 +149,13 @@ const Faculty = () => {
                   Skills
                 </label>
                 <textarea
+                  onChange={handleChange}
+                  value={faculty.skills}
+                  name="skills"
                   type="text"
                   placeholder="Skills"
                   id="document_type"
-                  className="focus:outline-none border  rounded-lg "
+                  className="focus:outline-none border  rounded-lg  text-black "
                   rows={4}
                 />
               </div>
@@ -113,10 +166,13 @@ const Faculty = () => {
                   Notes
                 </label>
                 <textarea
+                  onChange={handleChange}
+                  value={faculty.notes}
+                  name="notes"
                   type="text"
                   placeholder="Notes"
                   id="document_type"
-                  className="focus:outline-none border  rounded-lg "
+                  className="focus:outline-none border  rounded-lg text-black   "
                   rows={4}
                 />
               </div>
@@ -129,12 +185,13 @@ const Faculty = () => {
                 <ul className="grid grid-cols-3 mt-1">
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={faculty.status === "active"}
                       className="sr-only peer"
                       type="radio"
                       value="active"
                       name="status"
                       id="active"
-                      checked
                     />
                     <label
                       className="flex justify-center items-center py-2 px-3 bg-white border border-secondary-800 rounded-tl-full rounded-bl-full cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
@@ -143,24 +200,11 @@ const Faculty = () => {
                       Active
                     </label>
                   </li>
-                  {/* <li className="relative">
-                    <input
-                      className="sr-only peer"
-                      type="radio"
-                      value="in active"
-                      name="vendor_status"
-                      id="in_active"
-                    />
-                    <label
-                      className="flex justify-center items-center py-2 px-3 bg-white border border-t-secondary-800 border-b-secondary-800 cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-secondary-500 peer-checked:text-white peer-checked:border-secondary-800"
-                      htmlFor="in_active"
-                    >
-                      In Active
-                    </label>
-                  </li> */}
 
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={faculty.status === "inactive"}
                       className="sr-only peer"
                       type="radio"
                       value="inactive"
@@ -186,7 +230,7 @@ const Faculty = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save
