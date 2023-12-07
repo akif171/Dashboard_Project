@@ -2,9 +2,45 @@ import React, { useState } from "react";
 import Modal from "../../components/ModalComponents/Modal";
 import { RxReload } from "react-icons/rx";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { createAccount } from "../../api/administration";
+
+const options = [
+  { value: "", text: "--Choose an option--" },
+  { value: "option1", text: "option1" },
+  { value: "option2", text: "option2" },
+  { value: "option3", text: "option3" },
+  { value: "option4", text: "option4" },
+  { value: "option5", text: "option5" },
+];
 
 const Account = () => {
+  const initialAccount = {
+    businessName: "",
+    email: "",
+    phone: "",
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    address1: "",
+    address2: "",
+    city: "",
+    state: "",
+    postalCode: "",
+    accountStatus: "",
+    activatedDate: "",
+    activatedBy: "",
+    userLicensesRequested: "",
+    licensesActive: "",
+    remainingLicenses: "",
+    totalUsers: "",
+    activeUsers: "",
+    inActiveUsers: "",
+    businessName: "",
+    businessName: "",
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [account, setAccount] = useState(initialAccount);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -13,6 +49,24 @@ const Account = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setAccount((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  console.log(account);
+
+  const handleSubmit = async () => {
+    const response = await createAccount(account);
+    closeModal();
+    setAccount(initialAccount);
+  };
+
   return (
     <div className="p-5">
       <Modal isOpen={isModalOpen} onClose={closeModal}>
@@ -24,10 +78,13 @@ const Account = () => {
                   Business Name<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.businessName}
+                  name="businessName"
                   type="text"
                   placeholder="Business Name"
                   id="last_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="">
@@ -36,9 +93,12 @@ const Account = () => {
                 </label>
                 <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
                   <input
+                    onChange={handleChange}
+                    value={account.email}
+                    name="email"
                     placeholder="youremail@gmail.com"
                     required
-                    className="outline-none w-full"
+                    className="outline-none w-full text-black"
                   />
                   {/* <img src={Pencil} alt="pencil" /> */}
                 </div>
@@ -48,10 +108,13 @@ const Account = () => {
                   Phone<span className="text-danger-500">*</span>
                 </label>
                 <input
-                  type="nomber"
-                  placeholder="Phone"
-                  id="job_title"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  onChange={handleChange}
+                  value={account.phone}
+                  name="phone"
+                  type="number"
+                  placeholder="phone"
+                  id="first_name"
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
             </div>
@@ -62,10 +125,13 @@ const Account = () => {
                   First Name<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.firstName}
+                  name="firstName"
                   type="text"
                   placeholder="First Name"
                   id="first_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -73,10 +139,13 @@ const Account = () => {
                   Middle Name<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.middleName}
+                  name="middleName"
                   type="text"
                   placeholder="Middle Name"
                   id="middle_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -84,10 +153,13 @@ const Account = () => {
                   Last Name<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.lastName}
+                  name="lastName"
                   type="text"
                   placeholder="Last Name"
                   id="last_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
             </div>
@@ -98,10 +170,13 @@ const Account = () => {
                   Address Line 1<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.address1}
+                  name="address1"
                   type="text"
                   placeholder="Address Line 1"
                   id="address_line_1"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -109,10 +184,13 @@ const Account = () => {
                   Address Line 2<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.address2}
+                  name="address2"
                   type="text"
                   placeholder="Address Line 2"
                   id="address_line_2"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
             </div>
@@ -121,35 +199,58 @@ const Account = () => {
                 <label htmlFor="state" className="text-text-hint mb-1">
                   State<span className="text-danger-500">*</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="State"
-                  id="state"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select
+                  onChange={handleChange}
+                  value={account.state}
+                  name="state"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none  text-black w-72"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="city" className="text-text-hint mb-1">
                   City<span className="text-danger-500">*</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="City"
-                  id="city"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select
+                  onChange={handleChange}
+                  value={account.city}
+                  name="city"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none  text-black w-72"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-5">
               <div className="flex flex-col w-72">
                 <label htmlFor="zip_code" className="text-text-hint mb-1">
-                  Zip Code<span className="text-danger-500">*</span>
+                  Postal Code<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.postalCode}
+                  name="postalCode"
                   type="text"
-                  placeholder="Zip Code"
+                  placeholder="postal code"
                   id="zip_code"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
             </div>
@@ -161,10 +262,12 @@ const Account = () => {
                 <ul className="grid grid-cols-3 mt-1">
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={account.accountStatus === "enrollment"}
                       className="sr-only peer"
                       type="radio"
                       value="enrollment"
-                      name="account_status"
+                      name="accountStatus"
                       id="enrollment"
                     />
                     <label
@@ -176,10 +279,12 @@ const Account = () => {
                   </li>
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={account.accountStatus === "closed"}
                       className="sr-only peer"
                       type="radio"
                       value="closed"
-                      name="account_status"
+                      name="accountStatus"
                       id="closed"
                     />
                     <label
@@ -192,10 +297,12 @@ const Account = () => {
 
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={account.accountStatus === "completed"}
                       className="sr-only peer"
                       type="radio"
                       value="completed"
-                      name="account_status"
+                      name="accountStatus"
                       id="completed"
                     />
                     <label
@@ -212,9 +319,12 @@ const Account = () => {
                   Activated Date
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.activatedDate}
+                  name="activatedDate"
                   type="date"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint rounded-lg text-black"
                 />
               </div>
 
@@ -223,10 +333,13 @@ const Account = () => {
                   Activated By
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.activatedBy}
+                  name="activatedBy"
                   type="text"
                   placeholder="Activated By"
                   id="created_by"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
             </div>
@@ -237,10 +350,13 @@ const Account = () => {
                   <span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.userLicensesRequested}
+                  name="userLicensesRequested"
                   type="text"
                   placeholder="User Licenses"
                   id="first_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -248,10 +364,13 @@ const Account = () => {
                   Licenses Active <span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.licensesActive}
+                  name="licensesActive"
                   type="text"
                   placeholder="Active Licenses"
                   id="middle_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -259,10 +378,13 @@ const Account = () => {
                   Remaining Licenses<span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.remainingLicenses}
+                  name="remainingLicenses"
                   type="text"
                   placeholder="Remaining Licenses"
                   id="last_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
             </div>
@@ -273,10 +395,13 @@ const Account = () => {
                   <span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.totalUsers}
+                  name="totalUsers"
                   type="text"
                   placeholder="Total Users"
                   id="first_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
@@ -284,69 +409,86 @@ const Account = () => {
                   Active User <span className="text-danger-500">*</span>
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={account.activeUsers}
+                  name="activeUsers"
                   type="text"
                   placeholder="Active User"
                   id="middle_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="last_name" className="text-text-hint mb-1">
                   Inactive Users<span className="text-danger-500">*</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="Inactive Users"
-                  id="last_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select
+                  onChange={handleChange}
+                  value={account.inActiveUsers}
+                  name="inActiveUsers"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none  text-black w-72"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-6">
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Created On
                 </label>
                 <input
+                  disabled
                   type="date"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint rounded-lg disabled:border-gray-300 placeholder:text-gray-300 text-gray-300 "
                 />
               </div>
 
               <div className="flex flex-col w-72">
-                <label htmlFor="created_by" className="text-text-hint mb-1">
+                <label htmlFor="created_by" className="text-gray-300 mb-1">
                   Created By
                 </label>
                 <input
+                  disabled
                   type="text"
                   placeholder="Activated By"
                   id="created_by"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg disabled:border-gray-300 placeholder:text-gray-300 text-gray-300 "
                 />
               </div>
             </div>
             <div className="grid grid-cols-3 gap-6">
               <div className="flex flex-col w-72">
-                <label htmlFor="date" className="text-text-hint mb-1">
+                <label htmlFor="date" className="text-gray-300 mb-1">
                   Updated On
                 </label>
                 <input
+                  disabled
                   type="date"
                   id="date"
-                  className="outline-none border-2 border-text-hint rounded-lg "
+                  className="outline-none border-2 border-text-hint rounded-lg disabled:border-gray-300 placeholder:text-gray-300 text-gray-300 "
                 />
               </div>
 
               <div className="flex flex-col w-72">
-                <label htmlFor="created_by" className="text-text-hint mb-1">
+                <label htmlFor="created_by" className="text-gray-300 mb-1">
                   Updated By
                 </label>
                 <input
+                  disabled
                   type="text"
                   placeholder="Activated By"
                   id="created_by"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg disabled:border-gray-300 placeholder:text-gray-300 text-gray-300 "
                 />
               </div>
             </div>
@@ -359,7 +501,7 @@ const Account = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save
