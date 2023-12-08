@@ -12,3 +12,25 @@ export const createAccount = async (data) => {
     return error;
   }
 };
+
+export const createUser  = async (data) => {
+  let response;
+
+  try {
+    response = await api.post("endpoint", data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const createUserRole = async (data) => {
+  let response;
+
+  try {
+    response = await api.post("endpoint", data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};

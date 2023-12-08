@@ -2,9 +2,29 @@ import React, { useState } from "react";
 import Modal from "../../components/ModalComponents/Modal";
 import { RxReload } from "react-icons/rx";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { createUser } from "../../api/administration";
+
+const options = [
+  { value: "", text: "--Choose an option--" },
+  { value: "option1", text: "option1" },
+  { value: "option2", text: "option2" },
+  { value: "option3", text: "option3" },
+  { value: "option4", text: "option4" },
+  { value: "option5", text: "option5" },
+];
 
 const Users = () => {
+  const initialUser = {
+    name: "",
+    userId: "",
+    email: "",
+    role: "",
+    loginType: "",
+    userStatus: "",
+  };
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [user, setUser] = useState(initialUser);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -13,6 +33,23 @@ const Users = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  console.log(user);
+
+  const handleSubmit = async () => {
+    const response = await createUser(user)
+    setUser(initialUser);
+    closeModal()
+  };
+
   return (
     <div className="p-5">
       <Modal isOpen={isModalOpen} onClose={closeModal}>
@@ -24,10 +61,13 @@ const Users = () => {
                   Name
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={user.name}
+                  name="name"
                   type="text"
                   placeholder="Name"
                   id="last_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
 
@@ -36,10 +76,13 @@ const Users = () => {
                   User ID
                 </label>
                 <input
+                  onChange={handleChange}
+                  value={user.userId}
+                  name="userId"
                   type="text"
                   placeholder="user id"
                   id="job_title"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
+                  className="outline-none border-2 border-secondary-500 rounded-lg text-black"
                 />
               </div>
             </div>
@@ -49,9 +92,12 @@ const Users = () => {
                 <label className="">Email ID</label>
                 <div className="flex justify-center items-center px-3 py-2 mt-1 border border-neutral-500 rounded-lg">
                   <input
+                    onChange={handleChange}
+                    value={user.email}
+                    name="email"
                     placeholder="youremail@gmail.com"
                     required
-                    className="outline-none w-full"
+                    className="outline-none w-full text-black"
                   />
                   {/* <img src={Pencil} alt="pencil" /> */}
                 </div>
@@ -60,25 +106,44 @@ const Users = () => {
                 <label htmlFor="first_name" className="text-text-hint mb-1">
                   Role
                 </label>
-                <input
-                  type="text"
-                  placeholder="role"
-                  id="first_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select
+                  onChange={handleChange}
+                  value={user.role}
+                  name="role"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none  text-black w-72"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="flex flex-col w-72">
                 <label htmlFor="middle_name" className="text-text-hint mb-1">
                   Login Type
                 </label>
-                <input
-                  type="text"
-                  placeholder="login type"
-                  id="middle_name"
-                  className="outline-none border-2 border-secondary-500 rounded-lg "
-                />
+                <select
+                  onChange={handleChange}
+                  value={user.loginType}
+                  name="loginType"
+                  className="flex justify-center items-center focus:ring-0 px-3 py-2  border border-neutral-500 rounded-lg outline-none  text-black w-72"
+                >
+                  {options.map((option) => (
+                    <option
+                      className=""
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.text}
+                    </option>
+                  ))}
+                </select>
               </div>
-             
             </div>
 
             <div className="grid grid-cols-3 gap-6">
@@ -87,10 +152,12 @@ const Users = () => {
                 <ul className="grid grid-cols-3 mt-1">
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={user.userStatus === "Active"}
                       className="sr-only peer"
                       type="radio"
                       value="Active"
-                      name="user_status"
+                      name="userStatus"
                       id="active"
                     />
                     <label
@@ -103,10 +170,12 @@ const Users = () => {
 
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={user.userStatus === "inActive"}
                       className="sr-only peer"
                       type="radio"
-                      value="completed"
-                      name="user_status"
+                      value="inActive"
+                      name="userStatus"
                       id="inactive"
                     />
                     <label
@@ -118,8 +187,6 @@ const Users = () => {
                   </li>
                 </ul>
               </div>
-
-            
             </div>
           </form>
           <div className="flex justify-between p-6 mt-6">
@@ -130,7 +197,7 @@ const Users = () => {
               Close
             </button>
             <button
-              onClick={closeModal}
+              onClick={handleSubmit}
               className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
             >
               Save

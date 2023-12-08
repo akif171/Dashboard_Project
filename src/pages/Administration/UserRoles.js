@@ -7,10 +7,20 @@ import StarRating from "../../components/StarRating";
 import { Link } from "react-router-dom";
 import Modal from "../../components/ModalComponents/Modal";
 import { userRoleSeleceted } from "../../data";
+import { createUserRole } from "../../api/administration";
 
 const UserRoles = () => {
+  const initialUserRole = {
+    company: "",
+    role: "",
+    description: "",
+    access: "",
+    userStatus: "",
+  };
+
   const [buttonId, setButtonId] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [userRole, setUserRole] = useState(initialUserRole);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -34,6 +44,23 @@ const UserRoles = () => {
   };
 
   console.log(buttonId);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserRole((pervData) => ({
+      ...pervData,
+      [name]: value,
+    }));
+  };
+
+  console.log(userRole);
+
+  const handleSubmit = async () => {
+    const response = await createUserRole(userRole);
+    closeModal();
+    setUserRole(initialUserRole);
+  };
+
   return (
     <div className="px-5">
       {buttonId === "new-permission" ? (
@@ -242,6 +269,9 @@ const UserRoles = () => {
                     Company
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={userRole.company}
+                    name="company"
                     type="text"
                     placeholder="Company"
                     id="company"
@@ -254,6 +284,9 @@ const UserRoles = () => {
                     Role
                   </label>
                   <input
+                    onChange={handleChange}
+                    value={userRole.role}
+                    name="role"
                     type="text"
                     placeholder="Role"
                     id="role"
@@ -267,6 +300,9 @@ const UserRoles = () => {
                     Description
                   </label>
                   <textarea
+                    onChange={handleChange}
+                    value={userRole.description}
+                    name="description"
                     placeholder="Description"
                     id="description"
                     className="focus:outline-none border  rounded-lg "
@@ -280,6 +316,9 @@ const UserRoles = () => {
                     Access
                   </label>
                   <textarea
+                    onChange={handleChange}
+                    value={userRole.access}
+                    name="access"
                     placeholder="Access"
                     id="access"
                     className="focus:outline-none border  rounded-lg "
@@ -292,10 +331,12 @@ const UserRoles = () => {
                 <ul className="grid grid-cols-3 mt-1">
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={userRole.userStatus === "active"}
                       className="sr-only peer"
                       type="radio"
                       value="active"
-                      name="user_status"
+                      name="userStatus"
                       id="active"
                     />
                     <label
@@ -308,10 +349,12 @@ const UserRoles = () => {
 
                   <li className="relative">
                     <input
+                      onChange={handleChange}
+                      checked={userRole.userStatus === "iaActive"}
                       className="sr-only peer"
                       type="radio"
-                      value="Not Selected"
-                      name="user_status"
+                      value="iaActive"
+                      name="userStatus"
                       id="inactive"
                     />
                     <label
@@ -332,7 +375,7 @@ const UserRoles = () => {
                 Close
               </button>
               <button
-                onClick={closeModal}
+                onClick={handleSubmit}
                 className="bg-secondary-700 text-text-light py-2 px-5 rounded-full"
               >
                 Save
